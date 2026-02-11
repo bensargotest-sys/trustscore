@@ -1,0 +1,137 @@
+{
+  "name": "trustscore",
+  "version": "0.1.0",
+  "description": "Trust and reputation scores for AI agent service selection. Track reliability, uptime, quality metrics, and build algorithmic trust for MCP servers.",
+  "author": {
+    "name": "bensargotest-sys",
+    "url": "https://github.com/bensargotest-sys"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bensargotest-sys/trustscore",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bensargotest-sys/trustscore.git"
+  },
+  "keywords": [
+    "mcp",
+    "trust",
+    "reputation",
+    "scoring",
+    "reliability",
+    "monitoring",
+    "agent",
+    "ai"
+  ],
+  "categories": [
+    "monitoring",
+    "analytics",
+    "trust",
+    "reliability"
+  ],
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "trustscore_check",
+      "description": "Check trust score for a provider before making external calls. Returns composite score (0-1), confidence level, and component scores (reliability, quality, performance).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": "string",
+            "description": "Unique identifier for the provider/service"
+          }
+        },
+        "required": ["provider_id"]
+      }
+    },
+    {
+      "name": "trustscore_report",
+      "description": "Report outcome of external call (success/failure/latency). Used to update trust scores based on real interactions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": "string",
+            "description": "Unique identifier for the provider/service"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "Whether the call succeeded"
+          },
+          "latency_ms": {
+            "type": "number",
+            "description": "Response time in milliseconds"
+          },
+          "error_message": {
+            "type": "string",
+            "description": "Error message if call failed"
+          }
+        },
+        "required": ["provider_id", "success"]
+      }
+    },
+    {
+      "name": "trustscore_rank",
+      "description": "Get ranked list of providers by trust score. Useful for provider selection and discovery.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Optional category filter (e.g., 'file-storage', 'web-search')"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results to return",
+            "default": 10
+          },
+          "min_confidence": {
+            "type": "number",
+            "description": "Minimum confidence level (0-1)",
+            "default": 0.5
+          }
+        }
+      }
+    },
+    {
+      "name": "trustscore_discover",
+      "description": "Discover new MCP servers by category with trust scores. Returns list of servers from registry with current trust ratings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category to search (e.g., 'file-storage', 'web-search', 'database')"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of results",
+            "default": 20
+          }
+        },
+        "required": ["category"]
+      }
+    }
+  ],
+  "transport": {
+    "type": "stdio"
+  },
+  "installation": {
+    "type": "npm",
+    "package": "trustscore-mcp",
+    "setupCommand": "npm install && npm run build"
+  },
+  "requirements": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "documentation": {
+    "quickstart": "https://github.com/bensargotest-sys/trustscore#quick-start",
+    "examples": "https://github.com/bensargotest-sys/trustscore/tree/master/examples",
+    "api": "https://github.com/bensargotest-sys/trustscore#api-reference"
+  }
+}
