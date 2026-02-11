@@ -238,5 +238,1373 @@
     "task_types": ["database_management", "data_operations"],
     "description": "Provides a bridge between MongoDB databases and conversational interfaces, enabling comprehensive database operations.",
     "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "haris-musa-excel-031",
+    "name": "Excel File Manipulation",
+    "endpoint": "[UNVERIFIED] https://example.com/haris-musa-excel",
+    "task_types": ["data_processing", "spreadsheet_management"],
+    "description": "Enables Excel file manipulation without Microsoft Excel installation using openpyxl, providing workbook operations.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "gongrzhe-office-word-032",
+    "name": "Office Word",
+    "endpoint": "[UNVERIFIED] https://example.com/office-word",
+    "task_types": ["document_creation", "text_formatting"],
+    "description": "Provides a bridge to Microsoft Word for creating and modifying documents with features like text formatting, table management.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "mladensu-cli-secure-033",
+    "name": "CLI Secure",
+    "endpoint": "[UNVERIFIED] https://example.com/mladensu-cli-mcp-server",
+    "task_types": ["command_execution", "system_interaction"],
+    "description": "Execute shell commands with strict security policies.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-brave-search-034",
+    "name": "Brave Search",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-brave-search",
+    "task_types": ["web_search", "data_retrieval"],
+    "description": "Retrieve web pages, news, and local business results via Brave API.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "gongrzhe-office-powerpoint-035",
+    "name": "Office PowerPoint",
+    "endpoint": "[UNVERIFIED] https://example.com/office-powerpoint",
+    "task_types": ["presentation_creation", "slide_management"],
+    "description": "Enables creation and manipulation of PowerPoint presentations with tools for adding and formatting slides, text.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "mendable-firecrawl-036",
+    "name": "FireCrawl",
+    "endpoint": "[UNVERIFIED] https://example.com/firecrawl",
+    "task_types": ["web_scraping", "data_extraction"],
+    "description": "Integration with FireCrawl to provide advanced web scraping capabilities for extracting structured data from complex websites.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "zereight-gitlab-037",
+    "name": "GitLab",
+    "endpoint": "[UNVERIFIED] https://example.com/zereight-gitlab",
+    "task_types": ["version_control", "repository_management"],
+    "description": "Integrates with GitLab's API to enable repository management, issue tracking, merge request handling, and file operations.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "oraios-serena-038",
+    "name": "Serena",
+    "endpoint": "[UNVERIFIED] https://example.com/oraios-serena",
+    "task_types": ["code_analysis", "language_support"],
+    "description": "Provides intelligent code analysis and manipulation across multiple programming languages through language server protocols.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "google-genai-toolbox-039",
+    "name": "Toolbox for Databases",
+    "endpoint": "[UNVERIFIED] https://example.com/genai-toolbox",
+    "task_types": ["database_management", "query_execution"],
+    "description": "Provides a secure, configurable interface for executing pre-defined queries against multiple database systems.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "eyaltoledano-task-master-040",
+    "name": "Task Master",
+    "endpoint": "[UNVERIFIED] https://example.com/eyaltoledano-task-master",
+    "task_types": ["task_management", "workflow_support"],
+    "description": "Provides task management capabilities for development workflows with PRD parsing, task CRUD operations.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "aws-cdk-041",
+    "name": "AWS Cloud Development Kit",
+    "endpoint": "[UNVERIFIED] https://example.com/aws-cdk",
+    "task_types": ["cloud_infrastructure", "code_patterns"],
+    "description": "Integration for AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security guidelines.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "mcp-puppeteer-042",
+    "name": "Puppeteer",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-puppeteer",
+    "task_types": ["browser_automation", "web_interaction"],
+    "description": "Navigate websites, fill forms, and capture screenshots programmatically.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "1mcp-agent-043",
+    "name": "1mcp Agent",
+    "endpoint": "[UNVERIFIED] https://example.com/1mcp-agent",
+    "task_types": ["server_aggregation", "tool_unification"],
+    "description": "A unified Model Context Protocol server implementation that aggregates multiple MCP servers into one.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "agenthotspot-044",
+    "name": "AgentHotspot",
+    "endpoint": "[UNVERIFIED] https://example.com/agenthotspot-mcp",
+    "task_types": ["marketplace", "connector_integration"],
+    "description": "Search, integrate and monetize MCP connectors on the AgentHotspot MCP marketplace.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "askbudi-roundtable-045",
+    "name": "Roundtable",
+    "endpoint": "[UNVERIFIED] https://example.com/askbudi-roundtable",
+    "task_types": ["ai_coding_assistant", "tool_unification"],
+    "description": "Meta-MCP server that unifies multiple AI coding assistants (Codex, Claude Code, Cursor, Gemini) through intelligent auto-discovery and standardized MCP interface.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "blockrunai-mcp-046",
+    "name": "Blockrun MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/blockrunai-blockrun-mcp",
+    "task_types": ["ai_model_access", "micropayments"],
+    "description": "Access 30+ AI models (GPT-5, Claude, Gemini, Grok, DeepSeek) without API keys. Pay-per-use via x402 micropayments with USDC on Base.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "data-everything-templates-047",
+    "name": "Data Everything MCP Templates",
+    "endpoint": "[UNVERIFIED] https://example.com/data-everything-mcp-server-templates",
+    "task_types": ["tool_aggregation", "developer_platform"],
+    "description": "One server. All tools. A unified MCP platform that connects many apps, tools, and services behind one powerful interface.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "duaraghav8-mcpjungle-048",
+    "name": "MCPJungle",
+    "endpoint": "[UNVERIFIED] https://example.com/duaraghav8-MCPJungle",
+    "task_types": ["server_registry", "enterprise_ai"],
+    "description": "Self-hosted MCP Server registry for enterprise AI Agents.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "glenngillen-mcpmcp-049",
+    "name": "MCPMCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/glenngillen-mcpmcp-server",
+    "task_types": ["server_discovery", "workflow_improvement"],
+    "description": "A list of MCP servers so you can ask your client which servers you can use to improve your daily workflow.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "hamflx-imagen3-050",
+    "name": "Imagen3 MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/hamflx-imagen3-mcp",
+    "task_types": ["image_generation", "text_to_image"],
+    "description": "A powerful image generation tool using Google's Imagen 3.0 API through MCP. Generate high-quality images from text prompts.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "hashgraph-hashnet-051",
+    "name": "Hashnet MCP JS",
+    "endpoint": "[UNVERIFIED] https://example.com/hashgraph-online-hashnet-mcp-js",
+    "task_types": ["ai_agent_registry", "network_discovery"],
+    "description": "MCP server for the Registry Broker. Discover, register, and chat with AI agents on the Hashgraph network.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "jaspertvdm-gemini-bridge-052",
+    "name": "Gemini Bridge MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/jaspertvdm-mcp-server-gemini-bridge",
+    "task_types": ["api_bridge", "model_access"],
+    "description": "Bridge to Google Gemini API. Access Gemini Pro and Flash models through MCP.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "jaspertvdm-ollama-bridge-053",
+    "name": "Ollama Bridge MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/jaspertvdm-mcp-server-ollama-bridge",
+    "task_types": ["local_llm", "model_access"],
+    "description": "Bridge to local Ollama LLM server. Run Llama, Mistral, Qwen and other local models through MCP.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "jaspertvdm-openai-bridge-054",
+    "name": "OpenAI Bridge MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/jaspertvdm-mcp-server-openai-bridge",
+    "task_types": ["api_bridge", "model_access"],
+    "description": "Bridge to OpenAI API. Access GPT-4, GPT-4o and other OpenAI models through MCP.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "julien040-anyquery-055",
+    "name": "AnyQuery",
+    "endpoint": "[UNVERIFIED] https://example.com/julien040-anyquery",
+    "task_types": ["app_query", "database_access"],
+    "description": "Query more than 40 apps with one binary using SQL. Connects to PostgreSQL, MySQL, or SQLite compatible databases.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "juspay-neurolink-056",
+    "name": "Neurolink",
+    "endpoint": "[UNVERIFIED] https://example.com/juspay-neurolink",
+    "task_types": ["enterprise_ai", "model_orchestration"],
+    "description": "Making enterprise AI infrastructure universally accessible. Unifies 12 providers and 100+ models with multi-agent orchestration.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "k-dense-ai-claude-skills-057",
+    "name": "Claude Skills MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/K-Dense-AI-claude-skills-mcp",
+    "task_types": ["search_capabilities", "model_enhancement"],
+    "description": "Intelligent search capabilities to let every model and client use Claude Agent Skills like native.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "metatool-ai-metatool-app-058",
+    "name": "MetaTool App",
+    "endpoint": "[UNVERIFIED] https://example.com/metatool-ai-metatool-app",
+    "task_types": ["mcp_management", "gui_interface"],
+    "description": "MetaMCP is the one unified middleware MCP server that manages your MCP connections with GUI.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "mindsdb-mindsdb-059",
+    "name": "MindsDB",
+    "endpoint": "[UNVERIFIED] https://example.com/mindsdb-mindsdb",
+    "task_types": ["data_unification", "database_connection"],
+    "description": "Connect and unify data across various platforms and databases with MindsDB as a single MCP server.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "particlefuture-mcpdiscovery-060",
+    "name": "MCPDiscovery",
+    "endpoint": "[UNVERIFIED] https://example.com/particlefuture-1mcpserver",
+    "task_types": ["server_discovery", "configuration"],
+    "description": "MCP of MCPs. Automatic discovery and configure MCP servers on your local machine.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "pipedreamhq-pipedream-061",
+    "name": "Pipedream",
+    "endpoint": "[UNVERIFIED] https://example.com/PipedreamHQ-pipedream",
+    "task_types": ["api_connection", "tool_management"],
+    "description": "Connect with 2,500 APIs with 8,000+ prebuilt tools, and manage servers for your users, in your own app.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "portel-dev-ncp-062",
+    "name": "NCP",
+    "endpoint": "[UNVERIFIED] https://example.com/portel-dev-ncp",
+    "task_types": ["mcp_orchestration", "ecosystem_management"],
+    "description": "NCP orchestrates your entire MCP ecosystem through intelligent discovery, eliminating token overhead while maintaining accuracy.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "profullstack-mcp-server-063",
+    "name": "ProFullStack MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/profullstack-mcp-server",
+    "task_types": ["developer_tools", "utility_aggregation"],
+    "description": "A comprehensive MCP server aggregating 20+ tools including SEO optimization, document conversion, domain lookup, email validation, QR generation, weather data, social media posting, security scanning, and more developer utilities.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "sitbon-magg-064",
+    "name": "Magg",
+    "endpoint": "[UNVERIFIED] https://example.com/sitbon-magg",
+    "task_types": ["meta_server", "capability_extension"],
+    "description": "A meta-MCP server that acts as a universal hub, allowing LLMs to autonomously discover, install, and orchestrate multiple MCP servers.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "sonnyflylock-voxie-ai-065",
+    "name": "Voxie AI Directory MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/sonnyflylock-voxie-ai-directory-mcp",
+    "task_types": ["ai_directory", "service_access"],
+    "description": "AI Phone Number Directory providing access to AI services via webchat. Query Voxie AI personas and third-party services like ChatGPT.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "surescaleai-openai-gpt-image-066",
+    "name": "OpenAI GPT Image MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/SureScaleAI-openai-gpt-image-mcp",
+    "task_types": ["image_generation", "image_editing"],
+    "description": "OpenAI GPT image generation/editing MCP server.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "sxhxliang-mcp-access-point-067",
+    "name": "MCP Access Point",
+    "endpoint": "[UNVERIFIED] https://example.com/sxhxliang-mcp-access-point",
+    "task_types": ["web_service_conversion", "api_integration"],
+    "description": "Turn a web service into an MCP server in one click without making any code changes.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "thelunarcompany-lunar-mcpx-068",
+    "name": "Lunar MCPX",
+    "endpoint": "[UNVERIFIED] https://example.com/TheLunarCompany-lunar-mcpx",
+    "task_types": ["server_management", "tool_discovery"],
+    "description": "MCPX is a production-ready, open-source gateway to manage MCP servers at scale—centralize tool discovery, access controls, call prioritization, and usage tracking.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "thinkchainai-mcpbundles-069",
+    "name": "MCP Bundles",
+    "endpoint": "[UNVERIFIED] https://example.com/thinkchainai-mcpbundles",
+    "task_types": ["tool_bundling", "credential_management"],
+    "description": "Create custom bundles of tools and connect providers with OAuth or API keys. Use one MCP server across thousands of integrations.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "tigranbs-mcgravity-070",
+    "name": "MCGravity",
+    "endpoint": "[UNVERIFIED] https://example.com/tigranbs-mcgravity",
+    "task_types": ["proxy_tool", "load_balancing"],
+    "description": "A proxy tool for composing multiple MCP servers into one unified endpoint. Scale your AI tools by load balancing requests across multiple MCP servers.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "veriteknik-pluggedin-proxy-071",
+    "name": "PluggedIn MCP Proxy",
+    "endpoint": "[UNVERIFIED] https://example.com/VeriTeknik-pluggedin-mcp-proxy",
+    "task_types": ["proxy_server", "tool_management"],
+    "description": "A comprehensive proxy server that combines multiple MCP servers into a single interface with extensive visibility features.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "viperjuice-mcp-gateway-072",
+    "name": "MCP Gateway",
+    "endpoint": "[UNVERIFIED] https://example.com/ViperJuice-mcp-gateway",
+    "task_types": ["meta_server", "dynamic_provisioning"],
+    "description": "A meta-server for minimal Claude Code tool bloat with progressive disclosure and dynamic server provisioning.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "waystation-ai-mcp-073",
+    "name": "WayStation AI MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/WayStation-ai-mcp",
+    "task_types": ["app_integration", "secure_connection"],
+    "description": "Seamlessly and securely connect Claude Desktop and other MCP hosts to your favorite apps (Notion, Slack, Monday, Airtable, etc.).",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "wegotdocs-open-mcp-074",
+    "name": "Open MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/wegotdocs-open-mcp",
+    "task_types": ["api_conversion", "server_registry"],
+    "description": "Turn a web API into an MCP server in 10 seconds and add it to the open source registry.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "yangliangwei-personalization-075",
+    "name": "Personalization MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/YangLiangwei-PersonalizationMCP",
+    "task_types": ["personal_data", "platform_integration"],
+    "description": "Comprehensive personal data aggregation MCP server with Steam, YouTube, Bilibili, Spotify, Reddit and other platforms integrations.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "io-aerospace-mcp-076",
+    "name": "IO Aerospace MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/IO-Aerospace-software-engineering-mcp-server",
+    "task_types": ["aerospace", "astrodynamics"],
+    "description": "A .NET-based MCP server for aerospace & astrodynamics — ephemeris, orbital conversions, DSS tools, time conversions, and unit/math utilities.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "8ensmith-open-library-077",
+    "name": "Open Library MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/8enSmith-mcp-open-library",
+    "task_types": ["book_search", "cultural_data"],
+    "description": "A MCP server for the Open Library API that enables AI assistants to search for book information.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "abhiemj-manim-078",
+    "name": "Manim MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/abhiemj-manim-mcp-server",
+    "task_types": ["animation_generation", "visual_content"],
+    "description": "A local MCP server that generates animations using Manim.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "aliafsahnoudeh-shahnameh-079",
+    "name": "Shahnameh MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/aliafsahnoudeh-shahnameh-mcp-server",
+    "task_types": ["cultural_heritage", "literature_access"],
+    "description": "MCP server for accessing the Shahnameh (Book of Kings) Persian epic poem by Ferdowsi, including sections, verses and explanations.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "asmith26-jupytercad-080",
+    "name": "JupyterCAD MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/asmith26-jupytercad-mcp",
+    "task_types": ["cad_control", "design_automation"],
+    "description": "An MCP server for JupyterCAD that allows you to control it using LLMs/natural language.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "burningion-video-editing-081",
+    "name": "Video Editing MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/burningion-video-editing-mcp",
+    "task_types": ["video_editing", "media_management"],
+    "description": "Add, Analyze, Search, and Generate Video Edits from your Video Jungle Collection.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "cantian-ai-bazi-082",
+    "name": "Bazi MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/cantian-ai-bazi-mcp",
+    "task_types": ["astrology", "cultural_analysis"],
+    "description": "Provides comprehensive and accurate Bazi (Chinese Astrology) charting and analysis.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "cswkim-discogs-083",
+    "name": "Discogs MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/cswkim-discogs-mcp-server",
+    "task_types": ["music_data", "cultural_content"],
+    "description": "MCP server to interact with the Discogs API.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "diivi-aseprite-084",
+    "name": "Aseprite MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/diivi-aseprite-mcp",
+    "task_types": ["pixel_art", "graphic_design"],
+    "description": "MCP server using the Aseprite API to create pixel art.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "djalal-quran-085",
+    "name": "Quran MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/djalal-quran-mcp-server",
+    "task_types": ["religious_text", "cultural_data"],
+    "description": "MCP server to interact with Quran.com corpus via the official REST API v4.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "drakonkat-tmdb-086",
+    "name": "Wizzy MCP TMDB",
+    "endpoint": "[UNVERIFIED] https://example.com/drakonkat-wizzy-mcp-tmdb",
+    "task_types": ["media_data", "entertainment_search"],
+    "description": "A MCP server for The Movie Database API that enables AI assistants to search and retrieve movie, TV show, and person information.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "genwave-svgmaker-087",
+    "name": "SVGMaker MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/GenWaveLLC-svgmaker-mcp",
+    "task_types": ["svg_generation", "graphic_design"],
+    "description": "Provides AI-driven SVG generation and editing via natural language, with real-time updates and secure file handling.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "khglynn-spotify-bulk-088",
+    "name": "Spotify Bulk Actions MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/khglynn-spotify-bulk-actions-mcp",
+    "task_types": ["music_management", "playlist_creation"],
+    "description": "Bulk Spotify operations with confidence-scored song matching, batch playlist creation from CSV/podcast lists, and library exports.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "mikechao-metmuseum-089",
+    "name": "MetMuseum MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/mikechao-metmuseum-mcp",
+    "task_types": ["art_collection", "cultural_heritage"],
+    "description": "Metropolitan Museum of Art Collection API integration to search and display artworks in the collection.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "molanojustin-smithsonian-090",
+    "name": "Smithsonian MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/molanojustin-smithsonian-mcp",
+    "task_types": ["cultural_heritage", "museum_data"],
+    "description": "MCP server that provides AI assistants with access to the Smithsonian Institution's Open Access collections.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "octoeverywhere-mcp-091",
+    "name": "OctoEverywhere MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/OctoEverywhere-mcp",
+    "task_types": ["3d_printing", "printer_control"],
+    "description": "A 3D printer MCP server that allows for getting live printer state, webcam snapshots, and printer control.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "omni-isaac-sim-092",
+    "name": "Isaac Sim MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/omni-mcp-isaac-sim-mcp",
+    "task_types": ["simulation_control", "3d_design"],
+    "description": "A MCP Server and an extension enables natural language control of NVIDIA Isaac Sim, Lab, OpenUSD and etc.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "patrickpalmer-maya-093",
+    "name": "Maya MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/PatrickPalmer-MayaMCP",
+    "task_types": ["3d_animation", "design_automation"],
+    "description": "MCP server for Autodesk Maya.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "peek-travel-intro-094",
+    "name": "Peek Travel MCP Intro",
+    "endpoint": "[UNVERIFIED] https://example.com/peek-travel-mcp-intro",
+    "task_types": ["experience_planning", "travel_discovery"],
+    "description": "Remote MCP Server for discovering and planning experiences, at home and on vacation.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "r-huijts-oorlogsbronnen-095",
+    "name": "Oorlogsbronnen MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/r-huijts-oorlogsbronnen-mcp",
+    "task_types": ["historical_records", "cultural_heritage"],
+    "description": "Oorlogsbronnen (War Sources) API integration for accessing historical WWII records, photographs, and documents from the Netherlands (1940-1945).",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "r-huijts-rijksmuseum-096",
+    "name": "Rijksmuseum MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/r-huijts-rijksmuseum-mcp",
+    "task_types": ["art_collection", "cultural_heritage"],
+    "description": "Rijksmuseum API integration for artwork search, details, and collections.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "raveenb-fal-097",
+    "name": "Fal MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/raveenb-fal-mcp-server",
+    "task_types": ["ai_media_generation", "content_creation"],
+    "description": "Generate AI images, videos, and music using Fal.ai models (FLUX, Stable Diffusion, MusicGen) directly in Claude Desktop.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "samuelgursky-davinci-resolve-098",
+    "name": "DaVinci Resolve MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/samuelgursky-davinci-resolve-mcp",
+    "task_types": ["video_editing", "color_grading"],
+    "description": "MCP server integration for DaVinci Resolve providing powerful tools for video editing, color grading, media management, and project control.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "twelvetake-reaper-099",
+    "name": "REAPER MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/TwelveTake-Studios-reaper-mcp",
+    "task_types": ["audio_production", "music_creation"],
+    "description": "MCP server enabling AI assistants to control REAPER DAW for mixing, mastering, MIDI composition, and full music production with 129 tools.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "yuna0x0-anilist-100",
+    "name": "AniList MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/yuna0x0-anilist-mcp",
+    "task_types": ["anime_data", "manga_data"],
+    "description": "A MCP server integrating AniList API for anime and manga information.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "betterhyq-mermaid-inspector-101",
+    "name": "Mermaid Grammar Inspector MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/betterhyq-mermaid_grammer_inspector_mcp",
+    "task_types": ["diagram_validation", "syntax_checking"],
+    "description": "A Model Context Protocol (MCP) server for validating Mermaid diagram syntax and providing comprehensive grammar checking capabilities.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "gittyburstein-mermaid-102",
+    "name": "Mermaid MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/GittyBurstein-mermaid-mcp-server",
+    "task_types": ["diagram_generation", "visualization"],
+    "description": "MCP server that turns local projects or GitHub repositories into Mermaid diagrams and renders them via Kroki.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "narasimhaponnada-mermaid-103",
+    "name": "Mermaid MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/Narasimhaponnada-mermaid-mcp",
+    "task_types": ["diagram_creation", "visual_design"],
+    "description": "AI-powered Mermaid diagram generation with 22+ diagram types including flowcharts, sequence diagrams, class diagrams, ER diagrams, architecture diagrams, state machines, and more.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "cafferychen-chatspatial-104",
+    "name": "ChatSpatial",
+    "endpoint": "[UNVERIFIED] https://example.com/cafferychen777-ChatSpatial",
+    "task_types": ["spatial_transcriptomics", "bioinformatics"],
+    "description": "MCP server for spatial transcriptomics analysis with 60+ integrated methods covering cell annotation, deconvolution, spatial statistics, and visualization.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "dnaerys-onekgpd-105",
+    "name": "OneKGPD MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/dnaerys-onekgpd-mcp",
+    "task_types": ["genomics_data", "bioinformatics"],
+    "description": "Real-time access to 1000 Genomes Project dataset.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "genomoncology-biomcp-106",
+    "name": "BioMCP",
+    "endpoint": "[UNVERIFIED] https://example.com/genomoncology-biomcp",
+    "task_types": ["biomedical_research", "data_access"],
+    "description": "Biomedical research MCP server providing access to PubMed, ClinicalTrials.gov, and MyVariant.info.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "hlydecker-ucsc-genome-107",
+    "name": "UCSC Genome MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/hlydecker-ucsc-genome-mcp",
+    "task_types": ["genomics", "bioinformatics"],
+    "description": "MCP server to interact with the UCSC Genome Browser API, letting you find genomes, chromosomes, and more.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "jamesanz-medical-108",
+    "name": "Medical MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/JamesANZ-medical-mcp",
+    "task_types": ["medical_data", "healthcare_resources"],
+    "description": "An MCP server that provides access to medical information, drug databases, and healthcare resources.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "longevity-genie-biothings-109",
+    "name": "BioThings MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/longevity-genie-biothings-mcp",
+    "task_types": ["bioinformatics", "data_query"],
+    "description": "MCP server to interact with the BioThings API, including genes, genetic variants, drugs, and taxonomic information.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "longevity-genie-gget-110",
+    "name": "Gget MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/longevity-genie-gget-mcp",
+    "task_types": ["bioinformatics", "genomics_query"],
+    "description": "MCP server providing a powerful bioinformatics toolkit for genomics queries and analysis, wrapping the popular gget library.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "longevity-genie-opengenes-111",
+    "name": "OpenGenes MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/longevity-genie-opengenes-mcp",
+    "task_types": ["aging_research", "genetics_database"],
+    "description": "MCP server for a queryable database for aging and longevity research from the OpenGenes project.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "longevity-genie-synergy-age-112",
+    "name": "SynergyAge MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/longevity-genie-synergy-age-mcp",
+    "task_types": ["longevity_research", "genetic_interactions"],
+    "description": "MCP server for the SynergyAge database of synergistic and antagonistic genetic interactions in longevity.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "ohnlp-omop-113",
+    "name": "OMOP MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/OHNLP-omop_mcp",
+    "task_types": ["healthcare_data", "terminology_mapping"],
+    "description": "Map clinical terminology to OMOP concepts using LLMs for healthcare data standardization and interoperability.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "the-momentum-apple-health-114",
+    "name": "Apple Health MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/the-momentum-apple-health-mcp-server",
+    "task_types": ["health_data", "analytics"],
+    "description": "An MCP server that provides access to exported data from Apple Health. Data analytics included.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "the-momentum-fhir-115",
+    "name": "FHIR MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/the-momentum-fhir-mcp-server",
+    "task_types": ["healthcare_interoperability", "patient_data"],
+    "description": "MCP Server that connects AI agents to FHIR servers. Useful for querying patient history in natural language.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "wso2-fhir-116",
+    "name": "FHIR MCP Server WSO2",
+    "endpoint": "[UNVERIFIED] https://example.com/wso2-fhir-mcp-server",
+    "task_types": ["healthcare_data", "api_integration"],
+    "description": "Model Context Protocol server for Fast Healthcare Interoperability Resources (FHIR) APIs. Provides seamless integration with FHIR servers.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "34892002-bilibili-117",
+    "name": "Bilibili MCP JS",
+    "endpoint": "[UNVERIFIED] https://example.com/34892002-bilibili-mcp-js",
+    "task_types": ["content_search", "media_platform"],
+    "description": "A MCP server that supports searching for Bilibili content. Provides LangChain integration examples and test scripts.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "agent-infra-browser-118",
+    "name": "Agent Infra MCP Browser",
+    "endpoint": "[UNVERIFIED] https://example.com/agent-infra-mcp-server-browser",
+    "task_types": ["browser_automation", "web_interaction"],
+    "description": "Browser automation capabilities using Puppeteer, both support local and remote browser connection.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "automatalabs-playwright-119",
+    "name": "Automata Labs Playwright MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/Automata-Labs-team-MCP-Server-Playwright",
+    "task_types": ["browser_automation", "web_testing"],
+    "description": "An MCP server for browser automation using Playwright.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "bb-fat-browser-use-120",
+    "name": "Browser Use RS",
+    "endpoint": "[UNVERIFIED] https://example.com/BB-fat-browser-use-rs",
+    "task_types": ["browser_automation", "lightweight_tool"],
+    "description": "Lightweight browser automation MCP server in Rust with zero dependencies.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "blackwhite084-playwright-plus-121",
+    "name": "Playwright Plus Python MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/blackwhite084-playwright-plus-python-mcp",
+    "task_types": ["browser_automation", "llm_optimized"],
+    "description": "An MCP python server using Playwright for browser automation, more suitable for LLM.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "browserbase-mcp-122",
+    "name": "Browserbase MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/browserbase-mcp-server-browserbase",
+    "task_types": ["cloud_automation", "browser_interaction"],
+    "description": "Automate browser interactions in the cloud (e.g. web navigation, data extraction, form filling, and more).",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "browsermcp-mcp-123",
+    "name": "BrowserMCP",
+    "endpoint": "[UNVERIFIED] https://example.com/browsermcp-mcp",
+    "task_types": ["local_browser", "automation"],
+    "description": "Automate your local Chrome browser.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "brutalzinn-selenium-124",
+    "name": "Simple MCP Selenium",
+    "endpoint": "[UNVERIFIED] https://example.com/brutalzinn-simple-mcp-selenium",
+    "task_types": ["browser_control", "web_testing"],
+    "description": "An MCP Selenium Server for controlling browsers using natural language in Cursor IDE. Perfect for testing, automation, and multi-user scenarios.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "co-browser-use-125",
+    "name": "Co-Browser Use MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/co-browser-browser-use-mcp-server",
+    "task_types": ["browser_automation", "containerized_environment"],
+    "description": "Browser-use packaged as an MCP server with SSE transport. Includes a dockerfile to run chromium in docker + a vnc server.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "eat-pray-ai-yutu-126",
+    "name": "Yutu MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/eat-pray-ai-yutu",
+    "task_types": ["youtube_automation", "media_operation"],
+    "description": "A fully functional MCP server and CLI for YouTube to automate YouTube operation.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "executeautomation-playwright-127",
+    "name": "ExecuteAutomation Playwright MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/executeautomation-mcp-playwright",
+    "task_types": ["browser_automation", "web_scraping"],
+    "description": "An MCP server using Playwright for browser automation and webscrapping.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "eyalzh-browser-control-128",
+    "name": "Browser Control MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/eyalzh-browser-control-mcp",
+    "task_types": ["browser_automation", "firefox_control"],
+    "description": "An MCP server paired with a browser extension that enables LLM clients to control the user's browser (Firefox).",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "fradser-apple-reminders-129",
+    "name": "Apple Reminders MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/FradSer-mcp-server-apple-reminders",
+    "task_types": ["task_management", "reminder_system"],
+    "description": "An MCP server for interacting with Apple Reminders on macOS.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "freema-firefox-devtools-130",
+    "name": "Firefox DevTools MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/freema-firefox-devtools-mcp",
+    "task_types": ["browser_automation", "web_debugging"],
+    "description": "Firefox browser automation via WebDriver BiDi for testing, scraping, and browser control.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "getrupt-ashra-131",
+    "name": "Ashra MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/getrupt-ashra-mcp",
+    "task_types": ["web_scraping", "data_extraction"],
+    "description": "Extract structured data from any website. Just prompt and get JSON.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "hanzili-comet-132",
+    "name": "Comet MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/hanzili-comet-mcp",
+    "task_types": ["web_browsing", "research_tool"],
+    "description": "Connect to Perplexity Comet browser for agentic web browsing, deep research, and real-time task monitoring.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "imprvhub-browser-agent-133",
+    "name": "MCP Browser Agent",
+    "endpoint": "[UNVERIFIED] https://example.com/imprvhub-mcp-browser-agent",
+    "task_types": ["browser_automation", "autonomous_control"],
+    "description": "A Model Context Protocol (MCP) integration that provides Claude Desktop with autonomous browser automation capabilities.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "kimtaeyoon83-youtube-transcript-134",
+    "name": "YouTube Transcript MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/kimtaeyoon83-mcp-server-youtube-transcript",
+    "task_types": ["media_analysis", "transcript_fetching"],
+    "description": "Fetch YouTube subtitles and transcripts for AI analysis.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "kimtth-aoai-web-browsing-135",
+    "name": "AOAI Web Browsing MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/kimtth-mcp-aoai-web-browsing",
+    "task_types": ["web_browsing", "ai_integration"],
+    "description": "A minimal server/client MCP implementation using Azure OpenAI and Playwright.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "lightpanda-gomcp-136",
+    "name": "GoMCP",
+    "endpoint": "[UNVERIFIED] https://example.com/lightpanda-io-gomcp",
+    "task_types": ["browser_automation", "headless_browser"],
+    "description": "An MCP server in Go for Lightpanda, the ultra fast headless browser designed for web automation.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "microsoft-playwright-mcp-137",
+    "name": "Microsoft Playwright MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/microsoft-playwright-mcp",
+    "task_types": ["browser_interaction", "accessibility"],
+    "description": "Official Microsoft Playwright MCP server, enabling LLMs to interact with web pages through structured accessibility snapshots.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "mcp-server-puppeteer-138",
+    "name": "ModelContextProtocol Puppeteer",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-server-puppeteer",
+    "task_types": ["web_scraping", "browser_interaction"],
+    "description": "Browser automation for web scraping and interaction.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "ndthanhdev-browser-kit-139",
+    "name": "MCP Browser Kit",
+    "endpoint": "[UNVERIFIED] https://example.com/ndthanhdev-mcp-browser-kit",
+    "task_types": ["local_browser", "ai_interaction"],
+    "description": "An MCP Server that enables AI assistants to interact with your local browsers.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "olostep-mcp-server-140",
+    "name": "Olostep MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/olostep-olostep-mcp-server",
+    "task_types": ["web_scraping", "search_api"],
+    "description": "Web scraping, crawling, and search API. Extract content in Markdown/JSON, batch process 10k URLs, and get AI-powered answers with citations.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "operative-sh-web-eval-141",
+    "name": "Web Eval Agent",
+    "endpoint": "[UNVERIFIED] https://example.com/Operative-Sh-web-eval-agent",
+    "task_types": ["web_debugging", "application_testing"],
+    "description": "An MCP Server that autonomously debugs web applications with browser-use browser agents.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "pantheon-security-chrome-142",
+    "name": "Chrome MCP Secure",
+    "endpoint": "[UNVERIFIED] https://example.com/Pantheon-Security-chrome-mcp-secure",
+    "task_types": ["secure_automation", "browser_control"],
+    "description": "Security-hardened Chrome automation with post-quantum encryption, secure credential vault, memory scrubbing, and audit logging.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "phungxuananh-selenium-143",
+    "name": "Selenium MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/PhungXuanAnh-selenium-mcp-server",
+    "task_types": ["web_automation", "browser_control"],
+    "description": "A Model Context Protocol server providing web automation capabilities through Selenium WebDriver.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "pskill9-web-search-144",
+    "name": "Web Search MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/pskill9-web-search",
+    "task_types": ["web_search", "data_retrieval"],
+    "description": "An MCP server that enables free web searching using Google search results, with no API keys required.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "recursechat-apple-shortcuts-145",
+    "name": "Apple Shortcuts MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/recursechat-mcp-server-apple-shortcuts",
+    "task_types": ["automation", "task_execution"],
+    "description": "An MCP Server Integration with Apple Shortcuts.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "serkan-ozal-devtools-146",
+    "name": "Browser DevTools MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/serkan-ozal-browser-devtools-mcp",
+    "task_types": ["web_testing", "debugging"],
+    "description": "An MCP Server enables AI assistants to autonomously test, debug, and validate web applications.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "xspadex-bilibili-147",
+    "name": "Bilibili MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/xspadex-bilibili-mcp",
+    "task_types": ["media_content", "trending_videos"],
+    "description": "A FastMCP-based tool that fetches Bilibili's trending videos and exposes them via a standard MCP interface.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "4everland-hosting-148",
+    "name": "4EVERLAND Hosting MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/4everland-4everland-hosting-mcp",
+    "task_types": ["decentralized_storage", "code_deployment"],
+    "description": "An MCP server implementation for 4EVERLAND Hosting enabling instant deployment of AI-generated code to decentralized storage networks like Greenfield, IPFS, and Arweave.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "aashari-aws-sso-149",
+    "name": "AWS SSO MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/aashari-mcp-server-aws-sso",
+    "task_types": ["cloud_security", "resource_access"],
+    "description": "AWS Single Sign-On (SSO) integration enabling AI systems to securely interact with AWS resources by initiating SSO login, listing accounts/roles, and executing AWS CLI commands.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "alexbakers-ipfs-150",
+    "name": "IPFS MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/alexbakers-mcp-ipfs",
+    "task_types": ["decentralized_storage", "file_management"],
+    "description": "Upload and manipulation of IPFS storage.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "alexei-led-aws-151",
+    "name": "AWS MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/alexei-led-aws-mcp-server",
+    "task_types": ["cloud_management", "cli_execution"],
+    "description": "A lightweight but powerful server that enables AI assistants to execute AWS CLI commands, use Unix pipes, and apply prompt templates for common AWS tasks in a safe Docker environment.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "alexei-led-k8s-152",
+    "name": "Kubernetes MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/alexei-led-k8s-mcp-server",
+    "task_types": ["kubernetes_management", "cli_execution"],
+    "description": "A lightweight yet robust server that empowers AI assistants to securely execute Kubernetes CLI commands (kubectl, helm, istioctl, and argocd) using Unix pipes in a safe Docker environment.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "aliyun-alibaba-cloud-153",
+    "name": "Alibaba Cloud Ops MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/aliyun-alibaba-cloud-ops-mcp-server",
+    "task_types": ["cloud_operations", "resource_management"],
+    "description": "A MCP server that enables AI assistants to operation resources on Alibaba Cloud, supporting ECS, Cloud Monitor, OOS and widely used cloud products.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "awslabs-mcp-154",
+    "name": "AWS Labs MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/awslabs-mcp",
+    "task_types": ["cloud_integration", "service_management"],
+    "description": "AWS MCP servers for seamless integration with AWS services and resources.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "bright8192-esxi-155",
+    "name": "ESXi MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/bright8192-esxi-mcp-server",
+    "task_types": ["virtualization_management", "vm_control"],
+    "description": "A VMware ESXi/vCenter management server based on MCP, providing simple REST API interfaces for virtual machine management.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "cloudflare-mcp-156",
+    "name": "Cloudflare MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/cloudflare-mcp-server-cloudflare",
+    "task_types": ["cloud_services", "infrastructure_management"],
+    "description": "Integration with Cloudflare services including Workers, KV, R2, and D1.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "cyclops-ui-mcp-157",
+    "name": "Cyclops MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/cyclops-ui-mcp-cyclops",
+    "task_types": ["kubernetes_management", "resource_control"],
+    "description": "An MCP server that allows AI agents to manage Kubernetes resources through Cyclops abstraction.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "elementfm-mcp-158",
+    "name": "ElementFM MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/elementfm-mcp",
+    "task_types": ["podcast_hosting", "media_platform"],
+    "description": "Open source podcast hosting platform.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "elevy99927-devops-webui-159",
+    "name": "DevOps MCP WebUI",
+    "endpoint": "[UNVERIFIED] https://example.com/elevy99927-devops-mcp-webui",
+    "task_types": ["kubernetes_operations", "devops_tool"],
+    "description": "MCP Server for Kubernetes integrated with Open-WebUI, bridging the gap between DevOps and non-technical teams.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "erikhoward-adls-160",
+    "name": "Azure Data Lake Storage MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/erikhoward-adls-mcp-server",
+    "task_types": ["cloud_storage", "data_management"],
+    "description": "MCP Server for Azure Data Lake Storage. It can perform manage containers, read/write/upload/download operations on container files and manage file metadata.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "espressif-rainmaker-161",
+    "name": "ESP Rainmaker MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/espressif-esp-rainmaker-mcp",
+    "task_types": ["iot_control", "device_management"],
+    "description": "Official Espressif MCP Server to manage and control ESP RainMaker Devices.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "flux159-kubernetes-162",
+    "name": "Kubernetes MCP Server Flux159",
+    "endpoint": "[UNVERIFIED] https://example.com/Flux159-mcp-server-kubernetes",
+    "task_types": ["kubernetes_operations", "cluster_management"],
+    "description": "Typescript implementation of Kubernetes cluster operations for pods, deployments, services.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "hardik-id-azure-graph-163",
+    "name": "Azure Resource Graph MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/hardik-id-azure-resource-graph-mcp-server",
+    "task_types": ["cloud_monitoring", "resource_analysis"],
+    "description": "A Model Context Protocol server for querying and analyzing Azure resources at scale using Azure Resource Graph.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "hashicorp-terraform-164",
+    "name": "Terraform MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/hashicorp-terraform-mcp-server",
+    "task_types": ["infrastructure_as_code", "cloud_management"],
+    "description": "The official Terraform MCP Server seamlessly integrates with the Terraform ecosystem, enabling provider discovery, module analysis, and direct Registry API integration.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "jasonwilbur-cloud-cost-165",
+    "name": "Cloud Cost MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/jasonwilbur-cloud-cost-mcp",
+    "task_types": ["cost_analysis", "cloud_pricing"],
+    "description": "Multi-cloud pricing comparison across AWS, Azure, GCP, and OCI with 2,700+ instance types. Real-time pricing from public APIs.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "jasonwilbur-oci-pricing-166",
+    "name": "OCI Pricing MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/jasonwilbur-oci-pricing-mcp",
+    "task_types": ["cloud_pricing", "cost_calculation"],
+    "description": "Oracle Cloud Infrastructure pricing data with 602 products, cost calculators, and cross-provider comparisons.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "jdubois-azure-cli-167",
+    "name": "Azure CLI MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/jdubois-azure-cli-mcp",
+    "task_types": ["cloud_management", "cli_wrapper"],
+    "description": "A wrapper around the Azure CLI command line that allows you to talk directly to Azure.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "johnneerdael-netskope-168",
+    "name": "Netskope MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/johnneerdael-netskope-mcp",
+    "task_types": ["cloud_security", "private_access"],
+    "description": "An MCP to give access to all Netskope Private Access components within a Netskope Private Access environments including detailed setup information.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "kestra-io-python-169",
+    "name": "Kestra MCP Server Python",
+    "endpoint": "[UNVERIFIED] https://example.com/kestra-io-mcp-server-python",
+    "task_types": ["workflow_orchestration", "automation"],
+    "description": "Implementation of MCP server for Kestra workflow orchestration platform.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "liquidmetal-raindrop-170",
+    "name": "Raindrop MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/liquidmetal-ai-raindrop-mcp",
+    "task_types": ["cloud_deployment", "infrastructure_management"],
+    "description": "The best way to deploy cloud infrastructure using Claude Code and MCP.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "liveblocks-mcp-171",
+    "name": "Liveblocks MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/liveblocks-liveblocks-mcp-server",
+    "task_types": ["collaboration_tool", "content_management"],
+    "description": "Create, modify, and delete different aspects of Liveblocks such as rooms, threads, comments, notifications, and more.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "localstack-mcp-172",
+    "name": "LocalStack MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/localstack-localstack-mcp-server",
+    "task_types": ["local_aws", "cloud_emulation"],
+    "description": "A MCP server for LocalStack to manage local AWS environments, including lifecycle operations, infra deployments, log analysis, fault injection, and state management.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "manusa-kubernetes-173",
+    "name": "Kubernetes MCP Server Manusa",
+    "endpoint": "[UNVERIFIED] https://example.com/manusa-kubernetes-mcp-server",
+    "task_types": ["kubernetes_management", "resource_control"],
+    "description": "A powerful Kubernetes MCP server with additional support for OpenShift. Provides CRUD operations for any Kubernetes resource.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "nebula-block-data-174",
+    "name": "NebulaBlock MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/Nebula-Block-Data-nebulablock-mcp-server",
+    "task_types": ["api_exposure", "data_management"],
+    "description": "Integrates with the fastmcp library to expose the full range of NebulaBlock API functionalities as accessible tools.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "nwiizo-tfmcp-175",
+    "name": "TFMCP",
+    "endpoint": "[UNVERIFIED] https://example.com/nwiizo-tfmcp",
+    "task_types": ["terraform_management", "infrastructure_as_code"],
+    "description": "A Terraform MCP server allowing AI assistants to manage and operate Terraform environments, enabling reading configurations, analyzing plans, applying configurations, and managing Terraform state.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "openstack-kr-python-176",
+    "name": "OpenStack MCP Server Python",
+    "endpoint": "[UNVERIFIED] https://example.com/openstack-kr-python-openstackmcp-server",
+    "task_types": ["cloud_infrastructure", "resource_management"],
+    "description": "OpenStack MCP server for cloud infrastructure management based on openstacksdk.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "pibblokto-cert-manager-177",
+    "name": "Cert-Manager MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/pibblokto-cert-manager-mcp-server",
+    "task_types": ["certificate_management", "troubleshooting"],
+    "description": "MCP server for cert-manager management and troubleshooting.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "portainer-mcp-178",
+    "name": "Portainer MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/portainer-portainer-mcp",
+    "task_types": ["container_management", "infrastructure_monitoring"],
+    "description": "A powerful MCP server that enables AI assistants to seamlessly interact with Portainer instances, providing natural language access to container management.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "pulumi-mcp-server-179",
+    "name": "Pulumi MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/pulumi-mcp-server",
+    "task_types": ["cloud_automation", "infrastructure_as_code"],
+    "description": "MCP server for interacting with Pulumi using the Pulumi Automation API and Pulumi Cloud API. Enables MCP clients to perform Pulumi operations.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "pythonanywhere-mcp-180",
+    "name": "PythonAnywhere MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/pythonanywhere-pythonanywhere-mcp-server",
+    "task_types": ["cloud_platform", "python_hosting"],
+    "description": "MCP server implementation for PythonAnywhere cloud platform.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "qiniu-mcp-server-181",
+    "name": "Qiniu MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/qiniu-qiniu-mcp-server",
+    "task_types": ["cloud_storage", "media_processing"],
+    "description": "A MCP built on Qiniu Cloud products, supporting access to Qiniu Cloud Storage, media processing services, etc.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "redis-cloud-mcp-182",
+    "name": "Redis Cloud MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/redis-mcp-redis-cloud",
+    "task_types": ["database_management", "cloud_deployment"],
+    "description": "Manage your Redis Cloud resources effortlessly using natural language. Create databases, monitor subscriptions, and configure cloud deployments.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "reza-gholizade-k8s-183",
+    "name": "Kubernetes MCP Server Reza",
+    "endpoint": "[UNVERIFIED] https://example.com/reza-gholizade-k8s-mcp-server",
+    "task_types": ["kubernetes_management", "cluster_interaction"],
+    "description": "A Kubernetes Model Context Protocol (MCP) server that provides tools for interacting with Kubernetes clusters through a standardized interface.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "rohitg00-kubectl-184",
+    "name": "Kubectl MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/rohitg00-kubectl-mcp-server",
+    "task_types": ["kubernetes_management", "natural_language_control"],
+    "description": "A Model Context Protocol (MCP) server for Kubernetes that enables AI assistants like Claude, Cursor, and others to interact with Kubernetes clusters through natural language.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "rrmistry-tilt-185",
+    "name": "Tilt MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/rrmistry-tilt-mcp",
+    "task_types": ["kubernetes_development", "resource_management"],
+    "description": "A Model Context Protocol server that integrates with Tilt to provide programmatic access to Tilt resources, logs, and management operations for Kubernetes development environments.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "silenceper-k8s-186",
+    "name": "MCP-K8S",
+    "endpoint": "[UNVERIFIED] https://example.com/silenceper-mcp-k8s",
+    "task_types": ["kubernetes_management", "ai_driven_operations"],
+    "description": "AI-driven Kubernetes resource management tool that allows users to operate any resources in Kubernetes clusters through natural language interaction.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "spaceship-mcp-187",
+    "name": "Spaceship MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/bartwaardenburg-spaceship-mcp",
+    "task_types": ["domain_management", "dns_records"],
+    "description": "Manage domains, DNS records, contacts, marketplace listings, and more via the Spaceship API.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "spre-sre-lumino-188",
+    "name": "Lumino MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/spre-sre-lumino-mcp-server",
+    "task_types": ["sre_observability", "kubernetes_monitoring"],
+    "description": "AI-powered SRE observability for Kubernetes and OpenShift with 40+ tools for Tekton pipeline debugging, log analysis, root cause analysis, and predictive monitoring.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "stackloklabs-mkp-189",
+    "name": "MKP",
+    "endpoint": "[UNVERIFIED] https://example.com/StacklokLabs-mkp",
+    "task_types": ["kubernetes_management", "llm_integration"],
+    "description": "A Model Context Protocol (MCP) server for Kubernetes that allows LLM-powered applications to interact with Kubernetes clusters.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "stackloklabs-ocireg-190",
+    "name": "OCIReg MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/StacklokLabs-ocireg-mcp",
+    "task_types": ["container_registry", "image_management"],
+    "description": "An SSE-based MCP server that allows LLM-powered applications to interact with OCI registries. Provides tools for retrieving information about container images.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "strowk-k8s-go-191",
+    "name": "MCP K8s Go",
+    "endpoint": "[UNVERIFIED] https://example.com/strowk-mcp-k8s-go",
+    "task_types": ["kubernetes_operations", "cluster_management"],
+    "description": "Kubernetes cluster operations through MCP.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "tencent-cloudbase-192",
+    "name": "CloudBase AI ToolKit",
+    "endpoint": "[UNVERIFIED] https://example.com/TencentCloudBase-CloudBase-AI-ToolKit",
+    "task_types": ["backend_services", "serverless_deployment"],
+    "description": "One-stop backend services for WeChat Mini-Programs and full-stack apps. Provides specialized MCP tools for serverless cloud functions, databases, and one-click deployment.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "thunderboltsid-nutanix-193",
+    "name": "Nutanix MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/thunderboltsid-mcp-nutanix",
+    "task_types": ["cloud_infrastructure", "virtualization"],
+    "description": "Go-based MCP Server for interfacing with Nutanix Prism Central resources.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "trilogy-aws-pricing-194",
+    "name": "AWS Pricing MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/trilogy-group-aws-pricing-mcp",
+    "task_types": ["cost_analysis", "ec2_pricing"],
+    "description": "Get up-to-date EC2 pricing information with one call. Fast. Powered by a pre-parsed AWS pricing catalogue.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "txn2-kubefwd-195",
+    "name": "KubeFwd",
+    "endpoint": "[UNVERIFIED] https://example.com/txn2-kubefwd",
+    "task_types": ["kubernetes_networking", "port_forwarding"],
+    "description": "Kubernetes bulk port forwarding with service discovery, /etc/hosts management, traffic monitoring, and pod log streaming.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "vmlia-books-196",
+    "name": "Books MCP Server",
+    "endpoint": "[UNVERIFIED] https://example.com/VmLia-books-mcp-server",
+    "task_types": ["book_query", "data_search"],
+    "description": "This is an MCP server used for querying books, and it can be applied in common MCP clients, such as Cherry Studio.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "weibaohui-k8m-197",
+    "name": "K8M",
+    "endpoint": "[UNVERIFIED] https://example.com/weibaohui-k8m",
+    "task_types": ["kubernetes_management", "multi_cluster"],
+    "description": "Provides MCP multi-cluster Kubernetes management and operations, featuring a management interface, logging, and nearly 50 built-in tools.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "weibaohui-kom-198",
+    "name": "KOM",
+    "endpoint": "[UNVERIFIED] https://example.com/weibaohui-kom",
+    "task_types": ["kubernetes_management", "sdk_integration"],
+    "description": "Provides MCP multi-cluster Kubernetes management and operations. It can be integrated as an SDK into your own project.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "wenhuwang-k8s-eye-199",
+    "name": "K8s Eye MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/wenhuwang-mcp-k8s-eye",
+    "task_types": ["kubernetes_monitoring", "health_analysis"],
+    "description": "MCP Server for kubernetes management, and analyze your cluster, application health.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "alfonsograziano-node-sandbox-200",
+    "name": "Node Code Sandbox MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/alfonsograziano-node-code-sandbox-mcp",
+    "task_types": ["code_execution", "javascript_sandbox"],
+    "description": "A Node.js MCP server that spins up isolated Docker-based sandboxes for executing JavaScript snippets with on-the-fly npm dependency installation and clean teardown.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
+  },
+  {
+    "provider_id": "alvii147-piston-201",
+    "name": "Piston MCP",
+    "endpoint": "[UNVERIFIED] https://example.com/alvii147-piston-mcp",
+    "task_types": ["code_execution", "remote_engine"],
+    "description": "MCP server that lets LLMs execute code through the Piston remote code execution engine, with a zero-config uv setup.",
+    "source": "https://github.com/punkpeye/awesome-mcp-servers"
   }
 ]
