@@ -9,10 +9,10 @@
    ============================================ */
 :root {
     /* Core Brand (keep orange) */
-    --orange: #FF6B35;
-    --orange-dark: #e55f2f;
-    --orange-light: #ff8c5a;
-    --orange-glow: rgba(255, 107, 53, 0.25);
+    --orange: #D94E1F;
+    --orange-dark: #c8461a;
+    --orange-light: #e05526;
+    --orange-glow: rgba(217, 78, 31, 0.25);
     
     /* Neutrals - Enhanced Contrast */
     --white: #FFFFFF;
