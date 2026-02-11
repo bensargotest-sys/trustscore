@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TrustScore - Trust and reputation scores for AI agent service selection. Credit score for APIs, agents, and tools.">
-    <title>TrustScore - Trust Scores for AI Agent Service Selection</title>
+    <meta name="description" content="Credit score for APIs. Know which services your AI agent can trust.">
+    <title>TrustScore - Credit Score for APIs</title>
     
     <style>
         * {
@@ -21,35 +21,21 @@
             --grey-light: #F5F5F5;
             --grey-mid: #E0E0E0;
             --grey-dark: #595959;
-            --spacing: 24px;
-            --spacing-lg: 48px;
-            --border-radius: 12px;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
             background: var(--white);
             color: var(--black);
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 18px;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
-        h1 { font-size: 48px; margin-bottom: 16px; }
-        h2 { font-size: 36px; margin-bottom: 24px; }
-        h3 { font-size: 24px; margin-bottom: 16px; }
-
-        .container { 
-            max-width: 1000px;
-            margin: 0 auto; 
-            padding: 0 var(--spacing);
         }
 
         /* Header */
         header {
             padding: 24px 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             border-bottom: 1px solid var(--grey-mid);
             position: sticky;
             top: 0;
@@ -57,10 +43,13 @@
             backdrop-filter: blur(20px);
         }
 
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -70,107 +59,232 @@
             text-decoration: none;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
+        .github-link {
             color: var(--grey-dark);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.25s;
+            font-size: 16px;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: var(--orange); }
+        .github-link:hover {
+            color: var(--orange);
+        }
 
-        /* Hero */
+        /* Hero Section - Above Fold */
         .hero {
-            padding: var(--spacing-lg) 0;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 80px 24px;
         }
 
-        .tagline {
-            font-size: 20px;
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--black);
+        }
+
+        .hero .subhead {
+            font-size: 24px;
             color: var(--grey-dark);
-            max-width: 700px;
-            margin: 0 auto 32px;
-            line-height: 1.6;
+            margin-bottom: 48px;
+            font-weight: 400;
+            max-width: 600px;
         }
 
-        /* Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .btn {
             display: inline-block;
-            padding: 14px 28px;
-            border-radius: var(--border-radius);
-            font-size: 16px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 18px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.25s;
-            cursor: pointer;
+            transition: all 0.3s ease;
             border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: var(--orange);
             color: var(--white);
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 16px rgba(217, 78, 31, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--orange-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 78, 31, 0.4);
         }
 
         .btn-secondary {
             background: var(--grey-light);
             color: var(--black);
-            margin-left: 16px;
+            border: 2px solid var(--grey-mid);
         }
 
-        .btn-secondary:hover { background: var(--grey-mid); }
+        .btn-secondary:hover {
+            background: var(--white);
+            border-color: var(--orange);
+            color: var(--orange);
+        }
 
-        /* Sections */
-        .section { 
-            padding: var(--spacing-lg) 0; 
+        /* Below Fold - Spacious Sections */
+        .section {
+            padding: 80px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .section:nth-of-type(even) {
             background: var(--grey-light);
         }
 
-        /* Code Block */
+        .section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 64px;
+            letter-spacing: -0.02em;
+        }
+
+        /* How It Works - 3 Steps */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 24px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: var(--grey-dark);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Example Score Card */
+        .score-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 2px solid var(--grey-mid);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .score-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--grey-mid);
+        }
+
+        .score-header h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .score-badge {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .score-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .score-metric {
+            padding: 12px;
+            background: var(--grey-light);
+            border-radius: 8px;
+        }
+
+        .score-metric .label {
+            font-size: 14px;
+            color: var(--grey-dark);
+            margin-bottom: 4px;
+        }
+
+        .score-metric .value {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        /* Install Code */
         .code-block {
             background: var(--black);
             color: var(--grey-light);
-            padding: 24px;
-            border-radius: var(--border-radius);
+            padding: 32px;
+            border-radius: 16px;
             overflow-x: auto;
-            margin: 24px 0;
+            margin: 0 auto;
+            max-width: 700px;
             position: relative;
         }
 
         .code-block pre {
             margin: 0;
             font-family: 'SF Mono', Monaco, monospace;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 16px;
+            line-height: 1.8;
             white-space: pre;
         }
 
         .copy-button {
             position: absolute;
-            top: 12px;
-            right: 12px;
+            top: 16px;
+            right: 16px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: var(--white);
             padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 12px;
+            border-radius: 8px;
+            font-size: 14px;
             cursor: pointer;
-            transition: all 0.25s;
+            transition: all 0.3s;
         }
 
         .copy-button:hover {
@@ -182,310 +296,166 @@
             border-color: var(--orange);
         }
 
-        /* How It Works */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 32px;
-            margin: 32px 0;
-        }
-
-        .step {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: 24px;
-            text-align: left;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background: var(--orange);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
-            margin-bottom: 16px;
-        }
-
-        .step p {
-            color: var(--grey-dark);
-            font-size: 15px;
-        }
-
-        /* Tools */
-        .tools-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin: 32px 0;
-        }
-
-        .tool {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: 24px;
-        }
-
-        .tool h3 {
-            color: var(--orange);
-            font-size: 20px;
-            margin-bottom: 8px;
-            font-family: 'SF Mono', Monaco, monospace;
-        }
-
-        .tool p {
-            color: var(--grey-dark);
-            font-size: 15px;
-        }
-
-        /* Problem/Solution Lists */
-        ul.feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 16px 0;
-        }
-
-        ul.feature-list li {
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
-            color: var(--grey-dark);
-        }
-
-        ul.feature-list li::before {
-            content: "•";
-            color: var(--orange);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* CTA Banner */
-        .cta-banner {
-            background: var(--orange);
-            color: var(--white);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
-            text-align: center;
-            margin: var(--spacing-lg) 0;
-        }
-
-        .cta-banner h2 { color: var(--white); }
-
-        .cta-banner .btn {
-            background: var(--white);
-            color: var(--orange);
-        }
-
-        .cta-banner .btn:hover { 
-            background: var(--grey-light);
-        }
-
         /* Footer */
         footer {
             background: var(--black);
             color: var(--grey-mid);
-            padding: var(--spacing-lg) 0;
-            margin-top: var(--spacing-lg);
+            padding: 48px 24px;
             text-align: center;
         }
 
         footer a {
             color: var(--orange);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        footer a:hover { color: var(--white); }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--black);
+        footer a:hover {
+            color: var(--white);
         }
 
-        /* Mobile */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            h1 { font-size: 32px; }
-            h2 { font-size: 28px; }
-            
-            .menu-toggle {
-                display: block;
+            .hero {
+                min-height: 70vh;
+                padding: 60px 24px;
             }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                border-top: 1px solid var(--grey-mid);
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subhead {
+                font-size: 18px;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 16px;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
-                padding: 16px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                width: 100%;
+                max-width: 320px;
             }
-            
-            .nav-links.open {
-                display: flex;
+
+            .section {
+                padding: 60px 24px;
             }
-            
-            .btn-secondary {
-                margin-left: 0;
-                margin-top: 16px;
-                display: block;
+
+            .section h2 {
+                font-size: 28px;
+                margin-bottom: 48px;
             }
-            
+
             .steps {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
-            
+
+            .score-details {
+                grid-template-columns: 1fr;
+            }
+
+            .code-block {
+                padding: 24px;
+            }
+
             .code-block pre {
-                font-size: 12px;
-                white-space: pre-wrap;
-                word-break: break-all;
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Minimal Header -->
     <header>
-        <nav class="container">
+        <div class="header-container">
             <a href="#" class="logo">TrustScore</a>
-            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
-                <span id="menuIcon">☰</span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#install">Install</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="blog/index.html">Blog</a></li>
-                <li><a href="https://github.com/bensargotest-sys/trustscore" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            </ul>
-        </nav>
+            <a href="https://github.com/bensargotest-sys/trustscore" class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
     </header>
 
-    <main class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <h1>TrustScore - Trust and reputation scores for AI agent service selection</h1>
-            <p class="tagline">TrustScore is an MCP server that helps AI agents make better decisions about which service providers to trust. Think of it as a <strong>credit score for APIs, agents, and tools</strong>.</p>
-            
-            <!-- Search Form -->
-            <form class="search-form" onsubmit="handleSearch(event)" style="margin: 32px auto; max-width: 600px;">
-                <div style="display: flex; gap: 12px;">
-                    <input type="text" id="searchInput" placeholder="Search providers..." style="flex: 1; padding: 14px 20px; border: 2px solid var(--grey-mid); border-radius: var(--border-radius); font-size: 16px;">
-                    <button type="submit" class="btn btn-primary">Search Now</button>
-                </div>
-                <div id="searchResults" style="margin-top: 16px; text-align: left; padding: 16px; background: var(--grey-light); border-radius: var(--border-radius); display: none;"></div>
-            </form>
-            
-            <div>
-                <a href="#install" class="btn btn-primary">Get Started</a>
-                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-            </div>
-        </section>
-
-        <!-- Quick Start -->
-        <section id="install" class="section">
-            <h2>Quick Start</h2>
-            <div class="code-block">
-                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                <pre># Install from PyPI
-pip install trustscore-mcp
-
-# Or install from source  
-pip install -e .
-
-# Seed database with 200+ MCP servers
-python scripts/seed_database.py
-
-# Run as MCP server
-trustscore
-# Or: python -m src.server</pre>
-            </div>
-        </section>
-
-        <!-- Problem -->
-        <section class="section">
-            <h2>What Problem Does This Solve?</h2>
-            <p>AI agents need to call external services: APIs, other agents, databases, DeFi protocols. But how do you know which ones are reliable?</p>
-            
-            <ul class="feature-list">
-                <li>Uniswap might have 99% uptime</li>
-                <li>SketchySwap might fail 80% of the time</li>
-                <li>SlowAPI might timeout constantly</li>
-            </ul>
-            
-            <p style="margin-top: 16px;"><strong>Without trust data, agents pick randomly or rely on hard-coded preferences. TrustScore fixes this with real behavioral data.</strong></p>
-        </section>
-
-        <!-- How It Works -->
-        <section class="section">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <p>Agents report outcomes after calling a service</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <p>TrustScore aggregates success rates, latency, failure patterns</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <p>Other agents query TrustScore before picking a provider</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <p>Network effect: More users = better data = better decisions</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- MCP Tools -->
-        <section id="tools" class="section">
-            <h2>MCP Tools</h2>
-            <div class="tools-list">
-                <div class="tool">
-                    <h3>trustscore_rank</h3>
-                    <p>Rank multiple providers by trust score</p>
-                </div>
-                <div class="tool">
-                    <h3>trustscore_check</h3>
-                    <p>Check a single provider's detailed trust data</p>
-                </div>
-                <div class="tool">
-                    <h3>trustscore_report</h3>
-                    <p>Report an interaction outcome (success/failure/timeout/error)</p>
-                </div>
-                <div class="tool">
-                    <h3>trustscore_discover</h3>
-                    <p>Discover providers by task type, ranked by trust</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta-banner">
-            <h2>Ready to Start?</h2>
-            <p>Install TrustScore and start making smarter decisions about service providers.</p>
-            <a href="https://github.com/bensargotest-sys/trustscore" class="btn" target="_blank" rel="noopener noreferrer">View Documentation</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>TrustScore • <a href="https://github.com/bensargotest-sys/trustscore" target="_blank" rel="noopener noreferrer">GitHub</a> • Open Source (MIT License)</p>
+    <!-- Hero - Above Fold -->
+    <section class="hero">
+        <h1>Credit Score for APIs</h1>
+        <p class="subhead">Know which services your AI agent can trust</p>
+        
+        <div class="cta-buttons">
+            <a href="#install" class="btn btn-primary">Get Started</a>
+            <a href="#example" class="btn btn-secondary">View Scores →</a>
         </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">📊</div>
+                <h3>Report Outcomes</h3>
+                <p>Agents report success or failure after each service call</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">🧮</div>
+                <h3>Calculate Scores</h3>
+                <p>TrustScore aggregates data into reliability metrics</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">✅</div>
+                <h3>Make Decisions</h3>
+                <p>Query scores before picking a service provider</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example Score Card -->
+    <section id="example" class="section" style="background: var(--grey-light);">
+        <h2>Example Score</h2>
+        <div class="score-card">
+            <div class="score-header">
+                <h3>Uniswap V3</h3>
+                <div class="score-badge">95</div>
+            </div>
+            <div class="score-details">
+                <div class="score-metric">
+                    <div class="label">Success Rate</div>
+                    <div class="value">99.2%</div>
+                </div>
+                <div class="score-metric">
+                    <div class="label">Avg Latency</div>
+                    <div class="value">180ms</div>
+                </div>
+                <div class="score-metric">
+                    <div class="label">Total Calls</div>
+                    <div class="value">12,847</div>
+                </div>
+                <div class="score-metric">
+                    <div class="label">Last 7 Days</div>
+                    <div class="value">98.8%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Instructions -->
+    <section id="install" class="section">
+        <h2>Get Started</h2>
+        <div class="code-block">
+            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            <pre>pip install trustscore-mcp
+python scripts/seed_database.py
+trustscore</pre>
+        </div>
+        <div style="text-align: center; margin-top: 32px;">
+            <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Documentation →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>TrustScore • <a href="https://github.com/bensargotest-sys/trustscore" target="_blank" rel="noopener noreferrer">GitHub</a> • MIT License</p>
     </footer>
 
     <script>
@@ -503,63 +473,6 @@ trustscore
                 }, 2000);
             });
         }
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const menuIcon = document.getElementById('menuIcon');
-            
-            navLinks.classList.toggle('open');
-            
-            // Toggle icon between hamburger and X
-            if (navLinks.classList.contains('open')) {
-                menuIcon.textContent = '✕';
-            } else {
-                menuIcon.textContent = '☰';
-            }
-        }
-
-        function handleSearch(event) {
-            event.preventDefault();
-            
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            const query = searchInput.value.trim();
-            
-            if (!query) {
-                searchResults.style.display = 'none';
-                return;
-            }
-            
-            // Show loading state
-            searchResults.style.display = 'block';
-            searchResults.innerHTML = '<p style="color: var(--grey-dark);">🔍 Searching for "' + query + '"...</p>';
-            
-            // Simulate search (in production, this would call an API)
-            setTimeout(() => {
-                searchResults.innerHTML = `
-                    <p style="color: var(--grey-dark); margin-bottom: 8px;"><strong>Search Results for "${query}"</strong></p>
-                    <p style="color: var(--grey-dark); font-size: 14px;">
-                        Search functionality is currently in development. 
-                        Try browsing the <a href="#tools" style="color: var(--orange);">MCP Tools</a> section or 
-                        visit our <a href="https://github.com/bensargotest-sys/trustscore" target="_blank" rel="noopener noreferrer" style="color: var(--orange);">GitHub repository</a> 
-                        for more information.
-                    </p>
-                `;
-            }, 500);
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const navLinks = document.getElementById('navLinks');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
-            if (navLinks && navLinks.classList.contains('open')) {
-                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
-                    navLinks.classList.remove('open');
-                    document.getElementById('menuIcon').textContent = '☰';
-                }
-            }
-        });
     </script>
 </body>
 </html>
