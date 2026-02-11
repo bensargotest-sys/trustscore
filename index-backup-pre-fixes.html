@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TrustScore - Trust and reputation scores for AI agents. Community-driven reliability tracking for 200+ MCP servers.">
+    <meta name="keywords" content="AI agents, trust scoring, MCP, reliability, API monitoring">
+    <title>TrustScore - Trust Infrastructure for AI Agents</title>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="TrustScore - Trust Infrastructure for AI Agents">
+    <meta property="og:description" content="Community-driven reliability tracking for 200+ MCP servers. Synthetic baseline refined by real agent reports.">
+    <meta property="og:url" content="https://trustscore-website.vercel.app">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TrustScore - Trust Infrastructure for AI Agents">
+    <meta name="twitter:description" content="Community-driven reliability tracking for 200+ MCP servers.">
+    
+    <!-- Structured data for AI agents -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TrustScore",
+      "description": "Trust and reputation scoring system for AI agent service selection",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "TrustScore"
+      },
+      "codeRepository": "https://github.com/bensargotest-sys/trustscore"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF6B35;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --grey-light: #F5F5F5;
+            --grey-mid: #E0E0E0;
+            --grey-dark: #595959; /* Darkened from #666 for better contrast (6.4:1) */
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 96px;
+            --border-radius: 12px;
+            --transition: all 0.2s ease;
+        }
+
+        html {
+            scroll-padding-top: 80px; /* Fix sticky header overlap on anchor links */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Skip Link (Accessibility) */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--orange);
+            color: var(--white);
+            padding: 10px 20px;
+            z-index: 9999;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .skip-link:focus {
+            left: 10px;
+            top: 10px;
+        }
+
+        /* Focus Indicators (Accessibility) */
+        a:focus, button:focus {
+            outline: 2px solid var(--orange);
+            outline-offset: 2px;
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; }
+        h1 { font-size: 56px; line-height: 1.1; }
+        h2 { font-size: 42px; line-height: 1.2; }
+        h3 { font-size: 24px; line-height: 1.3; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 var(--spacing-md); }
+
+        /* Header */
+        header {
+            padding: var(--spacing-md) 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid var(--grey-mid);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--orange);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--grey-dark);
+            text-decoration: none;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--orange); }
+
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--black);
+            padding: 8px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .hero h1 { margin-bottom: var(--spacing-md); }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--grey-dark);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--grey-light);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover { background: var(--grey-mid); }
+
+        /* Stats Dashboard */
+        .stats-dashboard {
+            background: var(--grey-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .stat-tile {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            color: var(--grey-dark);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+        }
+
+        /* Tile Grid */
+        .tile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .tile {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            transition: var(--transition);
+        }
+
+        .tile:hover {
+            border-color: var(--orange);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .tile-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--grey-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tile-icon.accent {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .tile h3 { margin-bottom: var(--spacing-sm); }
+        .tile p { color: var(--grey-dark); font-size: 15px; line-height: 1.6; }
+
+        /* Live Data */
+        .live-data {
+            background: var(--grey-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .live-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--grey-dark);
+            font-size: 14px;
+        }
+
+        .provider-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .provider-item {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .provider-name { font-weight: 500; font-size: 14px; }
+
+        .trust-score {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .score-bar {
+            width: 100px;
+            height: 6px;
+            background: var(--grey-mid);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: var(--orange);
+            transition: width 0.3s ease;
+        }
+
+        .score-value {
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        .score-label {
+            font-size: 12px;
+            color: var(--grey-dark);
+            margin-left: var(--spacing-xs);
+        }
+
+        /* API Section */
+        .api-section {
+            background: var(--black);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .api-section h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .api-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+        }
+
+        .api-card h3 {
+            color: var(--orange);
+            margin-bottom: var(--spacing-sm);
+            font-size: 18px;
+        }
+
+        .api-card p {
+            color: var(--grey-mid);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block code {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--grey-light);
+            display: block;
+        }
+
+        /* Copy Button */
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .copy-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .copy-button.copied {
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+
+        /* Integration Grid */
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .integration-tile {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .integration-tile:hover { border-color: var(--orange); }
+
+        .integration-icon {
+            font-size: 32px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .integration-name {
+            font-weight: 500;
+            color: var(--black);
+        }
+
+        /* Section */
+        .section { padding: var(--spacing-xl) 0; margin-top: var(--spacing-lg); }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title { margin-bottom: var(--spacing-sm); }
+
+        .section-subtitle {
+            color: var(--grey-dark);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: var(--orange);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+        }
+
+        .cta-banner h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta-banner p {
+            font-size: 18px;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        .cta-banner .btn {
+            background: var(--white);
+            color: var(--orange);
+        }
+
+        .cta-banner .btn:hover { background: var(--grey-light); }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--grey-mid);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            font-size: 16px;
+        }
+
+        .footer-links { list-style: none; }
+
+        .footer-links li { margin-bottom: var(--spacing-xs); }
+
+        .footer-links a {
+            color: var(--grey-mid);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover { color: var(--orange); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Mobile Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            h2 { font-size: 28px; }
+            
+            .mobile-menu-button { display: block; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: var(--spacing-xl) var(--spacing-lg);
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+            
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin-bottom: var(--spacing-md);
+            }
+
+            .nav-links a {
+                font-size: 18px;
+                display: block;
+                padding: var(--spacing-sm) 0;
+            }
+            
+            .tile-grid,
+            .api-grid { grid-template-columns: 1fr; }
+
+            .hero-subtitle { font-size: 18px; }
+
+            .api-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .live-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header role="banner">
+        <nav class="container" role="navigation" aria-label="Main navigation">
+            <div class="logo">
+                <div class="logo-icon" aria-hidden="true">T</div>
+                TrustScore
+            </div>
+            <button class="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false">
+                ☰
+            </button>
+            <ul class="nav-links" role="list">
+                <li role="listitem"><a href="#stats">Stats</a></li>
+                <li role="listitem"><a href="#api">API</a></li>
+                <li role="listitem"><a href="#integrations">Integrations</a></li>
+                <li role="listitem"><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="menu-overlay" aria-hidden="true"></div>
+
+    <main id="main" role="main" class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Trust Infrastructure<br>for AI Agents</h1>
+            <p class="hero-subtitle">Community-driven reliability tracking for 200+ MCP servers. Synthetic baseline refined by real agent reports.</p>
+            <div class="btn-group">
+                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-primary">Get Started</a>
+                <a href="#api" class="btn btn-secondary">View API</a>
+            </div>
+        </section>
+
+        <!-- Stats Dashboard -->
+        <section id="stats" class="stats-dashboard" aria-labelledby="stats-heading">
+            <h2 id="stats-heading" class="sr-only">Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-tile">
+                    <div class="stat-number">202</div>
+                    <div class="stat-label">Servers Tracked</div>
+                </div>
+                <div class="stat-tile">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Trust Dimensions</div>
+                </div>
+                <div class="stat-tile">
+                    <div class="stat-number">9.3K</div>
+                    <div class="stat-label">Interactions</div>
+                </div>
+                <div class="stat-tile">
+                    <div class="stat-number">2-8ms</div>
+                    <div class="stat-label">Query Time</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="sr-only">Features</h2>
+            <div class="tile-grid">
+                <div class="tile">
+                    <div class="tile-icon accent" aria-hidden="true">📊</div>
+                    <h3>Multi-Dimensional</h3>
+                    <p>Track reliability, uptime, latency, error rate, quality, freshness, and security across 7 dimensions.</p>
+                </div>
+                <div class="tile">
+                    <div class="tile-icon" aria-hidden="true">⚡</div>
+                    <h3>Community-Driven</h3>
+                    <p>Trust scores update based on agent reports. Synthetic baseline refined by real usage.</p>
+                </div>
+                <div class="tile">
+                    <div class="tile-icon" aria-hidden="true">🎯</div>
+                    <h3>Smart Discovery</h3>
+                    <p>Find trusted providers by category. Get ranked lists instantly with confidence levels.</p>
+                </div>
+                <div class="tile">
+                    <div class="tile-icon" aria-hidden="true">🔌</div>
+                    <h3>MCP Native</h3>
+                    <p>Built as MCP server. Works with Claude Desktop, Cursor, Cline, and any MCP client.</p>
+                </div>
+                <div class="tile">
+                    <div class="tile-icon" aria-hidden="true">🛡️</div>
+                    <h3>Confidence Tracking</h3>
+                    <p>Know when scores are reliable. High/medium/low confidence based on sample size.</p>
+                </div>
+                <div class="tile">
+                    <div class="tile-icon" aria-hidden="true">🚀</div>
+                    <h3>Production Ready</h3>
+                    <p>100% test coverage, all tests passing, comprehensive documentation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Data -->
+        <section class="live-data" aria-labelledby="scores-heading">
+            <div class="live-header">
+                <h2 id="scores-heading">Sample Trust Scores</h2>
+                <div class="live-indicator">
+                    <span>Based on 9.3K synthetic interactions</span>
+                </div>
+            </div>
+            <div class="provider-list" role="list">
+                <div class="provider-item" role="listitem">
+                    <span class="provider-name">github-integration-009</span>
+                    <div class="trust-score">
+                        <div class="score-bar" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100">
+                            <div class="score-fill" style="width: 93%"></div>
+                        </div>
+                        <span class="score-value">0.93</span>
+                        <span class="score-label">High Trust</span>
+                    </div>
+                </div>
+                <div class="provider-item" role="listitem">
+                    <span class="provider-name">anthropic-github-016</span>
+                    <div class="trust-score">
+                        <div class="score-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            <div class="score-fill" style="width: 90%"></div>
+                        </div>
+                        <span class="score-value">0.90</span>
+                        <span class="score-label">High Trust</span>
+                    </div>
+                </div>
+                <div class="provider-item" role="listitem">
+                    <span class="provider-name">microsoft-playwright-mcp-137</span>
+                    <div class="trust-score">
+                        <div class="score-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            <div class="score-fill" style="width: 90%"></div>
+                        </div>
+                        <span class="score-value">0.90</span>
+                        <span class="score-label">High Trust</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section id="api" class="api-section" aria-labelledby="api-heading">
+            <h2 id="api-heading">MCP Tools</h2>
+            <div class="api-grid">
+                <!-- Check Trust Score -->
+                <article class="api-card">
+                    <h3>trustscore_check</h3>
+                    <p>Get detailed trust data for a provider. Returns score, reliability, confidence, flags, and history.</p>
+                    <div class="code-block">
+                        <button class="copy-button" aria-label="Copy code"><span class="copy-icon">📋</span> Copy</button>
+                        <code>// MCP tool call
+await mcp.call_tool("trustscore_check", {
+  "provider_id": "github-integration-009"
+});
+
+// Returns: {trust_score, reliability, 
+// sample_size, confidence, flags}</code>
+                    </div>
+                </article>
+
+                <!-- Report Outcome -->
+                <article class="api-card">
+                    <h3>trustscore_report</h3>
+                    <p>Report interaction outcomes. Scores update based on your reports. Help improve data quality.</p>
+                    <div class="code-block">
+                        <button class="copy-button" aria-label="Copy code"><span class="copy-icon">📋</span> Copy</button>
+                        <code>// Report outcome
+await mcp.call_tool("trustscore_report", {
+  "provider_id": "github-integration-009",
+  "outcome": "success",
+  "latency_ms": 120
+});</code>
+                    </div>
+                </article>
+
+                <!-- Rank Providers -->
+                <article class="api-card">
+                    <h3>trustscore_rank</h3>
+                    <p>Get ranked list of providers by trust score. Filter by task type and minimum score.</p>
+                    <div class="code-block">
+                        <button class="copy-button" aria-label="Copy code"><span class="copy-icon">📋</span> Copy</button>
+                        <code>// Rank multiple providers
+await mcp.call_tool("trustscore_rank", {
+  "providers": ["provider-a", "provider-b"],
+  "min_score": 0.7
+});</code>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Integrations -->
+        <section id="integrations" class="section" aria-labelledby="integrations-heading">
+            <div class="section-header">
+                <h2 id="integrations-heading" class="section-title">MCP Compatible</h2>
+                <p class="section-subtitle">Works with any MCP client</p>
+            </div>
+            <div class="integration-grid" role="list">
+                <div class="integration-tile" role="listitem">
+                    <div class="integration-icon" aria-hidden="true">🎭</div>
+                    <div class="integration-name">Claude Desktop</div>
+                </div>
+                <div class="integration-tile" role="listitem">
+                    <div class="integration-icon" aria-hidden="true">✨</div>
+                    <div class="integration-name">Cursor</div>
+                </div>
+                <div class="integration-tile" role="listitem">
+                    <div class="integration-icon" aria-hidden="true">🔧</div>
+                    <div class="integration-name">Cline</div>
+                </div>
+                <div class="integration-tile" role="listitem">
+                    <div class="integration-icon" aria-hidden="true">▶️</div>
+                    <div class="integration-name">Continue</div>
+                </div>
+                <div class="integration-tile" role="listitem">
+                    <div class="integration-icon" aria-hidden="true">🐍</div>
+                    <div class="integration-name">Python MCP</div>
+                </div>
+                <div class="integration-tile" role="listitem">
+                    <div class="integration-icon" aria-hidden="true">📘</div>
+                    <div class="integration-name">TypeScript MCP</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-banner" aria-labelledby="cta-heading">
+            <h2 id="cta-heading">Start Tracking Trust</h2>
+            <p>Open source. MIT License. Install from GitHub.</p>
+            <div class="btn-group">
+                <a href="https://github.com/bensargotest-sys/trustscore" class="btn">Get Started</a>
+                <a href="https://github.com/bensargotest-sys/trustscore#readme" class="btn">Documentation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#api">API Reference</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore#readme">Documentation</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/ROADMAP.md">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/issues">Issues</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Project</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/LICENSE">MIT License</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/PERFORMANCE.md">Performance</a></li>
+                        <li><a href="https://github.com/bensargotest-sys">Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Status</h4>
+                    <ul class="footer-links">
+                        <li><a href="#stats">Statistics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TrustScore. Open source under MIT License. Trust scores based on synthetic baseline and community reports.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuButton = document.querySelector('.mobile-menu-button');
+        const navLinks = document.querySelector('.nav-links');
+        const menuOverlay = document.querySelector('.menu-overlay');
+
+        function toggleMenu() {
+            const isOpen = navLinks.classList.toggle('open');
+            menuOverlay.classList.toggle('active');
+            menuButton.setAttribute('aria-expanded', isOpen);
+            menuButton.textContent = isOpen ? '✕' : '☰';
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                toggleMenu();
+            }
+        });
+
+        // Code Copy Functionality
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', async () => {
+                const codeBlock = button.nextElementSibling;
+                const code = codeBlock.textContent;
+                
+                try {
+                    // Try modern clipboard API
+                    await navigator.clipboard.writeText(code);
+                    showCopiedState(button);
+                } catch (err) {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = code;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-9999px';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        showCopiedState(button);
+                    } catch (e) {
+                        console.error('Copy failed:', e);
+                    }
+                    document.body.removeChild(textArea);
+                }
+            });
+        });
+
+        function showCopiedState(button) {
+            button.classList.add('copied');
+            button.querySelector('.copy-icon').textContent = '✅';
+            button.childNodes[1].textContent = ' Copied!';
+            
+            setTimeout(() => {
+                button.classList.remove('copied');
+                button.querySelector('.copy-icon').textContent = '📋';
+                button.childNodes[1].textContent = ' Copy';
+            }, 2000);
+        }
+
+        // Add screen reader only class for hidden headings
+        const style = document.createElement('style');
+        style.textContent = '.sr-only { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }';
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
