@@ -303,13 +303,40 @@
 
         footer a:hover { color: var(--white); }
 
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--black);
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             h1 { font-size: 32px; }
             h2 { font-size: 28px; }
             
+            .menu-toggle {
+                display: block;
+            }
+            
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: 1px solid var(--grey-mid);
+                flex-direction: column;
+                padding: 16px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.open {
+                display: flex;
             }
             
             .btn-secondary {
@@ -334,10 +361,13 @@
     <header>
         <nav class="container">
             <a href="#" class="logo">TrustScore</a>
-            <ul class="nav-links">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span id="menuIcon">☰</span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#install">Install</a></li>
                 <li><a href="#tools">Tools</a></li>
-                <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
+                <li><a href="https://github.com/bensargotest-sys/trustscore" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
         </nav>
     </header>
@@ -347,9 +377,19 @@
         <section class="hero">
             <h1>TrustScore - Trust and reputation scores for AI agent service selection</h1>
             <p class="tagline">TrustScore is an MCP server that helps AI agents make better decisions about which service providers to trust. Think of it as a <strong>credit score for APIs, agents, and tools</strong>.</p>
+            
+            <!-- Search Form -->
+            <form class="search-form" onsubmit="handleSearch(event)" style="margin: 32px auto; max-width: 600px;">
+                <div style="display: flex; gap: 12px;">
+                    <input type="text" id="searchInput" placeholder="Search providers..." style="flex: 1; padding: 14px 20px; border: 2px solid var(--grey-mid); border-radius: var(--border-radius); font-size: 16px;">
+                    <button type="submit" class="btn btn-primary">Search Now</button>
+                </div>
+                <div id="searchResults" style="margin-top: 16px; text-align: left; padding: 16px; background: var(--grey-light); border-radius: var(--border-radius); display: none;"></div>
+            </form>
+            
             <div>
                 <a href="#install" class="btn btn-primary">Get Started</a>
-                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary">View on GitHub</a>
+                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             </div>
         </section>
 
@@ -437,13 +477,13 @@ trustscore
         <section class="cta-banner">
             <h2>Ready to Start?</h2>
             <p>Install TrustScore and start making smarter decisions about service providers.</p>
-            <a href="https://github.com/bensargotest-sys/trustscore" class="btn">View Documentation</a>
+            <a href="https://github.com/bensargotest-sys/trustscore" class="btn" target="_blank" rel="noopener noreferrer">View Documentation</a>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>TrustScore • <a href="https://github.com/bensargotest-sys/trustscore">GitHub</a> • Open Source (MIT License)</p>
+            <p>TrustScore • <a href="https://github.com/bensargotest-sys/trustscore" target="_blank" rel="noopener noreferrer">GitHub</a> • Open Source (MIT License)</p>
         </div>
     </footer>
 
@@ -462,6 +502,63 @@ trustscore
                 }, 2000);
             });
         }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.getElementById('menuIcon');
+            
+            navLinks.classList.toggle('open');
+            
+            // Toggle icon between hamburger and X
+            if (navLinks.classList.contains('open')) {
+                menuIcon.textContent = '✕';
+            } else {
+                menuIcon.textContent = '☰';
+            }
+        }
+
+        function handleSearch(event) {
+            event.preventDefault();
+            
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            const query = searchInput.value.trim();
+            
+            if (!query) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            // Show loading state
+            searchResults.style.display = 'block';
+            searchResults.innerHTML = '<p style="color: var(--grey-dark);">🔍 Searching for "' + query + '"...</p>';
+            
+            // Simulate search (in production, this would call an API)
+            setTimeout(() => {
+                searchResults.innerHTML = `
+                    <p style="color: var(--grey-dark); margin-bottom: 8px;"><strong>Search Results for "${query}"</strong></p>
+                    <p style="color: var(--grey-dark); font-size: 14px;">
+                        Search functionality is currently in development. 
+                        Try browsing the <a href="#tools" style="color: var(--orange);">MCP Tools</a> section or 
+                        visit our <a href="https://github.com/bensargotest-sys/trustscore" target="_blank" rel="noopener noreferrer" style="color: var(--orange);">GitHub repository</a> 
+                        for more information.
+                    </p>
+                `;
+            }, 500);
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (navLinks && navLinks.classList.contains('open')) {
+                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                    navLinks.classList.remove('open');
+                    document.getElementById('menuIcon').textContent = '☰';
+                }
+            }
+        });
     </script>
 </body>
 </html>
