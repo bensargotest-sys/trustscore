@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Credit score for APIs. Know which services your AI agent can trust.">
-    <title>TrustScore - Credit Score for APIs</title>
+    <meta name="description" content="MCP server that helps AI agents make better decisions about which services to trust. Real-time reliability scores for 200+ MCP servers.">
+    <title>TrustScore - Trust Scores for MCP Servers</title>
     
     <style>
         * {
@@ -44,9 +44,9 @@
         }
 
         .header-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -71,32 +71,36 @@
             color: var(--orange);
         }
 
-        /* Hero Section - Above Fold */
+        /* Hero Section */
         .hero {
-            min-height: 85vh;
+            min-height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 80px 24px;
+            padding: 80px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: 700;
             letter-spacing: -0.03em;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 24px;
             color: var(--black);
+            max-width: 900px;
         }
 
         .hero .subhead {
-            font-size: 24px;
+            font-size: 22px;
             color: var(--grey-dark);
-            margin-bottom: 48px;
+            margin-bottom: 40px;
             font-weight: 400;
-            max-width: 600px;
+            max-width: 700px;
+            line-height: 1.5;
         }
 
         .cta-buttons {
@@ -142,10 +146,10 @@
             color: var(--orange);
         }
 
-        /* Below Fold - Spacious Sections */
+        /* Sections */
         .section {
-            padding: 80px 24px;
-            max-width: 1000px;
+            padding: 80px 32px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -157,8 +161,34 @@
             font-size: 36px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 56px;
             letter-spacing: -0.02em;
+        }
+
+        /* What It Does */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .value-prop {
+            padding: 32px;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--grey-mid);
+        }
+
+        .value-prop h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--orange);
+        }
+
+        .value-prop p {
+            color: var(--grey-dark);
+            line-height: 1.6;
         }
 
         /* How It Works - 3 Steps */
@@ -183,48 +213,45 @@
             justify-content: center;
             font-size: 36px;
             margin: 0 auto 24px;
+            box-shadow: 0 4px 12px rgba(217, 78, 31, 0.2);
         }
 
         .step h3 {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 22px;
             margin-bottom: 12px;
         }
 
         .step p {
             color: var(--grey-dark);
-            font-size: 16px;
-            line-height: 1.6;
         }
 
         /* Example Score Card */
         .score-card {
-            max-width: 600px;
-            margin: 0 auto;
             background: var(--white);
-            border: 2px solid var(--grey-mid);
             border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--grey-mid);
         }
 
         .score-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid var(--grey-mid);
         }
 
-        .score-header h3 {
-            font-size: 24px;
+        .provider-name {
+            font-size: 28px;
             font-weight: 700;
-            color: var(--black);
         }
 
         .score-badge {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 700;
             color: var(--orange);
         }
@@ -232,75 +259,72 @@
         .score-details {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 24px;
         }
 
-        .score-metric {
-            padding: 12px;
+        .metric {
+            padding: 16px;
             background: var(--grey-light);
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
-        .score-metric .label {
+        .metric-label {
             font-size: 14px;
             color: var(--grey-dark);
             margin-bottom: 4px;
         }
 
-        .score-metric .value {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--black);
+        .metric-value {
+            font-size: 22px;
+            font-weight: 700;
         }
 
-        /* Install Code */
+        /* Installation Code Block */
         .code-block {
             background: var(--black);
-            color: var(--grey-light);
+            color: var(--white);
             padding: 32px;
             border-radius: 16px;
-            overflow-x: auto;
-            margin: 0 auto;
+            margin: 40px auto;
             max-width: 700px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             position: relative;
         }
 
         .code-block pre {
-            margin: 0;
-            font-family: 'SF Mono', Monaco, monospace;
-            font-size: 16px;
-            line-height: 1.8;
-            white-space: pre;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            overflow-x: auto;
         }
 
-        .copy-button {
+        .code-block code {
+            color: #4AF626;
+        }
+
+        .copy-btn {
             position: absolute;
             top: 16px;
             right: 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--grey-dark);
             color: var(--white);
+            border: none;
             padding: 8px 16px;
             border-radius: 8px;
-            font-size: 14px;
             cursor: pointer;
-            transition: all 0.3s;
+            font-size: 14px;
+            transition: background 0.3s;
         }
 
-        .copy-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .copy-button.copied {
+        .copy-btn:hover {
             background: var(--orange);
-            border-color: var(--orange);
         }
 
         /* Footer */
         footer {
             background: var(--black);
             color: var(--grey-mid);
-            padding: 48px 24px;
+            padding: 48px 32px;
             text-align: center;
         }
 
@@ -317,12 +341,12 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .hero {
-                min-height: 70vh;
+                min-height: 65vh;
                 padding: 60px 24px;
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .hero .subhead {
@@ -346,12 +370,19 @@
 
             .section h2 {
                 font-size: 28px;
-                margin-bottom: 48px;
+                margin-bottom: 40px;
             }
 
+            .value-props,
             .steps {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
+            }
+
+            .score-header {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
             }
 
             .score-details {
@@ -369,7 +400,7 @@
     </style>
 </head>
 <body>
-    <!-- Minimal Header -->
+    <!-- Header -->
     <header>
         <div class="header-container">
             <a href="#" class="logo">TrustScore</a>
@@ -377,14 +408,33 @@
         </div>
     </header>
 
-    <!-- Hero - Above Fold -->
+    <!-- Hero -->
     <section class="hero">
-        <h1>Credit Score for APIs</h1>
-        <p class="subhead">Know which services your AI agent can trust</p>
+        <h1>MCP Server That Helps AI Agents Make Better Trust Decisions</h1>
+        <p class="subhead">Real-time reliability scores for 200+ MCP servers. Know which services your AI agent can trust before making the call.</p>
         
         <div class="cta-buttons">
             <a href="#install" class="btn btn-primary">Get Started</a>
-            <a href="#example" class="btn btn-secondary">View Scores →</a>
+            <a href="#example" class="btn btn-secondary">View Example →</a>
+        </div>
+    </section>
+
+    <!-- What It Does -->
+    <section class="section" style="background: var(--grey-light);">
+        <h2>What TrustScore Does</h2>
+        <div class="value-props">
+            <div class="value-prop">
+                <h3>For AI Agents</h3>
+                <p>Query reliability scores before calling external services. Make smarter decisions about which APIs to trust with your user's requests.</p>
+            </div>
+            <div class="value-prop">
+                <h3>For Developers</h3>
+                <p>Add trust scoring to your AI applications in minutes. Works with Claude Desktop, OpenClaw, and any MCP-compatible platform.</p>
+            </div>
+            <div class="value-prop">
+                <h3>Real-Time Data</h3>
+                <p>Scores based on 9,000+ actual reliability checks across 200+ MCP servers. Updated continuously by reporter agents in production.</p>
+            </div>
         </div>
     </section>
 
@@ -394,62 +444,62 @@
         <div class="steps">
             <div class="step">
                 <div class="step-icon">📊</div>
-                <h3>Report Outcomes</h3>
-                <p>Agents report success or failure after each service call</p>
+                <h3>Agents Report</h3>
+                <p>Reporter agents call services and log success/failure outcomes to TrustScore's database.</p>
             </div>
             <div class="step">
                 <div class="step-icon">🧮</div>
-                <h3>Calculate Scores</h3>
-                <p>TrustScore aggregates data into reliability metrics</p>
+                <h3>Scores Calculated</h3>
+                <p>TrustScore aggregates reliability data into 0-100 scores based on success rate, latency, and uptime.</p>
             </div>
             <div class="step">
                 <div class="step-icon">✅</div>
-                <h3>Make Decisions</h3>
-                <p>Query scores before picking a service provider</p>
+                <h3>Better Decisions</h3>
+                <p>Your AI agent queries scores before making service calls, choosing the most reliable provider.</p>
             </div>
         </div>
     </section>
 
-    <!-- Example Score Card -->
-    <section id="example" class="section" style="background: var(--grey-light);">
-        <h2>Example Score</h2>
+    <!-- Example Score -->
+    <section class="section" id="example" style="background: var(--grey-light);">
+        <h2>Example Trust Score</h2>
         <div class="score-card">
             <div class="score-header">
-                <h3>Uniswap V3</h3>
+                <div class="provider-name">Uniswap V3</div>
                 <div class="score-badge">95</div>
             </div>
             <div class="score-details">
-                <div class="score-metric">
-                    <div class="label">Success Rate</div>
-                    <div class="value">99.2%</div>
+                <div class="metric">
+                    <div class="metric-label">Success Rate</div>
+                    <div class="metric-value">99.2%</div>
                 </div>
-                <div class="score-metric">
-                    <div class="label">Avg Latency</div>
-                    <div class="value">180ms</div>
+                <div class="metric">
+                    <div class="metric-label">Avg Latency</div>
+                    <div class="metric-value">180ms</div>
                 </div>
-                <div class="score-metric">
-                    <div class="label">Total Calls</div>
-                    <div class="value">12,847</div>
+                <div class="metric">
+                    <div class="metric-label">Total Calls</div>
+                    <div class="metric-value">12,847</div>
                 </div>
-                <div class="score-metric">
-                    <div class="label">Last 7 Days</div>
-                    <div class="value">98.8%</div>
+                <div class="metric">
+                    <div class="metric-label">Last 7 Days</div>
+                    <div class="metric-value">98.8%</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Install Instructions -->
-    <section id="install" class="section">
+    <!-- Installation -->
+    <section class="section" id="install">
         <h2>Get Started</h2>
         <div class="code-block">
-            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-            <pre>pip install trustscore-mcp
+            <button class="copy-btn" onclick="copyCode()">Copy</button>
+            <pre><code>pip install trustscore-mcp
 python scripts/seed_database.py
-trustscore</pre>
+trustscore</code></pre>
         </div>
         <div style="text-align: center; margin-top: 32px;">
-            <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Documentation →</a>
+            <a href="https://github.com/bensargotest-sys/trustscore#readme" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Documentation →</a>
         </div>
     </section>
 
@@ -459,18 +509,12 @@ trustscore</pre>
     </footer>
 
     <script>
-        function copyCode(button) {
-            const codeBlock = button.nextElementSibling;
-            const text = codeBlock.textContent;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                button.textContent = 'Copied!';
-                button.classList.add('copied');
-                
-                setTimeout(() => {
-                    button.textContent = 'Copy';
-                    button.classList.remove('copied');
-                }, 2000);
+        function copyCode() {
+            const code = document.querySelector('.code-block code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
             });
         }
     </script>
