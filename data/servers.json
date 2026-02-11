@@ -1,0 +1,82 @@
+[
+  {
+    "provider_id": "microsoft-playwright-001",
+    "name": "Playwright Browser Automation",
+    "endpoint": "[UNVERIFIED] https://example.com/microsoft-playwright",
+    "task_types": ["browser_automation", "web_navigation", "ui_testing"],
+    "description": "Enables web browser control for navigating websites, capturing page snapshots, interacting with elements, and taking screenshots.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "google-chrome-devtools-002",
+    "name": "Chrome DevTools",
+    "endpoint": "[UNVERIFIED] https://example.com/chrome-devtools",
+    "task_types": ["browser_control", "web_debugging", "performance_analysis"],
+    "description": "Provides direct Chrome browser control through DevTools for web automation, debugging, and performance analysis.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "upstash-context7-003",
+    "name": "Context7 (Documentation Database)",
+    "endpoint": "[UNVERIFIED] https://example.com/upstash-context7",
+    "task_types": ["documentation_access", "library_reference"],
+    "description": "Connects to Context7.com's documentation database to provide up-to-date library and framework documentation.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "aws-documentation-004",
+    "name": "AWS Documentation",
+    "endpoint": "[UNVERIFIED] https://example.com/aws-documentation",
+    "task_types": ["documentation_access", "cloud_services"],
+    "description": "Provides tools to access AWS documentation, search for content, and get recommendations.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-filesystem-005",
+    "name": "Filesystem",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-filesystem",
+    "task_types": ["file_management", "data_access"],
+    "description": "Read, write, and manipulate local files through a controlled API.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "storybook-addon-006",
+    "name": "Storybook",
+    "endpoint": "[UNVERIFIED] https://example.com/storybook-addon-mcp",
+    "task_types": ["ui_testing", "component_development"],
+    "description": "Help agents automatically write and test stories for your UI components.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-fetch-007",
+    "name": "Fetch",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-fetch",
+    "task_types": ["web_content_retrieval", "data_conversion"],
+    "description": "Retrieve and convert web content to markdown for analysis.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "supabase-integration-008",
+    "name": "Supabase",
+    "endpoint": "[UNVERIFIED] https://example.com/supabase",
+    "task_types": ["database_management", "sql_execution"],
+    "description": "Connects directly to Supabase projects for managing databases, executing SQL queries, applying migrations.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "github-integration-009",
+    "name": "GitHub",
+    "endpoint": "[UNVERIFIED] https://example.com/github",
+    "task_types": ["version_control", "issue_management"],
+    "description": "Integration with GitHub Issues, Pull Requests, and more.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "mcp-sequential-thinking-010",
+    "name": "Sequential Thinking",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-sequential-thinking",
+    "task_types": ["problem_solving", "decision_making"],
+    "description": "Implements a structured sequential thinking process for breaking down complex problems, iteratively refining solutions.",
+    "source": "https://www.pulsemcp.com/servers"
+  }
+]
