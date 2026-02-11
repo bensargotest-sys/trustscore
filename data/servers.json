@@ -78,5 +78,165 @@
     "task_types": ["problem_solving", "decision_making"],
     "description": "Implements a structured sequential thinking process for breaking down complex problems, iteratively refining solutions.",
     "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-git-011",
+    "name": "Git",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-git",
+    "task_types": ["version_control", "repository_management"],
+    "description": "Interact with local Git repositories for version control tasks.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "ruvnet-claude-flow-012",
+    "name": "Claude Flow",
+    "endpoint": "[UNVERIFIED] https://example.com/ruvnet-claude-flow",
+    "task_types": ["agent_orchestration", "workflow_coordination"],
+    "description": "Agent orchestration platform with multi-agent swarms, workflow coordination, and conversational AI systems.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "sooperset-atlassian-013",
+    "name": "Atlassian Cloud",
+    "endpoint": "[UNVERIFIED] https://example.com/sooperset-atlassian",
+    "task_types": ["project_management", "documentation_access"],
+    "description": "Access Confluence pages and Jira issues via Atlassian API.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-memory-014",
+    "name": "Knowledge Graph Memory",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-memory",
+    "task_types": ["data_management", "semantic_networks"],
+    "description": "Build and query persistent semantic networks for data management.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-time-015",
+    "name": "Time",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-time",
+    "task_types": ["time_management", "timezone_conversion"],
+    "description": "MCP server providing time and timezone conversion tools for AI assistants to handle localized time data.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-github-016",
+    "name": "GitHub",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-github",
+    "task_types": ["repository_management", "issue_tracking"],
+    "description": "Manage repositories, issues, and search code via GitHub API.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "notion-integration-017",
+    "name": "Notion",
+    "endpoint": "[UNVERIFIED] https://example.com/notion",
+    "task_types": ["content_management", "database_querying"],
+    "description": "Bridges to the Notion API for searching content, querying databases, and managing pages and comments.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-demo-everything-018",
+    "name": "Demo (Everything)",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-demo-everything",
+    "task_types": ["protocol_testing", "client_compatibility"],
+    "description": "Test protocol features and tools for client compatibility.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "lauriewired-ghidra-019",
+    "name": "Ghidra",
+    "endpoint": "[UNVERIFIED] https://example.com/lauriewired-ghidra",
+    "task_types": ["binary_analysis", "decompilation"],
+    "description": "Decompile and analyze binaries in Ghidra.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "zapier-integration-020",
+    "name": "Zapier",
+    "endpoint": "[UNVERIFIED] https://example.com/zapier",
+    "task_types": ["workflow_automation", "app_integration"],
+    "description": "Generate a dynamic MCP server that connects to any of your favorite 8000+ apps on Zapier.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "czlonkowski-n8n-021",
+    "name": "n8n",
+    "endpoint": "[UNVERIFIED] https://example.com/czlonkowski-n8n",
+    "task_types": ["workflow_automation", "app_integration"],
+    "description": "Integrates with n8n workflow automation platform to provide conversational access to 525+ nodes including AI-capable ones.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "anthropic-postgres-022",
+    "name": "PostgreSQL",
+    "endpoint": "[UNVERIFIED] https://example.com/modelcontextprotocol-postgres",
+    "task_types": ["database_management", "data_analysis"],
+    "description": "Access and analyze Postgres databases with read-only queries.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "webflow-integration-023",
+    "name": "Webflow",
+    "endpoint": "[UNVERIFIED] https://example.com/webflow",
+    "task_types": ["web_design", "content_management"],
+    "description": "AI-powered design and management for Webflow sites via the Data API and Designer API.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "hejie-calculator-024",
+    "name": "Calculator",
+    "endpoint": "[UNVERIFIED] https://example.com/hejie-calculator",
+    "task_types": ["mathematics", "expression_evaluation"],
+    "description": "Provides a secure mathematical expression evaluation service using Python's AST module for basic operations.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "justinpbarnett-unity-025",
+    "name": "Unity",
+    "endpoint": "[UNVERIFIED] https://example.com/justinpbarnett-unity",
+    "task_types": ["game_development", "editor_automation"],
+    "description": "Allow MCP clients to perform Unity Editor actions.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "tavily-search-026",
+    "name": "Tavily Search",
+    "endpoint": "[UNVERIFIED] https://example.com/tavily-search",
+    "task_types": ["web_search", "content_extraction"],
+    "description": "Integrates with Tavily API to provide real-time web search and content extraction capabilities for research.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "homeassistant-ai-027",
+    "name": "Home Assistant",
+    "endpoint": "[UNVERIFIED] https://example.com/homeassistant-ai",
+    "task_types": ["smart_home_control", "automation_management"],
+    "description": "Enables natural language control of Home Assistant smart home devices, automations, and system management.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "crystaldba-postgres-028",
+    "name": "PostgreSQL",
+    "endpoint": "[UNVERIFIED] https://example.com/crystaldba-postgres",
+    "task_types": ["database_management", "performance_tuning"],
+    "description": "Helps you and your AI agents throughout the entire development process—from writing SQL to tuning performance safely.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "ahujasid-blender-029",
+    "name": "Blender",
+    "endpoint": "[UNVERIFIED] https://example.com/ahujasid-blender",
+    "task_types": ["3d_modeling", "scene_creation"],
+    "description": "Enables natural language control of Blender for 3D scene creation, manipulation, and rendering.",
+    "source": "https://www.pulsemcp.com/servers"
+  },
+  {
+    "provider_id": "mongodb-js-mongodb-030",
+    "name": "MongoDB",
+    "endpoint": "[UNVERIFIED] https://example.com/mongodb-js-mongodb",
+    "task_types": ["database_management", "data_operations"],
+    "description": "Provides a bridge between MongoDB databases and conversational interfaces, enabling comprehensive database operations.",
+    "source": "https://www.pulsemcp.com/servers"
   }
 ]
