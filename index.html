@@ -3,51 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vetted provides reliability scores for 200+ MCP servers. See which tools actually work, backed by real agent usage.">
-    <meta name="keywords" content="AI agents, trust scoring, MCP, reliability, API monitoring">
-    <title>Vetted - Know Which AI Services You Can Trust</title>
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Vetted - Trust Scores for AI Services">
-    <meta property="og:description" content="Know which AI services you can trust. Reliability scores backed by real agent usage.">
-    <meta property="og:url" content="https://trustscore-website.vercel.app">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vetted - Trust Scores for AI Services">
-    <meta name="twitter:description" content="Reliability scores for 200+ MCP servers backed by real agent usage.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23FF6B35' width='100' height='100' rx='20'/><path d='M30 35h40v8H52v32h-8V43H30z' fill='white'/></svg>">
-    
-    <!-- Structured data for AI agents -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Vetted",
-      "description": "Trust and reputation scoring system for AI agent service selection",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Linux, macOS, Windows",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "provider": {
-        "@type": "Organization",
-        "name": "Vetted"
-      },
-      "codeRepository": "https://github.com/bensargotest-sys/trustscore"
-    }
-    </script>
+    <meta name="description" content="TrustScore - Trust and reputation scores for AI agent service selection. Credit score for APIs, agents, and tools.">
+    <title>TrustScore - Trust Scores for AI Agent Service Selection</title>
     
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box !important;
+            box-sizing: border-box;
         }
 
         :root {
@@ -58,29 +21,9 @@
             --grey-light: #F5F5F5;
             --grey-mid: #E0E0E0;
             --grey-dark: #595959;
-            
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 32px;
-            --spacing-xl: 48px;
-            --spacing-xxl: 96px;
-            
+            --spacing: 24px;
+            --spacing-lg: 48px;
             --border-radius: 12px;
-            --transition: all 0.25s ease;
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
-            --shadow-orange: 0 8px 24px rgba(255, 107, 53, 0.3);
-        }
-
-        html {
-            scroll-padding-top: 80px;
-            scroll-behavior: smooth;
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
-            box-sizing: border-box !important;
         }
 
         body {
@@ -90,874 +33,144 @@
             font-size: 16px;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
-            box-sizing: border-box !important;
         }
 
-        /* Screen Reader Only */
-        .sr-only { 
-            position: absolute; 
-            left: -10000px; 
-            width: 1px; 
-            height: 1px; 
-            overflow: hidden; 
-        }
-
-        /* Skip Link */
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: 0;
-            background: var(--orange);
-            color: var(--white);
-            padding: 14px 24px;
-            z-index: 9999;
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: var(--border-radius);
-        }
-        .skip-link:focus {
-            left: 10px;
-            top: 10px;
-            z-index: 10000;
-            box-shadow: var(--shadow-lg);
-            outline: 3px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        /* Focus Indicators */
-        a:focus, 
-        button:focus,
-        .btn:focus {
-            outline: 3px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; }
-        h1 { font-size: 56px; line-height: 1.1; }
-        h2 { font-size: 42px; line-height: 1.2; }
-        h3 { font-size: 32px; line-height: 1.3; }
-        h4 { font-size: 24px; line-height: 1.4; font-weight: 600; }
+        h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+        h1 { font-size: 48px; margin-bottom: 16px; }
+        h2 { font-size: 36px; margin-bottom: 24px; }
+        h3 { font-size: 24px; margin-bottom: 16px; }
 
         .container { 
-            max-width: 1200px;
-            width: 100%;
+            max-width: 1000px;
             margin: 0 auto; 
-            padding: 0 var(--spacing-md);
-            box-sizing: border-box;
+            padding: 0 var(--spacing);
         }
 
         /* Header */
         header {
-            padding: var(--spacing-md) 0;
+            padding: 24px 0;
             background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid var(--grey-mid);
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(20px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
-        nav { display: flex; justify-content: space-between; align-items: center; }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
 
         .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--black);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
             text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: var(--spacing-xl);
+            gap: 32px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--grey-dark);
             text-decoration: none;
-            font-size: 15px;
             font-weight: 500;
-            padding: 8px 0;
-            transition: var(--transition);
-            min-height: 44px;
-            display: flex;
-            align-items: center;
+            transition: color 0.25s;
         }
 
-        .nav-links a:hover { 
-            color: var(--orange);
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--black);
-            min-width: 44px;
-            min-height: 44px;
-            padding: 10px;
-            align-items: center;
-            justify-content: center;
-        }
+        .nav-links a:hover { color: var(--orange); }
 
         /* Hero */
         .hero {
-            padding: var(--spacing-xxl) 0;
+            padding: var(--spacing-lg) 0;
             text-align: center;
-            position: relative;
-            background: linear-gradient(180deg, 
-                rgba(255, 107, 53, 0.03) 0%, 
-                rgba(255, 255, 255, 0) 100%);
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero h1 { 
-            margin-bottom: var(--spacing-md); 
-            position: relative; 
-            z-index: 1;
-            background: linear-gradient(135deg, var(--black) 0%, var(--grey-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-tagline {
-            font-size: 22px;
-            color: #2a2a2a;
-            max-width: 800px;
-            margin: var(--spacing-md) auto;
-            line-height: 1.5;
-            position: relative;
-            z-index: 1;
-            font-weight: 400;
-        }
-
-        .hero-tagline strong {
-            color: var(--orange);
-            font-weight: 600;
-            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: #4a4a4a;
+        .tagline {
+            font-size: 20px;
+            color: var(--grey-dark);
             max-width: 700px;
-            margin: 0 auto var(--spacing-lg);
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* MOBILE FIX: Social Proof Bar - Professional Styling */
-        .social-proof-bar {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            flex-wrap: wrap;
-            margin: var(--spacing-xl) 0;
-            padding: var(--spacing-md);
-            background: white;
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            position: relative;
-            z-index: 1;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .proof-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--grey-dark);
-        }
-
-        .proof-icon {
-            font-size: 22px;
-            filter: grayscale(0.2);
-        }
-
-        /* CTA Search Container */
-        .cta-search-container {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-            align-items: center;
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .search-box {
-            display: flex;
-            gap: var(--spacing-sm);
-            width: 100%;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .search-input {
-            flex: 1;
-            min-width: 280px;
-            padding: 16px 24px;
-            border: 2px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            font-size: 16px;
-            transition: var(--transition);
-            outline: none;
-        }
-
-        .search-input:focus {
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-        }
-
-        .search-btn {
-            white-space: nowrap;
-        }
-
-        /* Example Scorecard */
-        .example-scorecard {
-            max-width: 900px;
-            margin: var(--spacing-xl) auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        .scorecard {
-            background: var(--white);
-            border: 2px solid var(--orange);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-
-        .scorecard::before {
-            content: "Live Example";
-            position: absolute;
-            top: -12px;
-            left: 24px;
-            background: var(--orange);
-            color: var(--white);
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .scorecard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: var(--spacing-lg);
-            flex-wrap: wrap;
-            gap: var(--spacing-md);
-        }
-
-        .scorecard-title h3 {
-            font-size: 28px;
-            margin-bottom: 8px;
-            color: var(--black);
-        }
-
-        .scorecard-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--orange), #ff8c5a);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .scorecard-score {
-            text-align: right;
-        }
-
-        .score-big {
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--orange);
-            line-height: 1;
-        }
-
-        .score-suffix {
-            font-size: 24px;
-            color: var(--grey-dark);
-        }
-
-        .score-status {
-            color: var(--grey-dark);
-            font-size: 14px;
-            font-weight: 500;
-            margin-top: 4px;
-        }
-
-        .scorecard-metrics {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .metric {
-            display: grid;
-            grid-template-columns: 100px 1fr 60px;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .metric-label {
-            font-weight: 500;
-            color: var(--grey-dark);
-            font-size: 14px;
-        }
-
-        .metric-bar {
-            height: 12px;
-            background: var(--grey-mid);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .metric-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--orange), #ff8c5a);
-            border-radius: 6px;
-            transition: width 0.3s ease;
-        }
-
-        .metric-value {
-            text-align: right;
-            font-weight: 600;
-            color: var(--orange);
-            font-size: 14px;
-        }
-
-        .scorecard-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: var(--spacing-md);
-            border-top: 1px solid var(--grey-mid);
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-        }
-
-        .scorecard-reports {
-            color: var(--grey-dark);
-            font-size: 14px;
-        }
-
-        .scorecard-link {
-            color: var(--orange);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
-        }
-
-        .scorecard-link:hover {
-            color: var(--orange-dark);
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background: var(--grey-light);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-xxl) 0;
-        }
-
-        .how-it-works h2 {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .how-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: var(--spacing-xl);
-        }
-
-        .how-step {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            text-align: center;
-            position: relative;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .how-step:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--orange);
-        }
-
-        .step-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto var(--spacing-md);
-        }
-
-        .step-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .step-number {
-            position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-md);
-            width: 32px;
-            height: 32px;
-            background: var(--orange);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .how-step h4 {
-            margin-bottom: var(--spacing-sm);
-            color: var(--black);
-        }
-
-        .how-step p {
-            color: var(--grey-dark);
-            font-size: 15px;
+            margin: 0 auto 32px;
             line-height: 1.6;
         }
 
         /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
         .btn {
-            padding: 16px 32px;
+            display: inline-block;
+            padding: 14px 28px;
             border-radius: var(--border-radius);
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
+            transition: all 0.25s;
             cursor: pointer;
-            min-height: 44px;
-            min-width: 44px;
+            border: none;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
+            background: var(--orange);
             color: var(--white);
-            padding: 16px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
         }
 
         .btn-primary:hover {
+            background: var(--orange-dark);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-orange);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-            background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
         }
 
         .btn-secondary {
             background: var(--grey-light);
             color: var(--black);
-            padding: 16px 32px;
-            box-shadow: var(--shadow-sm);
+            margin-left: 16px;
         }
 
-        .btn-secondary:hover { 
-            background: var(--grey-mid);
-            box-shadow: var(--shadow-md);
+        .btn-secondary:hover { background: var(--grey-mid); }
+
+        /* Sections */
+        .section { 
+            padding: var(--spacing-lg) 0; 
         }
 
-        /* Stats Dashboard */
-        .stats-dashboard {
+        .section:nth-of-type(even) {
             background: var(--grey-light);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-lg) 0;
-            box-shadow: var(--shadow-sm);
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .stat-tile {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            text-align: center;
-            transition: var(--transition);
-            cursor: default;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .stat-tile:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--orange);
-        }
-
-        .stat-tile:first-child {
-            border: 2px solid var(--orange);
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.02) 0%, var(--white) 100%);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--orange);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .stat-tile:first-child .stat-number {
-            font-size: 64px;
-            background: linear-gradient(135deg, var(--orange), #ff8c5a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: var(--grey-dark);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        /* Tile Grid */
-        .tile-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-md);
-            margin: var(--spacing-lg) 0;
-        }
-
-        .tile {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            transition: var(--transition);
-            position: relative;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .tile:hover {
-            border-color: var(--orange);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .tile-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            margin-bottom: var(--spacing-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tile h3 { 
-            font-size: 24px;
-            margin-bottom: var(--spacing-sm); 
-        }
-        
-        .tile p { 
-            color: var(--grey-dark); 
-            font-size: 15px; 
-            line-height: 1.6; 
-        }
-
-        /* SVG Icons */
-        .icon-svg {
-            width: 100%;
-            height: 100%;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .tile:nth-child(1) .tile-icon,
-        .tile:nth-child(4) .tile-icon,
-        .tile:nth-child(6) .tile-icon {
-            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
-            color: var(--white);
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
-        }
-
-        .tile:nth-child(2) .tile-icon,
-        .tile:nth-child(3) .tile-icon,
-        .tile:nth-child(5) .tile-icon {
-            background: var(--grey-light);
-            color: var(--orange);
-        }
-
-        /* Live Data */
-        .live-data {
-            background: var(--grey-light);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-lg) 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .live-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--spacing-md);
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-        }
-
-        .live-indicator {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--grey-dark);
-            font-size: 14px;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .live-indicator::before {
-            content: "●";
-            color: var(--orange);
-            margin-right: 6px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .provider-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        .provider-item {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: 8px;
-            padding: var(--spacing-md);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            transition: var(--transition);
-            cursor: default;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .provider-item:hover {
-            background: rgba(255, 107, 53, 0.02);
-            border-color: var(--orange);
-            box-shadow: var(--shadow-md);
-        }
-
-        .provider-name { 
-            font-weight: 500; 
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .trust-score {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .score-bar {
-            width: 100px;
-            height: 8px;
-            background: var(--grey-mid);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .score-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--orange), #ff8c5a);
-            transition: width 0.25s ease;
-            box-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
-        }
-
-        .score-value {
-            font-weight: 600;
-            color: var(--orange);
-        }
-
-        .score-label {
-            font-size: 12px;
-            color: var(--grey-dark);
-            margin-left: var(--spacing-xs);
-        }
-
-        /* API Section */
-        .api-section {
-            background: var(--black);
-            color: var(--white);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-lg) 0;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .api-section h2 {
-            color: var(--white);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .api-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .api-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .api-card:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--orange);
-            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.2);
-        }
-
-        .api-card h3 {
-            color: var(--orange);
-            margin-bottom: var(--spacing-sm);
-            font-size: 20px;
-        }
-
-        .api-card p {
-            color: var(--grey-mid);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: var(--spacing-md);
-        }
-
+        /* Code Block */
         .code-block {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            padding: var(--spacing-md);
-            overflow-x: hidden !important;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-        .code-block code {
-            font-family: 'SF Mono', Monaco, monospace;
-            font-size: 13px;
-            line-height: 1.6;
+            background: var(--black);
             color: var(--grey-light);
-            display: block;
-            white-space: pre-wrap !important;
-            word-wrap: break-word !important;
-            word-break: break-all !important;
-            overflow-wrap: break-word !important;
-            max-width: 100% !important;
-            overflow-x: hidden !important;
+            padding: 24px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 24px 0;
+            position: relative;
         }
 
-        /* Copy Button - Fixed for touch targets */
+        .code-block pre {
+            margin: 0;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre;
+        }
+
         .copy-button {
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 12px;
+            right: 12px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: var(--white);
-            padding: 12px 16px;
+            padding: 8px 16px;
             border-radius: 6px;
             font-size: 12px;
             cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            min-height: 44px;
-            min-width: 44px;
+            transition: all 0.25s;
         }
 
         .copy-button:hover {
@@ -969,1295 +182,285 @@
             border-color: var(--orange);
         }
 
-        /* Integration Grid */
-        .integration-grid {
+        /* How It Works */
+        .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 320px));
-            gap: var(--spacing-sm);
-            margin: var(--spacing-lg) 0;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin: 32px 0;
         }
 
-        .integration-tile {
+        .step {
             background: var(--white);
             border: 1px solid var(--grey-mid);
             border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
+            padding: 24px;
+            text-align: left;
         }
 
-        .integration-tile:hover { 
-            border-color: var(--orange);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .integration-icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto var(--spacing-xs);
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .integration-name {
-            font-weight: 500;
-            color: var(--black);
-        }
-
-        /* Why Vetted Section */
-        .why-section {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-lg) 0;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-        }
-
-        .why-card {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .why-card h3 {
-            margin-bottom: var(--spacing-sm);
-            color: var(--black);
+            font-weight: 700;
             font-size: 20px;
+            margin-bottom: 16px;
         }
 
-        .why-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .why-card li {
-            padding: 6px 0;
+        .step p {
             color: var(--grey-dark);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .why-card li::before {
-            content: "•";
-            color: var(--orange);
-            margin-right: 8px;
-            font-weight: bold;
-        }
-
-        .feature-card {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .feature-card h3 {
-            color: var(--orange);
-            margin-bottom: var(--spacing-sm);
-            font-size: 24px;
-        }
-
-        .feature-card p {
-            color: var(--grey-dark);
-            line-height: 1.6;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .feature-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-card li {
-            padding: 8px 0;
-            color: var(--grey-dark);
-            line-height: 1.6;
-        }
-
-        .feature-card li::before {
-            content: "✓";
-            color: var(--orange);
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-        }
-
-        .comparison-card {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .comparison-card.highlight {
-            border: 2px solid var(--orange);
-            box-shadow: var(--shadow-md);
-        }
-
-        .comparison-card h4 {
-            margin-bottom: var(--spacing-sm);
-            color: var(--black);
-        }
-
-        .comparison-card.highlight h4 {
-            color: var(--orange);
-        }
-
-        .comparison-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .comparison-card li {
-            padding: 6px 0;
-            color: var(--grey-dark);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .comparison-card li::before {
-            content: "•";
-            color: var(--orange);
-            margin-right: 8px;
-        }
-
-        .comparison-card.highlight li::before {
-            content: "✓";
-            color: var(--orange);
-            font-weight: bold;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin: var(--spacing-xl) 0;
-        }
-
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-lg);
-        }
-
-        .faq-item {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .faq-item:hover {
-            border-color: var(--orange);
-            box-shadow: var(--shadow-md);
-        }
-
-        .faq-question {
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: var(--spacing-xs);
-            color: var(--black);
-        }
-
-        .faq-answer {
-            color: var(--grey-dark);
-            line-height: 1.6;
             font-size: 15px;
         }
 
-        /* Section */
-        .section { 
-            padding: var(--spacing-xxl) 0; 
-            margin-top: var(--spacing-lg); 
+        /* Tools */
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin: 32px 0;
         }
 
-        .section:nth-of-type(even) {
-            background: var(--grey-light);
-            padding: var(--spacing-xxl) 0;
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-            padding-left: calc(50vw - 50%);
-            padding-right: calc(50vw - 50%);
+        .tool {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: 24px;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
+        .tool h3 {
+            color: var(--orange);
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-family: 'SF Mono', Monaco, monospace;
         }
 
-        .section-title { margin-bottom: var(--spacing-sm); }
+        .tool p {
+            color: var(--grey-dark);
+            font-size: 15px;
+        }
 
-        .section-subtitle {
-            color: #4a4a4a;
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+        /* Problem/Solution Lists */
+        ul.feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        ul.feature-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--grey-dark);
+        }
+
+        ul.feature-list li::before {
+            content: "•";
+            color: var(--orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
 
         /* CTA Banner */
         .cta-banner {
-            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
+            background: var(--orange);
             color: var(--white);
             border-radius: var(--border-radius);
-            padding: var(--spacing-xxl);
+            padding: var(--spacing-lg);
             text-align: center;
-            margin: var(--spacing-xxl) 0;
-            box-shadow: var(--shadow-lg);
+            margin: var(--spacing-lg) 0;
         }
 
-        .cta-banner h2 {
-            color: var(--white);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .cta-banner p {
-            font-size: 18px;
-            margin-bottom: var(--spacing-lg);
-            opacity: 0.95;
-        }
+        .cta-banner h2 { color: var(--white); }
 
         .cta-banner .btn {
             background: var(--white);
             color: var(--orange);
-            box-shadow: var(--shadow-md);
         }
 
         .cta-banner .btn:hover { 
             background: var(--grey-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
         }
 
         /* Footer */
         footer {
             background: var(--black);
             color: var(--grey-mid);
-            padding: var(--spacing-xl) 0;
-            margin-top: var(--spacing-xxl);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-lg);
+            text-align: center;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .footer-section h4 {
-            color: var(--white);
-            margin-bottom: var(--spacing-sm);
-            font-size: 16px;
-        }
-
-        .footer-links { 
-            list-style: none; 
-        }
-
-        .footer-links li { 
-            margin-bottom: var(--spacing-xs); 
-        }
-
-        .footer-links a {
-            color: var(--grey-mid);
-            text-decoration: none;
-            font-size: 14px;
-            line-height: 1.6;
-            transition: var(--transition);
-            display: inline-block;
-            padding: 14px 0;
-            min-height: 44px;
-        }
-
-        .footer-links a:hover { 
+        footer a {
             color: var(--orange);
+            text-decoration: none;
         }
 
-        /* Mobile Menu Overlay */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.25s ease;
-            z-index: 999;
-        }
+        footer a:hover { color: var(--white); }
 
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ===========================
-           MOBILE RESPONSIVE - FIXED
-           =========================== */
-        
-        /* BREAKPOINT: Mid-sized mobile (390px-640px) - THE CRITICAL FIX */
-        @media (max-width: 640px) {
-            /* TYPOGRAPHY FIXES */
-            h1 { 
-                font-size: 34px !important;  /* Was 40px+ - NOW READABLE */
-                line-height: 1.2;
-                margin-bottom: var(--spacing-md);
-            }
-            
-            h2 { 
-                font-size: 28px; 
-                line-height: 1.3;
-            }
-            
-            .hero-tagline {
-                font-size: 18px;
-                line-height: 1.4;
-                margin: var(--spacing-sm) auto var(--spacing-md);
-            }
-
-            .hero-subtitle { 
-                font-size: 16px;
-                line-height: 1.5;
-                margin-bottom: var(--spacing-md);
-            }
-            
-            /* SPACING FIXES - Add breathing room */
-            .hero {
-                padding: var(--spacing-lg) 0;  /* Was 96px, now 32px */
-            }
-            
-            .container {
-                padding: 0 20px;  /* Better mobile margins */
-            }
-            
-            /* SOCIAL PROOF - Professional on mobile */
-            .social-proof-bar {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-                padding: var(--spacing-md);
-                margin: var(--spacing-md) 0;
-                text-align: left;
-            }
-            
-            .proof-item {
-                justify-content: flex-start;
-                font-size: 14px;
-                gap: 8px;
-            }
-            
-            .proof-icon {
-                font-size: 18px;
-            }
-            
-            /* BUTTONS - Full width on small mobile */
-            .btn-group {
-                flex-direction: column;
-                width: 100%;
-                gap: 12px;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 100%;
-                font-size: 16px;
-                padding: 14px 24px;
-            }
-            
-            .btn-primary {
-                font-size: 17px;
-                padding: 15px 28px;
-            }
-            
-            /* SEARCH BOX - Stack vertically */
-            .search-box {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .search-input {
-                width: 100%;
-                min-width: unset;
-                font-size: 16px;  /* Prevent iOS zoom */
-            }
-            
-            /* SCORECARD - Compact mobile view */
-            .scorecard {
-                padding: var(--spacing-md);
-            }
-            
-            .scorecard-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-sm);
-            }
-            
-            .scorecard-title h3 {
-                font-size: 22px;
-            }
-            
-            .scorecard-score {
-                text-align: left;
-            }
-            
-            .score-big {
-                font-size: 38px;
-            }
-            
-            .score-suffix {
-                font-size: 20px;
-            }
-            
-            .metric {
-                grid-template-columns: 85px 1fr 50px;
-                gap: 10px;
-            }
-            
-            .metric-label {
-                font-size: 13px;
-            }
-            
-            .scorecard-footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-xs);
-            }
-            
-            /* CODE BLOCKS - Prevent overflow */
-            .code-block {
-                padding: 12px;
-                margin: 0 -4px;
-            }
-            
-            .code-block code {
-                font-size: 12px;
-                line-height: 1.5;
-            }
-            
-            .copy-button {
-                padding: 10px 14px;
-                font-size: 11px;
-            }
-            
-            /* STATS GRID - Single column on small mobile */
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-sm);
-            }
-            
-            .stat-number {
-                font-size: 42px;
-            }
-            
-            .stat-tile:first-child .stat-number {
-                font-size: 52px;
-            }
-        }
-        
-        /* BREAKPOINT: Standard tablet/small desktop (641px-768px) */
-        @media (min-width: 641px) and (max-width: 768px) {
-            h1 { 
-                font-size: 42px;
-                line-height: 1.15;
-            }
-            
-            h2 { 
-                font-size: 34px;
-            }
-            
-            .hero {
-                padding: var(--spacing-xl) 0;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* BREAKPOINT: Mobile navigation (all mobile sizes) */
+        /* Mobile */
         @media (max-width: 768px) {
-            .mobile-menu-button { 
-                display: flex; 
-            }
+            h1 { font-size: 32px; }
+            h2 { font-size: 28px; }
             
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                min-width: 280px;
-                max-width: 300px;
-                height: 100vh;
-                background: var(--white);
-                flex-direction: column;
-                padding: var(--spacing-xxl) var(--spacing-lg);
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-                transition: right 0.25s ease;
-                z-index: 1000;
-                overflow-y: auto;
-                gap: 0;
+                display: none;
             }
             
-            .nav-links.open {
-                right: 0;
-            }
-
-            .nav-links li {
-                margin-bottom: var(--spacing-md);
-                width: 100%;
-            }
-
-            .nav-links a {
-                font-size: 18px;
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 16px;
                 display: block;
-                padding: var(--spacing-md) 0;
-                width: 100%;
             }
             
-            .tile-grid,
-            .api-grid { 
-                grid-template-columns: 1fr; 
-            }
-
-            .comparison-grid {
+            .steps {
                 grid-template-columns: 1fr;
             }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
             
-            .how-steps {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* BREAKPOINT: Very small mobile (iPhone SE, older devices) */
-        @media (max-width: 375px) {
-            h1 { 
-                font-size: 28px !important;  /* Even smaller for tiny screens */
-                line-height: 1.25;
-            }
-            
-            .hero-subtitle {
-                font-size: 15px;
-            }
-            
-            .container {
-                padding: 0 16px;
-            }
-            
-            .scorecard {
-                padding: 16px;
-            }
-            
-            .code-block code {
-                font-size: 11px;
-            }
-            
-            .btn {
-                font-size: 15px;
-                padding: 12px 20px;
-            }
-        }
-
-        /* Code block emergency containment (all small screens) */
-        @media (max-width: 640px) {
-            pre, code, .code-block, .api-card {
-                max-width: 100% !important;
-                overflow-x: hidden !important;
-                box-sizing: border-box !important;
-            }
-
-            pre code, .code-block code {
-                white-space: pre-wrap !important;
-                word-break: break-all !important;
+            .code-block pre {
+                font-size: 12px;
+                white-space: pre-wrap;
+                word-break: break-all;
             }
         }
     </style>
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to main content</a>
-
-    <header role="banner">
-        <nav class="container" role="navigation" aria-label="Main navigation">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#ff8c5a;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <rect fill="url(#logoGradient)" width="100" height="100" rx="20"/>
-                    <path d="M30 35h40v8H52v32h-8V43H30z" fill="white"/>
-                    <circle cx="75" cy="25" r="8" fill="white" opacity="0.9"/>
-                    <path d="M75 23v4M73 25h4" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <span>Vetted</span>
-            </a>
-            <button class="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false">
-                ☰
-            </button>
-            <ul class="nav-links" role="list">
-                <li><a href="#stats">Stats</a></li>
-                <li><a href="#why">Why Us</a></li>
-                <li><a href="#privacy">Privacy</a></li>
-                <li><a href="#api">API</a></li>
-                <li><a href="#faq">FAQ</a></li>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">TrustScore</a>
+            <ul class="nav-links">
+                <li><a href="#install">Install</a></li>
+                <li><a href="#tools">Tools</a></li>
                 <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="menu-overlay" aria-hidden="true"></div>
-
-    <main id="main" role="main" class="container">
+    <main class="container">
         <!-- Hero -->
         <section class="hero">
-            <h1>Trust Scores for 200+ MCP Servers</h1>
-            <p class="hero-tagline">An MCP server that helps AI agents make better decisions about which service providers to trust. Think of it as a <strong>credit score for APIs, agents, and tools</strong>.</p>
-            <p class="hero-subtitle">🔬 Alpha testing phase • Growing database • Real reliability data from 9,000+ agent checks</p>
-            
-            <!-- Social Proof Bar - MOBILE OPTIMIZED -->
-            <div class="social-proof-bar">
-                <div class="proof-item">
-                    <span class="proof-icon">🤖</span>
-                    <span class="proof-text">Tested by AI agents in production</span>
-                </div>
-                <div class="proof-item">
-                    <span class="proof-icon">📊</span>
-                    <span class="proof-text">9,000+ reliability checks</span>
-                </div>
-                <div class="proof-item">
-                    <span class="proof-icon">🔓</span>
-                    <span class="proof-text">Open source • MIT</span>
-                </div>
-            </div>
-            
-            <!-- CTA with Search Box -->
-            <div class="cta-search-container">
-                <div class="search-box">
-                    <input type="text" placeholder="Search services (GitHub, OpenAI, Slack)" class="search-input" aria-label="Search services">
-                    <button class="btn btn-primary search-btn">Search Now</button>
-                </div>
-                <a href="#api" class="btn btn-secondary">View API Docs</a>
+            <h1>TrustScore - Trust and reputation scores for AI agent service selection</h1>
+            <p class="tagline">TrustScore is an MCP server that helps AI agents make better decisions about which service providers to trust. Think of it as a <strong>credit score for APIs, agents, and tools</strong>.</p>
+            <div>
+                <a href="#install" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary">View on GitHub</a>
             </div>
         </section>
 
-        <!-- Example Score Card -->
-        <section class="example-scorecard">
-            <div class="scorecard">
-                <div class="scorecard-header">
-                    <div class="scorecard-title">
-                        <h3>github-integration-009</h3>
-                        <span class="scorecard-badge">Most Trusted</span>
-                    </div>
-                    <div class="scorecard-score">
-                        <div class="score-big">98<span class="score-suffix">/100</span></div>
-                        <div class="score-status">High Confidence</div>
-                    </div>
-                </div>
-                <div class="scorecard-metrics">
-                    <div class="metric">
-                        <div class="metric-label">Reliability</div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 97.8%"></div>
-                        </div>
-                        <div class="metric-value">97.8%</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-label">Security</div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 98%"></div>
-                        </div>
-                        <div class="metric-value">98%</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-label">Performance</div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 98%"></div>
-                        </div>
-                        <div class="metric-value">98%</div>
-                    </div>
-                </div>
-                <div class="scorecard-footer">
-                    <span class="scorecard-reports">Based on 136 real agent interactions</span>
-                    <a href="https://github.com/bensargotest-sys/trustscore" class="scorecard-link">View Full Report →</a>
-                </div>
+        <!-- Quick Start -->
+        <section id="install" class="section">
+            <h2>Quick Start</h2>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                <pre># Install from PyPI
+pip install trustscore-mcp
+
+# Or install from source  
+pip install -e .
+
+# Seed database with 200+ MCP servers
+python scripts/seed_database.py
+
+# Run as MCP server
+trustscore
+# Or: python -m src.server</pre>
             </div>
+        </section>
+
+        <!-- Problem -->
+        <section class="section">
+            <h2>What Problem Does This Solve?</h2>
+            <p>AI agents need to call external services: APIs, other agents, databases, DeFi protocols. But how do you know which ones are reliable?</p>
+            
+            <ul class="feature-list">
+                <li>Uniswap might have 99% uptime</li>
+                <li>SketchySwap might fail 80% of the time</li>
+                <li>SlowAPI might timeout constantly</li>
+            </ul>
+            
+            <p style="margin-top: 16px;"><strong>Without trust data, agents pick randomly or rely on hard-coded preferences. TrustScore fixes this with real behavioral data.</strong></p>
         </section>
 
         <!-- How It Works -->
-        <section class="how-it-works">
+        <section class="section">
             <h2>How It Works</h2>
-            <div class="how-steps">
-                <div class="how-step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" fill="#FF6B35" opacity="0.1"/>
-                            <path d="M24 14v20M14 24h20" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </div>
+            <div class="steps">
+                <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Agents Use Services</h3>
-                    <p>AI agents interact with thousands of services daily—APIs, MCP servers, integrations.</p>
+                    <p>Agents report outcomes after calling a service</p>
                 </div>
-                <div class="how-step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" fill="#FF6B35" opacity="0.1"/>
-                            <polyline points="14 24 20 30 34 16" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                <div class="step">
                     <div class="step-number">2</div>
-                    <h3>We Track Reliability</h3>
-                    <p>Every interaction is measured: uptime, latency, errors, security—7 metrics in real-time.</p>
+                    <p>TrustScore aggregates success rates, latency, failure patterns</p>
                 </div>
-                <div class="how-step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" fill="#FF6B35" opacity="0.1"/>
-                            <circle cx="24" cy="24" r="8" stroke="#FF6B35" stroke-width="3"/>
-                            <path d="M24 16v8l4 4" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </div>
+                <div class="step">
                     <div class="step-number">3</div>
-                    <h3>You Query Before Integrating</h3>
-                    <p>Check trust scores instantly. See which services actually deliver, backed by real data.</p>
+                    <p>Other agents query TrustScore before picking a provider</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>Network effect: More users = better data = better decisions</p>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Dashboard -->
-        <section id="stats" class="stats-dashboard" aria-labelledby="stats-heading">
-            <h2 id="stats-heading" class="sr-only">Statistics</h2>
-            <div class="stats-grid">
-                <div class="stat-tile">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Servers Vetted</div>
-                </div>
-                <div class="stat-tile">
-                    <div class="stat-number">7</div>
-                    <div class="stat-label">Reliability Metrics</div>
-                </div>
-                <div class="stat-tile">
-                    <div class="stat-number">9.3K</div>
-                    <div class="stat-label">Agent Reports</div>
-                </div>
-                <div class="stat-tile">
-                    <div class="stat-number">&lt;10ms</div>
-                    <div class="stat-label">Response Time</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features -->
-        <section class="section" aria-labelledby="features-heading">
-            <h2 id="features-heading" class="sr-only">Features</h2>
-            <div class="tile-grid">
-                <div class="tile">
-                    <div class="tile-icon">
-                        <svg class="icon-svg" viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="7" height="7" rx="1"/>
-                            <rect x="14" y="3" width="7" height="7" rx="1"/>
-                            <rect x="14" y="14" width="7" height="7" rx="1"/>
-                            <rect x="3" y="14" width="7" height="7" rx="1"/>
-                        </svg>
-                    </div>
-                    <h3>Complete Picture</h3>
-                    <p>Compare providers across 7 metrics—uptime, speed, reliability, and more. See real performance, not just marketing claims.</p>
-                </div>
-                <div class="tile">
-                    <div class="tile-icon">
-                        <svg class="icon-svg" viewBox="0 0 24 24">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <h3>Crowd-Verified</h3>
-                    <p>Real agents report real outcomes. Scores improve as more tools are tested—no vendor bias, just data.</p>
-                </div>
-                <div class="tile">
-                    <div class="tile-icon">
-                        <svg class="icon-svg" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"/>
-                            <circle cx="12" cy="12" r="6"/>
-                            <circle cx="12" cy="12" r="2"/>
-                        </svg>
-                    </div>
-                    <h3>Instant Rankings</h3>
-                    <p>Search by task, get ranked results in milliseconds. See which tools deliver, with sample sizes and trust levels.</p>
-                </div>
-                <div class="tile">
-                    <div class="tile-icon">
-                        <svg class="icon-svg" viewBox="0 0 24 24">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                            <line x1="12" y1="18" x2="12" y2="18"/>
-                        </svg>
-                    </div>
-                    <h3>MCP Native</h3>
-                    <p>Built as MCP server. Works with Claude Desktop, Cursor, Cline, and any MCP-compatible tool.</p>
-                </div>
-                <div class="tile">
-                    <div class="tile-icon">
-                        <svg class="icon-svg" viewBox="0 0 24 24">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M9 12l2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3>No Guesswork</h3>
-                    <p>Know when scores are reliable. Every score shows confidence level based on sample size.</p>
-                </div>
-                <div class="tile">
-                    <div class="tile-icon">
-                        <svg class="icon-svg" viewBox="0 0 24 24">
-                            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                            <polyline points="2 17 12 22 22 17"/>
-                            <polyline points="2 12 12 17 22 12"/>
-                        </svg>
-                    </div>
-                    <h3>Battle-Tested</h3>
-                    <p>Used in production by AI agents making real decisions. 100% test coverage, comprehensive docs.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Live Data -->
-        <section class="live-data" aria-labelledby="scores-heading">
-            <div class="live-header">
-                <h2 id="scores-heading">Sample Trust Scores</h2>
-                <div class="live-indicator">
-                    <span>Based on 9.3K agent reports</span>
-                </div>
-            </div>
-            <div class="provider-list" role="list">
-                <div class="provider-item" role="listitem">
-                    <span class="provider-name">github-integration-009</span>
-                    <div class="trust-score">
-                        <div class="score-bar" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" aria-label="Trust score: 93 out of 100">
-                            <div class="score-fill" style="width: 93%"></div>
-                        </div>
-                        <span class="score-value">0.93</span>
-                        <span class="score-label">High Trust</span>
-                    </div>
-                </div>
-                <div class="provider-item" role="listitem">
-                    <span class="provider-name">anthropic-github-016</span>
-                    <div class="trust-score">
-                        <div class="score-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Trust score: 90 out of 100">
-                            <div class="score-fill" style="width: 90%"></div>
-                        </div>
-                        <span class="score-value">0.90</span>
-                        <span class="score-label">High Trust</span>
-                    </div>
-                </div>
-                <div class="provider-item" role="listitem">
-                    <span class="provider-name">microsoft-playwright-mcp-137</span>
-                    <div class="trust-score">
-                        <div class="score-bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Trust score: 72 out of 100">
-                            <div class="score-fill" style="width: 72%"></div>
-                        </div>
-                        <span class="score-value">0.72</span>
-                        <span class="score-label">Medium Trust</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Vetted -->
-        <section id="why" class="why-section" aria-labelledby="why-heading">
-            <div class="section-header">
-                <h2 id="why-heading">Why Vetted?</h2>
-                <p class="section-subtitle">Community-driven trust beats vendor marketing</p>
-            </div>
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <h3>Manual Tracking</h3>
-                    <ul>
-                        <li>Track failures in spreadsheets</li>
-                        <li>No historical data</li>
-                        <li>Can't compare providers</li>
-                        <li>Time-consuming setup</li>
-                    </ul>
-                </div>
-                <div class="comparison-card">
-                    <h3>Uptime Monitors</h3>
-                    <ul>
-                        <li>Only tracks availability</li>
-                        <li>Ignores quality/latency</li>
-                        <li>No community data</li>
-                        <li>Limited to HTTP checks</li>
-                    </ul>
-                </div>
-                <div class="comparison-card highlight">
-                    <h3>Vetted</h3>
-                    <ul>
-                        <li>7-dimensional reliability</li>
-                        <li>Community-verified scores</li>
-                        <li>Instant rankings</li>
-                        <li>MCP-native integration</li>
-                        <li>No vendor bias</li>
-                        <li>Trust decay over time</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Privacy-First Trust -->
-        <section id="privacy" class="section">
-            <h2>🔐 Privacy-First Trust</h2>
-            
-            <div class="why-grid">
-                <div class="why-card">
-                    <h3>✅ What We Collect</h3>
-                    <ul>
-                        <li>Server uptime and performance</li>
-                        <li>Aggregate reliability metrics</li>
-                        <li>Trust scores from real usage</li>
-                    </ul>
-                </div>
-                
-                <div class="why-card">
-                    <h3>❌ What We DON'T Track</h3>
-                    <ul>
-                        <li>Your identity or personal info</li>
-                        <li>Which services you query</li>
-                        <li>Your usage patterns</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="feature-card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,107,53,0.05));">
-                <h3>🔮 Future: Stake-Based Verification</h3>
-                <p>Inspired by recent zero-knowledge research, we're building towards:</p>
-                <ul style="margin-top: 1rem;">
-                    <li><strong>Deposit once, query anonymously</strong> - Stake-based trust reporting</li>
-                    <li><strong>Economic accountability</strong> - Accurate reports keep your stake</li>
-                    <li><strong>Zero-knowledge proofs</strong> - Prove you're verified without revealing identity</li>
-                    <li><strong>No surveillance</strong> - Trust without tracking</li>
-                </ul>
-                <p style="margin-top: 1rem; font-style: italic; color: #8B92A9;">
-                    We believe trust and privacy can coexist. You shouldn't have to sacrifice one for the other.
-                </p>
-            </div>
-        </section>
-
-        <!-- API Reference -->
-        <section id="api" class="api-section" aria-labelledby="api-heading">
-            <h2 id="api-heading">MCP Tools</h2>
-            <div class="api-grid">
-                <article class="api-card">
-                    <h3>trustscore_check</h3>
-                    <p>Check a provider before you use it. Get trust score, reliability metrics, red flags, and performance history—all in one call.</p>
-                    <div class="code-block">
-                        <button class="copy-button" aria-label="Copy code"><span class="copy-icon">📋</span> Copy</button>
-                        <code>// MCP tool call
-await mcp.call_tool("trustscore_check", {
-  "provider_id": "github-integration-009"
-});
-
-// Returns: {trust_score, reliability, 
-// sample_size, confidence, flags}</code>
-                    </div>
-                </article>
-
-                <article class="api-card">
-                    <h3>trustscore_report</h3>
-                    <p>Report your results after each interaction. Your reports make scores more accurate—for you and everyone else.</p>
-                    <div class="code-block">
-                        <button class="copy-button" aria-label="Copy code"><span class="copy-icon">📋</span> Copy</button>
-                        <code>// Report outcome
-await mcp.call_tool("trustscore_report", {
-  "provider_id": "github-integration-009",
-  "outcome": "success",
-  "latency_ms": 120
-});</code>
-                    </div>
-                </article>
-
-                <article class="api-card">
+        <!-- MCP Tools -->
+        <section id="tools" class="section">
+            <h2>MCP Tools</h2>
+            <div class="tools-list">
+                <div class="tool">
                     <h3>trustscore_rank</h3>
-                    <p>Compare multiple providers at once. Filter by task, set minimum thresholds, get ranked results instantly.</p>
-                    <div class="code-block">
-                        <button class="copy-button" aria-label="Copy code"><span class="copy-icon">📋</span> Copy</button>
-                        <code>// Rank multiple providers
-await mcp.call_tool("trustscore_rank", {
-  "providers": ["provider-a", "provider-b"],
-  "min_score": 0.7
-});</code>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="faq-section" aria-labelledby="faq-heading">
-            <div class="section-header">
-                <h2 id="faq-heading">Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">Is Vetted free to use?</div>
-                    <div class="faq-answer">Yes, Vetted is 100% free and open source under the MIT License. You can install, use, and modify it without any cost or restrictions.</div>
+                    <p>Rank multiple providers by trust score</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">How accurate are the trust scores?</div>
-                    <div class="faq-answer">Scores are based on real agent reports from 9,300+ interactions. Each score includes a confidence level based on sample size. Scores with high confidence (100+ reports) are highly reliable.</div>
+                <div class="tool">
+                    <h3>trustscore_check</h3>
+                    <p>Check a single provider's detailed trust data</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">How do I install Vetted?</div>
-                    <div class="faq-answer">Install via npm: <code>npm install -g trustscore-mcp</code>. Then add it to your MCP client config (Claude Desktop, Cursor, etc.). Full instructions in our GitHub README.</div>
+                <div class="tool">
+                    <h3>trustscore_report</h3>
+                    <p>Report an interaction outcome (success/failure/timeout/error)</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">What data does Vetted collect?</div>
-                    <div class="faq-answer">We only collect anonymized reliability metrics (uptime, latency, error rates). No personal data, API keys, or request content is ever stored or transmitted.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Can I trust scores for new providers?</div>
-                    <div class="faq-answer">New providers start with a synthetic baseline score and show "Low Confidence" until they accumulate real reports. Always check the confidence level before making critical decisions.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How often are scores updated?</div>
-                    <div class="faq-answer">Scores update in real-time as new reports arrive. Trust decay algorithms automatically reduce scores for providers with aging data, ensuring freshness.</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Integrations -->
-        <section id="integrations" class="section" aria-labelledby="integrations-heading">
-            <div class="section-header">
-                <h2 id="integrations-heading" class="section-title">MCP Compatible</h2>
-                <p class="section-subtitle">Install once, use everywhere</p>
-            </div>
-            <div class="integration-grid" role="list">
-                <div class="integration-tile" role="listitem">
-                    <div class="integration-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" fill="#FF6B35" opacity="0.1"/>
-                            <path d="M24 8L16 16L24 24L32 16L24 8Z" fill="#FF6B35"/>
-                            <path d="M24 24L16 32L24 40L32 32L24 24Z" fill="#FF6B35" opacity="0.7"/>
-                        </svg>
-                    </div>
-                    <div class="integration-name">Claude Desktop</div>
-                </div>
-                <div class="integration-tile" role="listitem">
-                    <div class="integration-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="12" y="12" width="24" height="24" rx="4" fill="#FF6B35" opacity="0.1"/>
-                            <path d="M18 18h12v3h-12zM18 24h12v3h-12zM18 30h8v3h-8z" fill="#FF6B35"/>
-                        </svg>
-                    </div>
-                    <div class="integration-name">Cursor</div>
-                </div>
-                <div class="integration-tile" role="listitem">
-                    <div class="integration-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="14" y="14" width="20" height="20" rx="3" fill="#FF6B35" opacity="0.1"/>
-                            <path d="M20 20h8v2h-8zM20 24h8v2h-8zM20 28h5v2h-5z" fill="#FF6B35"/>
-                        </svg>
-                    </div>
-                    <div class="integration-name">Cline</div>
-                </div>
-                <div class="integration-tile" role="listitem">
-                    <div class="integration-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="24,10 34,18 34,30 24,38 14,30 14,18" fill="#FF6B35" opacity="0.1"/>
-                            <polygon points="24,16 30,20 30,28 24,32 18,28 18,20" fill="#FF6B35"/>
-                        </svg>
-                    </div>
-                    <div class="integration-name">Continue</div>
-                </div>
-                <div class="integration-tile" role="listitem">
-                    <div class="integration-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="20" r="8" fill="#FF6B35" opacity="0.1"/>
-                            <path d="M16 28c0-4 3.5-8 8-8s8 4 8 8" fill="#FF6B35" opacity="0.1"/>
-                            <circle cx="24" cy="20" r="4" fill="#FF6B35"/>
-                            <path d="M18 28c0-3 2.7-6 6-6s6 3 6 6" stroke="#FF6B35" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="integration-name">Python MCP</div>
-                </div>
-                <div class="integration-tile" role="listitem">
-                    <div class="integration-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="12" y="16" width="24" height="16" rx="2" fill="#FF6B35" opacity="0.1"/>
-                            <path d="M16 20h4v8h-4zM24 20h4v8h-4zM20 20h4v4h-4z" fill="#FF6B35"/>
-                        </svg>
-                    </div>
-                    <div class="integration-name">TypeScript MCP</div>
+                <div class="tool">
+                    <h3>trustscore_discover</h3>
+                    <p>Discover providers by task type, ranked by trust</p>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="cta-banner" aria-labelledby="cta-heading">
-            <h2 id="cta-heading">Start Using Vetted</h2>
-            <p>Free and open source. MIT License. Install in 60 seconds.</p>
-            <div class="btn-group">
-                <a href="https://github.com/bensargotest-sys/trustscore" class="btn">Get Started</a>
-                <a href="https://github.com/bensargotest-sys/trustscore#readme" class="btn">Documentation</a>
-            </div>
+        <section class="cta-banner">
+            <h2>Ready to Start?</h2>
+            <p>Install TrustScore and start making smarter decisions about service providers.</p>
+            <a href="https://github.com/bensargotest-sys/trustscore" class="btn">View Documentation</a>
         </section>
     </main>
 
-    <footer role="contentinfo">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Product</h3>
-                    <ul class="footer-links">
-                        <li><a href="#api">API Reference</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore#readme">Documentation</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/ROADMAP.md">Roadmap</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/CONTRIBUTING.md">Contributing</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/issues">Issues</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Project</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/LICENSE">MIT License</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/PERFORMANCE.md">Performance</a></li>
-                        <li><a href="https://github.com/bensargotest-sys">Team</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Community</h3>
-                    <ul class="footer-links">
-                        <li><a href="#stats">Statistics</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Vetted. Open source under MIT License. Scores derived from community reports and continuous testing.</p>
-            </div>
+            <p>TrustScore • <a href="https://github.com/bensargotest-sys/trustscore">GitHub</a> • Open Source (MIT License)</p>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const menuButton = document.querySelector('.mobile-menu-button');
-        const navLinks = document.querySelector('.nav-links');
-        const menuOverlay = document.querySelector('.menu-overlay');
-
-        function toggleMenu() {
-            const isOpen = navLinks.classList.toggle('open');
-            menuOverlay.classList.toggle('active');
-            menuButton.setAttribute('aria-expanded', isOpen);
-            menuButton.textContent = isOpen ? '✕' : '☰';
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent;
             
-            // Prevent body scroll when menu open
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
-
-        menuButton.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
-
-        // Close menu when clicking on a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('open')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-                toggleMenu();
-            }
-        });
-
-        // Search functionality
-        const searchInput = document.querySelector('.search-input');
-        const searchBtn = document.querySelector('.search-btn');
-
-        function performSearch() {
-            const query = searchInput.value.trim();
-            if (query) {
-                // For now, redirect to GitHub with search query
-                window.location.href = `https://github.com/bensargotest-sys/trustscore#search-${encodeURIComponent(query)}`;
-            } else {
-                // No query, just go to GitHub
-                window.location.href = 'https://github.com/bensargotest-sys/trustscore';
-            }
-        }
-
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-
-        // Code Copy Functionality
-        document.querySelectorAll('.copy-button').forEach(button => {
-            button.addEventListener('click', async () => {
-                const codeBlock = button.nextElementSibling;
-                const code = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
                 
-                try {
-                    await navigator.clipboard.writeText(code);
-                    showCopiedState(button);
-                } catch (err) {
-                    // Fallback for older browsers
-                    const textArea = document.createElement('textarea');
-                    textArea.value = code;
-                    textArea.style.position = 'fixed';
-                    textArea.style.left = '-9999px';
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        showCopiedState(button);
-                    } catch (e) {
-                        console.error('Copy failed:', e);
-                    }
-                    document.body.removeChild(textArea);
-                }
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
             });
-        });
-
-        function showCopiedState(button) {
-            const originalText = button.innerHTML;
-            button.classList.add('copied');
-            button.innerHTML = '<span class="copy-icon">✅</span> Copied!';
-            
-            setTimeout(() => {
-                button.classList.remove('copied');
-                button.innerHTML = originalText;
-            }, 2000);
         }
     </script>
 </body>
