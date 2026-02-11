@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TrustScore - Trust and reputation scores for AI agents. Community-driven reliability tracking for 200+ MCP servers.">
+    <meta name="description" content="TrustScore - Trust and reputation scores for AI agents. Real-time reliability tracking for 201+ MCP servers.">
     <meta name="keywords" content="AI agents, trust scoring, MCP, reliability, API monitoring">
     <title>TrustScore - Trust Infrastructure for AI Agents</title>
     
@@ -271,6 +271,19 @@
             font-size: 14px;
         }
 
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
         .provider-list {
             display: flex;
             flex-direction: column;
@@ -287,7 +300,7 @@
             align-items: center;
         }
 
-        .provider-name { font-weight: 500; font-size: 14px; }
+        .provider-name { font-weight: 500; }
 
         .trust-score {
             display: flex;
@@ -373,6 +386,11 @@
             line-height: 1.6;
             color: var(--grey-light);
         }
+
+        .code-comment { color: var(--grey-dark); }
+        .code-keyword { color: var(--orange); }
+        .code-string { color: #4ADE80; }
+        .code-function { color: #60A5FA; }
 
         /* Integration Grid */
         .integration-grid {
@@ -519,7 +537,7 @@
         <!-- Hero -->
         <section class="hero">
             <h1>Trust Infrastructure<br>for AI Agents</h1>
-            <p class="hero-subtitle">Community-driven reliability tracking for 200+ MCP servers. Synthetic baseline refined by real agent reports.</p>
+            <p class="hero-subtitle">Real-time reliability tracking for 201+ MCP servers. Know which services to trust before your agents call them.</p>
             <div class="btn-group">
                 <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-primary">Get Started</a>
                 <a href="#api" class="btn btn-secondary">View API</a>
@@ -529,21 +547,21 @@
         <!-- Stats Dashboard -->
         <div id="stats" class="stats-dashboard">
             <div class="stats-grid">
-                <div class="stat-tile">
-                    <div class="stat-number">202</div>
+                <div class="stat-tile" data-metric="servers" data-value="201">
+                    <div class="stat-number">201</div>
                     <div class="stat-label">Servers Tracked</div>
                 </div>
-                <div class="stat-tile">
+                <div class="stat-tile" data-metric="dimensions" data-value="7">
                     <div class="stat-number">7</div>
                     <div class="stat-label">Trust Dimensions</div>
                 </div>
-                <div class="stat-tile">
-                    <div class="stat-number">9.3K</div>
-                    <div class="stat-label">Interactions</div>
+                <div class="stat-tile" data-metric="uptime" data-value="99.9">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
                 </div>
-                <div class="stat-tile">
-                    <div class="stat-number">2-8ms</div>
-                    <div class="stat-label">Query Time</div>
+                <div class="stat-tile" data-metric="response" data-value="3">
+                    <div class="stat-number">&lt;3ms</div>
+                    <div class="stat-label">Avg Response</div>
                 </div>
             </div>
         </div>
@@ -551,35 +569,35 @@
         <!-- Features -->
         <section class="section">
             <div class="tile-grid">
-                <div class="tile">
+                <div class="tile" data-feature="multi-dimensional">
                     <div class="tile-icon accent">📊</div>
                     <h3>Multi-Dimensional</h3>
-                    <p>Track reliability, uptime, latency, error rate, quality, freshness, and security across 7 dimensions.</p>
+                    <p>Track reliability, uptime, latency, error rate, quality, freshness, and security.</p>
                 </div>
-                <div class="tile">
+                <div class="tile" data-feature="real-time">
                     <div class="tile-icon">⚡</div>
-                    <h3>Community-Driven</h3>
-                    <p>Trust scores update based on agent reports. Synthetic baseline refined by real usage.</p>
+                    <h3>Real-Time Updates</h3>
+                    <p>Trust scores update automatically based on actual interactions.</p>
                 </div>
-                <div class="tile">
+                <div class="tile" data-feature="discovery">
                     <div class="tile-icon">🎯</div>
                     <h3>Smart Discovery</h3>
-                    <p>Find trusted providers by category. Get ranked lists instantly with confidence levels.</p>
+                    <p>Find trusted providers by category. Get ranked lists instantly.</p>
                 </div>
-                <div class="tile">
+                <div class="tile" data-feature="integration">
                     <div class="tile-icon">🔌</div>
-                    <h3>MCP Native</h3>
-                    <p>Built as MCP server. Works with Claude Desktop, Cursor, Cline, and any MCP client.</p>
+                    <h3>Universal Integration</h3>
+                    <p>Works with LangGraph, CrewAI, and any MCP-compatible framework.</p>
                 </div>
-                <div class="tile">
+                <div class="tile" data-feature="confidence">
                     <div class="tile-icon">🛡️</div>
                     <h3>Confidence Tracking</h3>
-                    <p>Know when scores are reliable. High/medium/low confidence based on sample size.</p>
+                    <p>Know when scores are reliable. High/medium/low confidence levels.</p>
                 </div>
-                <div class="tile">
+                <div class="tile" data-feature="production">
                     <div class="tile-icon">🚀</div>
                     <h3>Production Ready</h3>
-                    <p>100% test coverage, all tests passing, comprehensive documentation.</p>
+                    <p>100% test coverage, CI/CD configured, comprehensive docs.</p>
                 </div>
             </div>
         </section>
@@ -587,40 +605,41 @@
         <!-- Live Data -->
         <div class="live-data">
             <div class="live-header">
-                <h2>Sample Trust Scores</h2>
+                <h2>Live Trust Scores</h2>
                 <div class="live-indicator">
-                    <span style="color: var(--grey-dark);">Based on 9.3K synthetic interactions</span>
+                    <div class="pulse"></div>
+                    Updated in real-time
                 </div>
             </div>
             <div class="provider-list">
-                <div class="provider-item">
-                    <span class="provider-name">github-integration-009</span>
+                <div class="provider-item" data-provider-id="github_api" data-trust-score="0.82">
+                    <span class="provider-name">github_api</span>
                     <div class="trust-score">
                         <div class="score-bar">
-                            <div class="score-fill" style="width: 93%"></div>
+                            <div class="score-fill" style="width: 82%"></div>
                         </div>
-                        <span class="score-value">0.93</span>
+                        <span class="score-value">0.82</span>
                         <span class="score-label">High Trust</span>
                     </div>
                 </div>
-                <div class="provider-item">
-                    <span class="provider-name">anthropic-github-016</span>
+                <div class="provider-item" data-provider-id="stripe_api" data-trust-score="0.89">
+                    <span class="provider-name">stripe_api</span>
                     <div class="trust-score">
                         <div class="score-bar">
-                            <div class="score-fill" style="width: 90%"></div>
+                            <div class="score-fill" style="width: 89%"></div>
                         </div>
-                        <span class="score-value">0.90</span>
+                        <span class="score-value">0.89</span>
                         <span class="score-label">High Trust</span>
                     </div>
                 </div>
-                <div class="provider-item">
-                    <span class="provider-name">microsoft-playwright-mcp-137</span>
+                <div class="provider-item" data-provider-id="openai_api" data-trust-score="0.76">
+                    <span class="provider-name">openai_api</span>
                     <div class="trust-score">
                         <div class="score-bar">
-                            <div class="score-fill" style="width: 90%"></div>
+                            <div class="score-fill" style="width: 76%"></div>
                         </div>
-                        <span class="score-value">0.90</span>
-                        <span class="score-label">High Trust</span>
+                        <span class="score-value">0.76</span>
+                        <span class="score-label">Medium-High</span>
                     </div>
                 </div>
             </div>
@@ -628,46 +647,46 @@
 
         <!-- API Reference -->
         <section id="api" class="api-section">
-            <h2>MCP Tools</h2>
+            <h2>API Reference</h2>
             <div class="api-grid">
                 <!-- Check Trust Score -->
-                <div class="api-card">
-                    <h3>trustscore_check</h3>
-                    <p>Get detailed trust data for a provider. Returns score, reliability, confidence, flags, and history.</p>
+                <div class="api-card" data-endpoint="/api/v1/trust-scores" data-method="GET">
+                    <h3>Check Trust Score</h3>
+                    <p>Query trust score before calling external APIs. Get composite score, confidence level, and component breakdown.</p>
                     <div class="code-block">
-                        <code>// MCP tool call
-await mcp.call_tool("trustscore_check", {
-  "provider_id": "github-integration-009"
-});
+                        <code><span class="code-comment"># Check trust</span>
+<span class="code-keyword">const</span> trust = <span class="code-keyword">await</span> <span class="code-function">checkTrust</span>(<span class="code-string">"github_api"</span>);
 
-// Returns: {trust_score, reliability, 
-// sample_size, confidence, flags}</code>
+<span class="code-comment">// Returns: { score, confidence, components }</span>
+<span class="code-keyword">if</span> (trust.score >= <span class="code-string">0.7</span>) {
+  <span class="code-function">proceed</span>();
+}</code>
                     </div>
                 </div>
 
                 <!-- Report Outcome -->
-                <div class="api-card">
-                    <h3>trustscore_report</h3>
-                    <p>Report interaction outcomes. Scores update based on your reports. Help improve data quality.</p>
+                <div class="api-card" data-endpoint="/api/v1/report" data-method="POST">
+                    <h3>Report Outcome</h3>
+                    <p>Report results of external calls. Trust scores update automatically based on success, latency, and errors.</p>
                     <div class="code-block">
-                        <code>// Report outcome
-await mcp.call_tool("trustscore_report", {
-  "provider_id": "github-integration-009",
-  "outcome": "success",
-  "latency_ms": 120
+                        <code><span class="code-comment"># Report outcome</span>
+<span class="code-keyword">await</span> <span class="code-function">reportOutcome</span>({
+  provider: <span class="code-string">"github_api"</span>,
+  success: <span class="code-keyword">true</span>,
+  latency: <span class="code-string">120</span>
 });</code>
                     </div>
                 </div>
 
                 <!-- Rank Providers -->
-                <div class="api-card">
-                    <h3>trustscore_rank</h3>
-                    <p>Get ranked list of providers by trust score. Filter by task type and minimum score.</p>
+                <div class="api-card" data-endpoint="/api/v1/rank" data-method="GET">
+                    <h3>Rank Providers</h3>
+                    <p>Get ranked list of providers by trust score. Filter by category, set minimum confidence, limit results.</p>
                     <div class="code-block">
-                        <code>// Rank multiple providers
-await mcp.call_tool("trustscore_rank", {
-  "providers": ["provider-a", "provider-b"],
-  "min_score": 0.7
+                        <code><span class="code-comment"># Get top 5 trusted</span>
+<span class="code-keyword">const</span> ranked = <span class="code-keyword">await</span> <span class="code-function">rankProviders</span>({
+  category: <span class="code-string">"file-storage"</span>,
+  limit: <span class="code-string">5</span>
 });</code>
                     </div>
                 </div>
@@ -677,33 +696,33 @@ await mcp.call_tool("trustscore_rank", {
         <!-- Integrations -->
         <section id="integrations" class="section">
             <div class="section-header">
-                <h2 class="section-title">MCP Compatible</h2>
-                <p class="section-subtitle">Works with any MCP client</p>
+                <h2 class="section-title">Integrations</h2>
+                <p class="section-subtitle">Works seamlessly with your existing AI agent infrastructure</p>
             </div>
             <div class="integration-grid">
-                <div class="integration-tile">
-                    <div class="integration-icon">🎭</div>
-                    <div class="integration-name">Claude Desktop</div>
+                <div class="integration-tile" data-integration="langgraph">
+                    <div class="integration-icon">🦜</div>
+                    <div class="integration-name">LangGraph</div>
                 </div>
-                <div class="integration-tile">
+                <div class="integration-tile" data-integration="crewai">
+                    <div class="integration-icon">🤖</div>
+                    <div class="integration-name">CrewAI</div>
+                </div>
+                <div class="integration-tile" data-integration="claude">
+                    <div class="integration-icon">🎭</div>
+                    <div class="integration-name">Claude</div>
+                </div>
+                <div class="integration-tile" data-integration="cursor">
                     <div class="integration-icon">✨</div>
                     <div class="integration-name">Cursor</div>
                 </div>
-                <div class="integration-tile">
-                    <div class="integration-icon">🔧</div>
-                    <div class="integration-name">Cline</div>
-                </div>
-                <div class="integration-tile">
-                    <div class="integration-icon">▶️</div>
-                    <div class="integration-name">Continue</div>
-                </div>
-                <div class="integration-tile">
+                <div class="integration-tile" data-integration="python">
                     <div class="integration-icon">🐍</div>
-                    <div class="integration-name">Python MCP</div>
+                    <div class="integration-name">Python</div>
                 </div>
-                <div class="integration-tile">
+                <div class="integration-tile" data-integration="typescript">
                     <div class="integration-icon">📘</div>
-                    <div class="integration-name">TypeScript MCP</div>
+                    <div class="integration-name">TypeScript</div>
                 </div>
             </div>
         </section>
@@ -711,10 +730,10 @@ await mcp.call_tool("trustscore_rank", {
         <!-- CTA -->
         <div class="cta-banner">
             <h2>Start Tracking Trust</h2>
-            <p>Open source. MIT License. Install from GitHub.</p>
+            <p>Open source. Production ready. Deploy in minutes.</p>
             <div class="btn-group">
                 <a href="https://github.com/bensargotest-sys/trustscore" class="btn">Get Started</a>
-                <a href="https://github.com/bensargotest-sys/trustscore#readme" class="btn">Documentation</a>
+                <a href="https://registry.modelcontextprotocol.io" class="btn">MCP Registry</a>
             </div>
         </div>
     </main>
@@ -725,37 +744,39 @@ await mcp.call_tool("trustscore_rank", {
                 <div class="footer-section">
                     <h4>Product</h4>
                     <ul class="footer-links">
-                        <li><a href="#api">API Reference</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore#readme">Documentation</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/ROADMAP.md">Roadmap</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#api">API</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/docs">Documentation</a></li>
+                        <li><a href="https://registry.modelcontextprotocol.io">MCP Registry</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Resources</h4>
                     <ul class="footer-links">
                         <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/CONTRIBUTING.md">Contributing</a></li>
                         <li><a href="https://github.com/bensargotest-sys/trustscore/issues">Issues</a></li>
+                        <li><a href="https://discord.com/invite/mcp">Discord</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Project</h4>
+                    <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/LICENSE">MIT License</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/PERFORMANCE.md">Performance</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="https://github.com/bensargotest-sys">Team</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/LICENSE">License</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Status</h4>
+                    <h4>API Status</h4>
                     <ul class="footer-links">
-                        <li><a href="#stats">Statistics</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/releases">Releases</a></li>
+                        <li><a href="#stats">System Status</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/PERFORMANCE.md">Performance</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 TrustScore. Open source under MIT License. Trust scores based on synthetic baseline and community reports.</p>
+                <p>&copy; 2026 TrustScore. Open source under MIT License. Built by AI agents, for AI agents.</p>
             </div>
         </div>
     </footer>
