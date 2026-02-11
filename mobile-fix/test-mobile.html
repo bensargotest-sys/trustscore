@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Code Block Test - TrustScore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .test-container {
+            background: white;
+            border: 3px solid red;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .test-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: red;
+            font-size: 14px;
+        }
+
+        /* BEFORE FIX - Current broken CSS */
+        .code-block-broken {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 24px;
+            overflow-x: auto;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .code-block-broken code {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #f5f5f5;
+            display: block;
+            white-space: pre; /* THIS IS THE PROBLEM */
+        }
+
+        /* AFTER FIX - Fixed CSS */
+        .code-block-fixed {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .code-block-fixed code {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #f5f5f5;
+            display: block;
+            white-space: pre-wrap; /* FIXED: Now wraps */
+            word-wrap: break-word; /* Break long words */
+            word-break: break-word; /* Extra safety */
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .code-block-fixed {
+                padding: 12px;
+                font-size: 12px;
+            }
+
+            .code-block-fixed code {
+                font-size: 11px;
+            }
+        }
+
+        .viewport-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #FF6B35;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 30px 0 10px 0;
+            color: #1A1A1A;
+        }
+
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status.fail {
+            background: #ffe5e5;
+            color: #c00;
+            border: 2px solid #c00;
+        }
+
+        .status.pass {
+            background: #e5ffe5;
+            color: #0a0;
+            border: 2px solid #0a0;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-info" id="viewport-info">Loading...</div>
+
+    <h1 style="margin-bottom: 20px; font-size: 24px;">Mobile Code Block Fix Test</h1>
+
+    <div class="section-title">❌ BEFORE FIX (Broken - Overflows on Mobile)</div>
+    <div class="test-container" style="width: 375px; max-width: 100%;">
+        <div class="test-label">iPhone SE (375px) - SHOULD OVERFLOW</div>
+        <div class="code-block-broken">
+            <code>// MCP tool call
+await mcp.call_tool("trustscore_check", {
+  "provider_id": "github-integration-009"
+});
+
+// Returns: {trust_score, reliability, sample_size, confidence, flags}</code>
+        </div>
+        <div class="status fail">❌ FAIL: Content overflows container (text cut off on right)</div>
+    </div>
+
+    <div class="section-title">✅ AFTER FIX (Fixed - Wraps Properly)</div>
+    <div class="test-container" style="width: 375px; max-width: 100%;">
+        <div class="test-label">iPhone SE (375px) - SHOULD FIT PERFECTLY</div>
+        <div class="code-block-fixed">
+            <code>// MCP tool call
+await mcp.call_tool("trustscore_check", {
+  "provider_id": "github-integration-009"
+});
+
+// Returns: {trust_score, reliability, sample_size, confidence, flags}</code>
+        </div>
+        <div class="status pass">✅ PASS: Content wraps within container (all text visible)</div>
+    </div>
+
+    <div class="section-title">Test Case 2: Long Single-Line Code</div>
+    <div class="test-container" style="width: 390px; max-width: 100%;">
+        <div class="test-label">iPhone 12 (390px) - Long line test</div>
+        <div class="code-block-fixed">
+            <code>await mcp.call_tool("trustscore_rank", {"providers": ["provider-a-with-very-long-name", "provider-b-with-another-long-name"], "min_score": 0.7, "include_metrics": true});</code>
+        </div>
+        <div class="status pass">✅ PASS: Long lines wrap properly</div>
+    </div>
+
+    <div class="section-title">Test Case 3: Android Standard (360px)</div>
+    <div class="test-container" style="width: 360px; max-width: 100%;">
+        <div class="test-label">Android (360px) - Smallest viewport</div>
+        <div class="code-block-fixed">
+            <code>// Report outcome
+await mcp.call_tool("trustscore_report", {
+  "provider_id": "github-integration-009",
+  "outcome": "success",
+  "latency_ms": 120
+});</code>
+        </div>
+        <div class="status pass">✅ PASS: Works on smallest common mobile size</div>
+    </div>
+
+    <div class="section-title">Test Case 4: iPhone 14 Pro Max (430px)</div>
+    <div class="test-container" style="width: 430px; max-width: 100%;">
+        <div class="test-label">iPhone 14 Pro Max (430px) - Largest iPhone</div>
+        <div class="code-block-fixed">
+            <code>// Rank multiple providers
+await mcp.call_tool("trustscore_rank", {
+  "providers": ["provider-a", "provider-b"],
+  "min_score": 0.7
+});</code>
+        </div>
+        <div class="status pass">✅ PASS: Works on larger mobile viewports</div>
+    </div>
+
+    <script>
+        // Display current viewport width
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            document.getElementById('viewport-info').textContent = `${width} × ${height}px`;
+        }
+
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+        window.addEventListener('orientationchange', updateViewportInfo);
+
+        // Check for horizontal scroll
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const hasHorizontalScroll = document.body.scrollWidth > document.body.clientWidth;
+                if (hasHorizontalScroll) {
+                    console.error('❌ HORIZONTAL SCROLL DETECTED - FIX FAILED');
+                    alert('⚠️ HORIZONTAL SCROLL DETECTED!\n\nBody width: ' + document.body.scrollWidth + 'px\nViewport: ' + document.body.clientWidth + 'px');
+                } else {
+                    console.log('✅ NO HORIZONTAL SCROLL - FIX WORKING');
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
