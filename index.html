@@ -3,51 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TrustScore - Local MCP server for trust scoring AI services. Integrates with Claude Desktop, Cline, and any MCP client.">
-    <meta name="keywords" content="MCP server, AI agents, trust scoring, local server, Claude Desktop, reliability">
-    <title>TrustScore - Local MCP Server for AI Service Trust Scores</title>
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="TrustScore - Local MCP Server for Trust Scores">
-    <meta property="og:description" content="Local Python MCP server that helps AI agents make better decisions about which services to trust.">
-    <meta property="og:url" content="https://trustscore-website.vercel.app">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TrustScore - Local MCP Server">
-    <meta name="twitter:description" content="Trust scoring for AI services. Runs locally, integrates with Claude Desktop and MCP clients.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23FF6B35' width='100' height='100' rx='20'/><path d='M30 35h40v8H52v32h-8V43H30z' fill='white'/></svg>">
-    
-    <!-- Structured data for AI agents -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "TrustScore",
-      "description": "Local MCP server for trust and reputation scoring of AI agent service providers",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Linux, macOS, Windows",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "provider": {
-        "@type": "Organization",
-        "name": "TrustScore"
-      },
-      "codeRepository": "https://github.com/bensargotest-sys/trustscore"
-    }
-    </script>
+    <meta name="description" content="TrustScore - Trust and reputation scores for AI agent service selection. Credit score for APIs, agents, and tools.">
+    <title>TrustScore - Trust Scores for AI Agent Service Selection</title>
     
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box !important;
+            box-sizing: border-box;
         }
 
         :root {
@@ -58,28 +21,9 @@
             --grey-light: #F5F5F5;
             --grey-mid: #E0E0E0;
             --grey-dark: #595959;
-            
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 32px;
-            --spacing-xl: 48px;
-            --spacing-xxl: 96px;
-            
+            --spacing: 24px;
+            --spacing-lg: 48px;
             --border-radius: 12px;
-            --transition: all 0.25s ease;
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
-            --shadow-orange: 0 8px 24px rgba(255, 107, 53, 0.3);
-        }
-
-        html {
-            scroll-padding-top: 80px;
-            scroll-behavior: smooth;
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
         }
 
         body {
@@ -89,283 +33,144 @@
             font-size: 16px;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
         }
 
-        .sr-only { 
-            position: absolute; 
-            left: -10000px; 
-            width: 1px; 
-            height: 1px; 
-            overflow: hidden; 
-        }
-
-        a:focus, button:focus, .btn:focus {
-            outline: 3px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; }
-        h1 { font-size: 56px; line-height: 1.1; }
-        h2 { font-size: 42px; line-height: 1.2; }
-        h3 { font-size: 32px; line-height: 1.3; }
-        h4 { font-size: 24px; line-height: 1.4; font-weight: 600; }
+        h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+        h1 { font-size: 48px; margin-bottom: 16px; }
+        h2 { font-size: 36px; margin-bottom: 24px; }
+        h3 { font-size: 24px; margin-bottom: 16px; }
 
         .container { 
-            max-width: 1200px;
-            width: 100%;
+            max-width: 1000px;
             margin: 0 auto; 
-            padding: 0 var(--spacing-md);
-            box-sizing: border-box;
+            padding: 0 var(--spacing);
         }
 
         /* Header */
         header {
-            padding: var(--spacing-md) 0;
+            padding: 24px 0;
             background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid var(--grey-mid);
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(20px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
-        nav { display: flex; justify-content: space-between; align-items: center; }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
 
         .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--black);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
             text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: var(--spacing-xl);
+            gap: 32px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--grey-dark);
             text-decoration: none;
-            font-size: 15px;
             font-weight: 500;
-            padding: 8px 0;
-            transition: var(--transition);
-            min-height: 44px;
-            display: flex;
-            align-items: center;
+            transition: color 0.25s;
         }
 
-        .nav-links a:hover { 
-            color: var(--orange);
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--black);
-            min-width: 44px;
-            min-height: 44px;
-            padding: 10px;
-            align-items: center;
-            justify-content: center;
-        }
+        .nav-links a:hover { color: var(--orange); }
 
         /* Hero */
         .hero {
-            padding: var(--spacing-xxl) 0;
+            padding: var(--spacing-lg) 0;
             text-align: center;
-            position: relative;
-            background: linear-gradient(180deg, 
-                rgba(255, 107, 53, 0.03) 0%, 
-                rgba(255, 255, 255, 0) 100%);
         }
 
-        .notice-banner {
-            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
-            color: var(--white);
-            padding: 16px 24px;
-            border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-lg);
-            font-size: 15px;
-            font-weight: 500;
-            box-shadow: var(--shadow-sm);
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero h1 { 
-            margin-bottom: var(--spacing-md); 
-            background: linear-gradient(135deg, var(--black) 0%, var(--grey-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-tagline {
-            font-size: 22px;
-            color: #2a2a2a;
-            max-width: 800px;
-            margin: var(--spacing-md) auto;
-            line-height: 1.5;
-            font-weight: 400;
-        }
-
-        .hero-tagline strong {
-            color: var(--orange);
-            font-weight: 600;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: #4a4a4a;
+        .tagline {
+            font-size: 20px;
+            color: var(--grey-dark);
             max-width: 700px;
-            margin: 0 auto var(--spacing-lg);
+            margin: 0 auto 32px;
             line-height: 1.6;
         }
 
-        .social-proof-bar {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            flex-wrap: wrap;
-            margin: var(--spacing-xl) 0;
-            padding: var(--spacing-md);
-            background: white;
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .proof-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--grey-dark);
-        }
-
-        .proof-icon {
-            font-size: 22px;
-        }
-
         /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
         .btn {
-            padding: 16px 32px;
+            display: inline-block;
+            padding: 14px 28px;
             border-radius: var(--border-radius);
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
+            transition: all 0.25s;
             cursor: pointer;
-            min-height: 44px;
-            min-width: 44px;
+            border: none;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
+            background: var(--orange);
             color: var(--white);
-            padding: 16px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
         }
 
         .btn-primary:hover {
+            background: var(--orange-dark);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-orange);
         }
 
         .btn-secondary {
             background: var(--grey-light);
             color: var(--black);
-            padding: 16px 32px;
-            box-shadow: var(--shadow-sm);
+            margin-left: 16px;
         }
 
-        .btn-secondary:hover { 
-            background: var(--grey-mid);
-            box-shadow: var(--shadow-md);
+        .btn-secondary:hover { background: var(--grey-mid); }
+
+        /* Sections */
+        .section { 
+            padding: var(--spacing-lg) 0; 
         }
 
-        /* Code blocks */
-        .installation-section {
-            background: var(--black);
-            color: var(--white);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-lg) 0;
-            box-shadow: var(--shadow-lg);
+        .section:nth-of-type(even) {
+            background: var(--grey-light);
         }
 
-        .installation-section h2 {
-            color: var(--white);
-            margin-bottom: var(--spacing-md);
-        }
-
+        /* Code Block */
         .code-block {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            padding: var(--spacing-md);
+            background: var(--black);
+            color: var(--grey-light);
+            padding: 24px;
+            border-radius: var(--border-radius);
             overflow-x: auto;
+            margin: 24px 0;
             position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: var(--spacing-md) 0;
         }
 
-        .code-block code {
+        .code-block pre {
+            margin: 0;
             font-family: 'SF Mono', Monaco, monospace;
             font-size: 14px;
             line-height: 1.6;
-            color: var(--grey-light);
-            display: block;
             white-space: pre;
         }
 
         .copy-button {
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 12px;
+            right: 12px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: var(--white);
-            padding: 12px 16px;
+            padding: 8px 16px;
             border-radius: 6px;
             font-size: 12px;
             cursor: pointer;
-            transition: var(--transition);
-            min-height: 44px;
+            transition: all 0.25s;
         }
 
         .copy-button:hover {
@@ -377,532 +182,280 @@
             border-color: var(--orange);
         }
 
-        /* Features */
-        .tile-grid {
+        /* How It Works */
+        .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-md);
-            margin: var(--spacing-lg) 0;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin: 32px 0;
         }
 
-        .tile {
+        .step {
             background: var(--white);
             border: 1px solid var(--grey-mid);
             border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            transition: var(--transition);
-            position: relative;
-            box-shadow: var(--shadow-sm);
+            padding: 24px;
+            text-align: left;
         }
 
-        .tile:hover {
-            border-color: var(--orange);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .tile-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            margin-bottom: var(--spacing-md);
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
-            color: var(--white);
-        }
-
-        .tile h3 { 
-            font-size: 24px;
-            margin-bottom: var(--spacing-sm); 
-        }
-        
-        .tile p { 
-            color: var(--grey-dark); 
-            font-size: 15px; 
-            line-height: 1.6; 
-        }
-
-        /* Stats */
-        .stats-dashboard {
-            background: var(--grey-light);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-lg) 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .stat-tile {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .stat-tile:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--orange);
-        }
-
-        .stat-number {
-            font-size: 48px;
             font-weight: 700;
-            color: var(--orange);
-            margin-bottom: var(--spacing-xs);
+            font-size: 20px;
+            margin-bottom: 16px;
         }
 
-        .stat-label {
+        .step p {
             color: var(--grey-dark);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-weight: 500;
-        }
-
-        /* FAQ */
-        .faq-section {
-            margin: var(--spacing-xl) 0;
-        }
-
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-lg);
-        }
-
-        .faq-item {
-            background: var(--white);
-            border: 1px solid var(--grey-mid);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .faq-item:hover {
-            border-color: var(--orange);
-            box-shadow: var(--shadow-md);
-        }
-
-        .faq-question {
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: var(--spacing-xs);
-            color: var(--black);
-        }
-
-        .faq-answer {
-            color: var(--grey-dark);
-            line-height: 1.6;
             font-size: 15px;
         }
 
-        .faq-answer code {
-            background: var(--grey-light);
-            padding: 2px 6px;
-            border-radius: 4px;
+        /* Tools */
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .tool {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: 24px;
+        }
+
+        .tool h3 {
+            color: var(--orange);
+            font-size: 20px;
+            margin-bottom: 8px;
             font-family: 'SF Mono', Monaco, monospace;
-            font-size: 14px;
+        }
+
+        .tool p {
+            color: var(--grey-dark);
+            font-size: 15px;
+        }
+
+        /* Problem/Solution Lists */
+        ul.feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        ul.feature-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--grey-dark);
+        }
+
+        ul.feature-list li::before {
+            content: "•";
+            color: var(--orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: var(--orange);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            text-align: center;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .cta-banner h2 { color: var(--white); }
+
+        .cta-banner .btn {
+            background: var(--white);
+            color: var(--orange);
+        }
+
+        .cta-banner .btn:hover { 
+            background: var(--grey-light);
         }
 
         /* Footer */
         footer {
             background: var(--black);
             color: var(--grey-mid);
-            padding: var(--spacing-xl) 0;
-            margin-top: var(--spacing-xxl);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-lg);
+            text-align: center;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .footer-section h4 {
-            color: var(--white);
-            margin-bottom: var(--spacing-sm);
-            font-size: 16px;
-        }
-
-        .footer-links { 
-            list-style: none; 
-        }
-
-        .footer-links li { 
-            margin-bottom: var(--spacing-xs); 
-        }
-
-        .footer-links a {
-            color: var(--grey-mid);
-            text-decoration: none;
-            font-size: 14px;
-            transition: var(--transition);
-            display: inline-block;
-            padding: 14px 0;
-            min-height: 44px;
-        }
-
-        .footer-links a:hover { 
+        footer a {
             color: var(--orange);
+            text-decoration: none;
         }
+
+        footer a:hover { color: var(--white); }
 
         /* Mobile */
         @media (max-width: 768px) {
-            h1 { font-size: 34px; }
+            h1 { font-size: 32px; }
             h2 { font-size: 28px; }
             
-            .hero { padding: var(--spacing-lg) 0; }
-            .container { padding: 0 20px; }
-            
-            .mobile-menu-button { display: flex; }
-            
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                max-width: 300px;
-                height: 100vh;
-                background: var(--white);
-                flex-direction: column;
-                padding: var(--spacing-xxl) var(--spacing-lg);
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-                transition: right 0.25s ease;
-                z-index: 1000;
-                overflow-y: auto;
-                gap: 0;
+                display: none;
             }
             
-            .nav-links.open {
-                right: 0;
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 16px;
+                display: block;
             }
-
-            .btn-group { flex-direction: column; width: 100%; }
-            .btn { width: 100%; }
             
-            .tile-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; }
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .code-block pre {
+                font-size: 12px;
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
         }
     </style>
 </head>
 <body>
-    <header role="banner">
-        <nav class="container" role="navigation">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#ff8c5a;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <rect fill="url(#logoGradient)" width="100" height="100" rx="20"/>
-                    <path d="M30 35h40v8H52v32h-8V43H30z" fill="white"/>
-                    <circle cx="75" cy="25" r="8" fill="white" opacity="0.9"/>
-                    <path d="M75 23v4M73 25h4" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <span>TrustScore</span>
-            </a>
-            <button class="mobile-menu-button" aria-label="Toggle menu">
-                ☰
-            </button>
-            <ul class="nav-links" role="list">
-                <li><a href="#installation">Install</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#mcp-tools">MCP Tools</a></li>
-                <li><a href="#faq">FAQ</a></li>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">TrustScore</a>
+            <ul class="nav-links">
+                <li><a href="#install">Install</a></li>
+                <li><a href="#tools">Tools</a></li>
                 <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="main" class="container">
+    <main class="container">
         <!-- Hero -->
         <section class="hero">
-            <div class="notice-banner">
-                🏠 <strong>Local MCP Server</strong> - Runs on your machine, integrates with Claude Desktop, Cursor, and any MCP client
-            </div>
-            
-            <h1>Trust Scores for AI Services</h1>
-            <p class="hero-tagline">A local Python MCP server that helps AI agents make better decisions about which service providers to trust. Think of it as a <strong>credit score for APIs, agents, and tools</strong>.</p>
-            <p class="hero-subtitle">🔬 Alpha • Open Source • MIT License • 200+ MCP servers catalogued</p>
-            
-            <div class="social-proof-bar">
-                <div class="proof-item">
-                    <span class="proof-icon">🏠</span>
-                    <span>Runs locally</span>
-                </div>
-                <div class="proof-item">
-                    <span class="proof-icon">🔓</span>
-                    <span>Open source</span>
-                </div>
-                <div class="proof-item">
-                    <span class="proof-icon">🛠️</span>
-                    <span>MCP protocol</span>
-                </div>
-            </div>
-            
-            <div class="btn-group">
-                <a href="#installation" class="btn btn-primary">Get Started</a>
-                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary">View on GitHub →</a>
+            <h1>TrustScore - Trust and reputation scores for AI agent service selection</h1>
+            <p class="tagline">TrustScore is an MCP server that helps AI agents make better decisions about which service providers to trust. Think of it as a <strong>credit score for APIs, agents, and tools</strong>.</p>
+            <div>
+                <a href="#install" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary">View on GitHub</a>
             </div>
         </section>
 
-        <!-- Installation -->
-        <section id="installation" class="installation-section">
-            <h2>📦 Installation</h2>
-            <p style="color: var(--grey-mid); margin-bottom: var(--spacing-md);">Clone from GitHub and install from source. Requires Python 3.10+.</p>
-            
+        <!-- Quick Start -->
+        <section id="install" class="section">
+            <h2>Quick Start</h2>
             <div class="code-block">
-                <button class="copy-button" onclick="copyCode(this, 'install-code')">Copy</button>
-                <code id="install-code"># 1. Clone repository
-git clone https://github.com/bensargotest-sys/trustscore.git
-cd trustscore
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                <pre># Install from PyPI
+pip install trustscore-mcp
 
-# 2. Create virtual environment (recommended)
-python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# 3. Install package
+# Or install from source  
 pip install -e .
 
-# 4. Seed database with 200+ MCP servers
+# Seed database with 200+ MCP servers
 python scripts/seed_database.py
 
-# 5. Run MCP server
-python -m src.server
-
-# 6. Verify it works
-python -m tests.test_basic</code>
+# Run as MCP server
+trustscore
+# Or: python -m src.server</pre>
             </div>
-
-            <h3 style="color: var(--orange); margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">MCP Client Configuration</h3>
-            <p style="color: var(--grey-mid); margin-bottom: var(--spacing-md);">Add to your MCP client (Claude Desktop, Cursor, etc.):</p>
-            
-            <div class="code-block">
-                <button class="copy-button" onclick="copyCode(this, 'config-code')">Copy</button>
-                <code id="config-code">{
-  "mcpServers": {
-    "trustscore": {
-      "command": "python",
-      "args": ["-m", "src.server"],
-      "cwd": "/path/to/trustscore"
-    }
-  }
-}</code>
-            </div>
-            
-            <p style="color: var(--grey-mid); margin-top: var(--spacing-md); font-size: 14px;">
-                📄 Config location: <code style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">~/Library/Application Support/Claude/claude_desktop_config.json</code> (macOS)
-            </p>
         </section>
 
-        <!-- Stats -->
-        <section id="stats" class="stats-dashboard">
-            <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Current Database</h2>
-            <div class="stats-grid">
-                <div class="stat-tile">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">MCP Servers<br/>Catalogued</div>
+        <!-- Problem -->
+        <section class="section">
+            <h2>What Problem Does This Solve?</h2>
+            <p>AI agents need to call external services: APIs, other agents, databases, DeFi protocols. But how do you know which ones are reliable?</p>
+            
+            <ul class="feature-list">
+                <li>Uniswap might have 99% uptime</li>
+                <li>SketchySwap might fail 80% of the time</li>
+                <li>SlowAPI might timeout constantly</li>
+            </ul>
+            
+            <p style="margin-top: 16px;"><strong>Without trust data, agents pick randomly or rely on hard-coded preferences. TrustScore fixes this with real behavioral data.</strong></p>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Agents report outcomes after calling a service</p>
                 </div>
-                <div class="stat-tile">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">MCP Tools<br/>Available</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>TrustScore aggregates success rates, latency, failure patterns</p>
                 </div>
-                <div class="stat-tile">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Local<br/>No Cloud</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Other agents query TrustScore before picking a provider</p>
                 </div>
-                <div class="stat-tile">
-                    <div class="stat-number">MIT</div>
-                    <div class="stat-label">Open Source<br/>License</div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>Network effect: More users = better data = better decisions</p>
                 </div>
             </div>
         </section>
 
         <!-- MCP Tools -->
-        <section id="mcp-tools">
-            <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">MCP Tools</h2>
-            <div class="tile-grid">
-                <div class="tile">
-                    <div class="tile-icon">✓</div>
-                    <h3>trustscore_check</h3>
-                    <p>Check a single provider's detailed trust data, reliability history, latency stats, and risk flags.</p>
-                </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">📊</div>
+        <section id="tools" class="section">
+            <h2>MCP Tools</h2>
+            <div class="tools-list">
+                <div class="tool">
                     <h3>trustscore_rank</h3>
-                    <p>Rank multiple providers by trust score. Get providers sorted best to worst with scores and flags.</p>
+                    <p>Rank multiple providers by trust score</p>
                 </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">📝</div>
+                <div class="tool">
+                    <h3>trustscore_check</h3>
+                    <p>Check a single provider's detailed trust data</p>
+                </div>
+                <div class="tool">
                     <h3>trustscore_report</h3>
-                    <p>Report an interaction outcome (success/failure/timeout). Your reports improve data for everyone.</p>
+                    <p>Report an interaction outcome (success/failure/timeout/error)</p>
                 </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">🔍</div>
+                <div class="tool">
                     <h3>trustscore_discover</h3>
-                    <p>Discover providers by task type, ranked by trust. Find the best tools for your needs.</p>
+                    <p>Discover providers by task type, ranked by trust</p>
                 </div>
             </div>
         </section>
 
-        <!-- Features -->
-        <section id="features">
-            <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Why TrustScore?</h2>
-            <div class="tile-grid">
-                <div class="tile">
-                    <div class="tile-icon">🏠</div>
-                    <h3>100% Local</h3>
-                    <p>All data stays on your machine. No telemetry, no external calls, no cloud dependencies. You control everything.</p>
-                </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">🔓</div>
-                    <h3>Open Source</h3>
-                    <p>MIT licensed. Read the code, modify it, contribute back. No vendor lock-in, no hidden costs.</p>
-                </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">🛠️</div>
-                    <h3>MCP Protocol</h3>
-                    <p>Works with Claude Desktop, Cursor, Cline, and any MCP-compatible client. Standard protocol, wide compatibility.</p>
-                </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">📊</div>
-                    <h3>Real Data</h3>
-                    <p>Trust scores based on actual success/failure rates, latency, and reliability over time. No marketing fluff.</p>
-                </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">🤝</div>
-                    <h3>Community Driven</h3>
-                    <p>Report your interactions to help others. Network effect: more reports = better data for everyone.</p>
-                </div>
-                
-                <div class="tile">
-                    <div class="tile-icon">⚡</div>
-                    <h3>Lightweight</h3>
-                    <p>SQLite database, Python server. ~5MB initial footprint. Fast queries, minimal resource usage.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" class="faq-section">
-            <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">FAQ</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">How do I install TrustScore?</div>
-                    <div class="faq-answer">
-                        Clone from GitHub and install from source:<br/>
-                        <code>git clone https://github.com/bensargotest-sys/trustscore.git</code><br/>
-                        <code>cd trustscore && pip install -e .</code><br/>
-                        Then configure your MCP client (see Installation section above).
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Is this a web API?</div>
-                    <div class="faq-answer">
-                        No. TrustScore is a <strong>local Python MCP server</strong> that runs on your machine. It's not a cloud service, web API, or SaaS product. All data stays local.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">What data does TrustScore collect?</div>
-                    <div class="faq-answer">
-                        TrustScore runs locally on YOUR machine. Your data stays on your machine. Only if you choose to report interactions will that data be stored in your local SQLite database. There is no cloud service, no tracking, no data sent anywhere.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How do I use it with Claude Desktop?</div>
-                    <div class="faq-answer">
-                        Add TrustScore to your <code>claude_desktop_config.json</code> file (see Installation section). Restart Claude Desktop. You can then say "Check the trust score for github-integration-009" and Claude will use the MCP tool.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Is TrustScore free?</div>
-                    <div class="faq-answer">
-                        Yes! 100% free and open source (MIT license). No API keys, no rate limits, no costs. Download, use, modify, contribute.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How do trust scores work?</div>
-                    <div class="faq-answer">
-                        Trust scores (0.0-1.0) are calculated from actual success/failure rates, latency, and reliability over time. 0.9+ is excellent, 0.7-0.89 is good, 0.5-0.69 is acceptable. Scores also include risk flags like recent_failures, high_latency, etc.
-                    </div>
-                </div>
-            </div>
+        <!-- CTA -->
+        <section class="cta-banner">
+            <h2>Ready to Start?</h2>
+            <p>Install TrustScore and start making smarter decisions about service providers.</p>
+            <a href="https://github.com/bensargotest-sys/trustscore" class="btn">View Documentation</a>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>TrustScore</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/README.md">Documentation</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/LICENSE">MIT License</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/bensargotest-sys/trustscore#quick-start">Quick Start</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore#mcp-tools">MCP Tools</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore#faq">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Community</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/issues">Report Issues</a></li>
-                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/main/CONTRIBUTING.md">Contributing</a></li>
-                    </ul>
-                </div>
-            </div>
-            <p style="text-align: center; color: var(--grey-dark); font-size: 14px; margin-top: var(--spacing-lg);">
-                Built with ❤️ by autonomous agents • Open Source • MIT License
-            </p>
+            <p>TrustScore • <a href="https://github.com/bensargotest-sys/trustscore">GitHub</a> • Open Source (MIT License)</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('open');
-        });
-
-        // Copy code to clipboard
-        function copyCode(button, codeId) {
-            const code = document.getElementById(codeId).textContent;
-            navigator.clipboard.writeText(code).then(() => {
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
+                
                 setTimeout(() => {
                     button.textContent = 'Copy';
                     button.classList.remove('copied');
