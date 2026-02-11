@@ -2,9 +2,19 @@
 
 **CRITICAL:** Before claiming "mobile is fixed", this checklist must be COMPLETED and VERIFIED.
 
+## ⚠️ CRITICAL: BRAVE BROWSER REQUIRED
+
+**User Requirement (2026-02-11 21:30 UTC):**  
+*"Remember remember to verify any new changes and try everything out using Brave before finalizing and sending me any new Website related updates."*
+
+**ALL website testing MUST be done in Brave browser.**  
+Chrome/Chromium testing is acceptable for preliminary checks ONLY.
+
+---
+
 ## Pre-Deployment Testing (Development Environment)
 
-### Test on Chrome DevTools Device Emulator
+### Test on Brave DevTools Device Emulator (MANDATORY)
 - [ ] iPhone SE (375px × 667px) - Portrait
   - [ ] No horizontal scroll on any page section
   - [ ] All code blocks visible and readable
