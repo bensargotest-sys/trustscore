@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TrustScore Blog - Insights on AI agent reliability, service selection, and collective intelligence.">
+    <meta name="keywords" content="AI agents, trust scoring, reliability, MCP, blog">
+    <title>Blog | TrustScore</title>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="TrustScore Blog">
+    <meta property="og:description" content="Insights on AI agent reliability and collective intelligence">
+    <meta property="og:url" content="https://trustscore-website.vercel.app/blog">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23FF6B35' width='100' height='100' rx='20'/><path d='M30 35h40v8H52v32h-8V43H30z' fill='white'/></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF6B35;
+            --orange-dark: #e55f2f;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --grey-light: #F5F5F5;
+            --grey-mid: #E0E0E0;
+            --grey-dark: #595959;
+            
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-xxl: 96px;
+            
+            --border-radius: 12px;
+            --transition: all 0.25s ease;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            padding: var(--spacing-md) 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--grey-mid);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--grey-dark);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a.active {
+            color: var(--orange);
+        }
+
+        /* Hero */
+        .hero {
+            padding: var(--spacing-xxl) 0 var(--spacing-xl);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--grey-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: var(--spacing-sm);
+            color: var(--grey-dark);
+            font-size: 14px;
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .blog-card h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
+        }
+
+        .blog-card h2 a {
+            color: var(--black);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .blog-card h2 a:hover {
+            color: var(--orange);
+        }
+
+        .blog-excerpt {
+            color: var(--grey-dark);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+            border: 2px solid var(--orange);
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: var(--spacing-lg);
+            background: var(--orange);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .empty-state h2 {
+            font-size: 32px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--grey-dark);
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            color: var(--grey-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--grey-mid);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xxl);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: var(--spacing-sm);
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff8c5a;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect fill="url(#logoGradient)" width="100" height="100" rx="20"/>
+                    <path d="M30 35h40v8H52v32h-8V43H30z" fill="white"/>
+                    <circle cx="75" cy="25" r="8" fill="white" opacity="0.9"/>
+                    <path d="M75 23v4M73 25h4" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>TrustScore</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#stats">Stats</a></li>
+                <li><a href="index.html" class="active">Blog</a></li>
+                <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Blog</h1>
+            <p>Insights on AI agent reliability, service selection, and collective intelligence</p>
+        </section>
+
+        <section class="blog-grid">
+            <!-- Featured Post -->
+            <article class="blog-card featured-post">
+                <div class="featured-badge">Latest</div>
+                <div class="blog-meta">
+                    <span>📅 Feb 11, 2026</span>
+                    <span>•</span>
+                    <span>⏱️ 8 min read</span>
+                    <span>•</span>
+                    <span>📝 TrustScore Team</span>
+                </div>
+                <h2><a href="why-ai-agents-need-credit-scores.html">Why AI Agents Need Credit Scores</a></h2>
+                <p class="blog-excerpt">
+                    The $4,200 bug that should never have happened. How an AI agent spent thousands on a bad API—and why collective intelligence could have prevented it. Learn why agents need reputation systems, not just marketing promises.
+                </p>
+                <a href="why-ai-agents-need-credit-scores.html" class="read-more">
+                    Read full article →
+                </a>
+            </article>
+
+            <!-- Placeholder for future posts -->
+            <!-- 
+            <article class="blog-card">
+                <div class="blog-meta">
+                    <span>📅 Coming Soon</span>
+                </div>
+                <h2><a href="#">How TrustScore Works Under the Hood</a></h2>
+                <p class="blog-excerpt">
+                    A technical deep-dive into trust decay algorithms, aggregation strategies, and how we built a reputation system that scales.
+                </p>
+                <a href="#" class="read-more">
+                    Coming soon →
+                </a>
+            </article>
+            -->
+        </section>
+
+        <!-- More posts coming message -->
+        <section class="empty-state">
+            <h2>More Coming Soon</h2>
+            <p>We're just getting started. Follow us on <a href="https://github.com/bensargotest-sys/trustscore" style="color: var(--orange);">GitHub</a> for updates.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 TrustScore. Open source under MIT License.</p>
+        </div>
+    </footer>
+</body>
+</html>

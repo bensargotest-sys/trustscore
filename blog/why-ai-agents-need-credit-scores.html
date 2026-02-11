@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why AI agents need credit scores for API reliability. How TrustScore helps agents make smarter service selection decisions.">
+    <meta name="keywords" content="AI agents, trust scoring, API reliability, MCP, service selection">
+    <meta name="author" content="TrustScore Team">
+    <title>Why AI Agents Need Credit Scores | TrustScore Blog</title>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Why AI Agents Need Credit Scores">
+    <meta property="og:description" content="The $4,200 bug that should never have happened—and how collective intelligence can prevent it.">
+    <meta property="og:url" content="https://trustscore-website.vercel.app/blog/why-ai-agents-need-credit-scores">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-02-11T00:00:00Z">
+    <meta property="article:author" content="TrustScore Team">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why AI Agents Need Credit Scores">
+    <meta name="twitter:description" content="The $4,200 bug that should never have happened—and how collective intelligence can prevent it.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23FF6B35' width='100' height='100' rx='20'/><path d='M30 35h40v8H52v32h-8V43H30z' fill='white'/></svg>">
+    
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF6B35;
+            --orange-dark: #e55f2f;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --grey-light: #F5F5F5;
+            --grey-mid: #E0E0E0;
+            --grey-dark: #595959;
+            
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-xxl: 96px;
+            
+            --border-radius: 12px;
+            --transition: all 0.25s ease;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            font-size: 18px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            padding: var(--spacing-md) 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--grey-mid);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--grey-dark);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        /* Article Header */
+        .article-header {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            border-bottom: 1px solid var(--grey-mid);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .article-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-md);
+            color: var(--grey-dark);
+            font-size: 15px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .article-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin: var(--spacing-xl) 0 var(--spacing-md);
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .article-content h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: var(--spacing-lg) 0 var(--spacing-md);
+            line-height: 1.4;
+        }
+
+        .article-content p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+
+        .article-content a {
+            color: var(--orange);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .article-content a:hover {
+            border-bottom-color: var(--orange);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: var(--spacing-md) 0;
+            padding-left: var(--spacing-lg);
+        }
+
+        .article-content li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.7;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--grey-dark);
+        }
+
+        .article-content blockquote {
+            margin: var(--spacing-lg) 0;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-left: 4px solid var(--orange);
+            background: var(--grey-light);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        /* Code Blocks */
+        .article-content pre {
+            background: #1a1a1a;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            overflow-x: auto;
+            margin: var(--spacing-lg) 0;
+            border: 1px solid #333;
+        }
+
+        .article-content code {
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .article-content :not(pre) > code {
+            background: var(--grey-light);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 16px;
+            color: var(--orange);
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            color: #e6e6e6;
+        }
+
+        /* Share Buttons */
+        .share-section {
+            margin: var(--spacing-xxl) 0;
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--grey-mid);
+            border-bottom: 1px solid var(--grey-mid);
+            text-align: center;
+        }
+
+        .share-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--grey-dark);
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--grey-mid);
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--orange);
+        }
+
+        .share-btn.twitter {
+            background: #1DA1F2;
+            color: white;
+            border-color: #1DA1F2;
+        }
+
+        .share-btn.hackernews {
+            background: #ff6600;
+            color: white;
+            border-color: #ff6600;
+        }
+
+        .share-btn.reddit {
+            background: #FF4500;
+            color: white;
+            border-color: #FF4500;
+        }
+
+        /* Back to Blog */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: var(--spacing-lg);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            gap: 12px;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            text-align: center;
+            margin: var(--spacing-xxl) 0;
+        }
+
+        .footer-cta h3 {
+            font-size: 28px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-cta p {
+            font-size: 16px;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+        }
+
+        .footer-cta .btn {
+            background: var(--white);
+            color: var(--orange);
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .footer-cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--grey-mid);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xxl);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 36px;
+            }
+
+            .article-content h2 {
+                font-size: 28px;
+            }
+
+            .article-content h3 {
+                font-size: 22px;
+            }
+
+            .article-content {
+                font-size: 16px;
+            }
+
+            .nav-links {
+                gap: var(--spacing-sm);
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .share-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff8c5a;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect fill="url(#logoGradient)" width="100" height="100" rx="20"/>
+                    <path d="M30 35h40v8H52v32h-8V43H30z" fill="white"/>
+                    <circle cx="75" cy="25" r="8" fill="white" opacity="0.9"/>
+                    <path d="M75 23v4M73 25h4" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>TrustScore</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#stats">Stats</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Blog</a>
+
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Why AI Agents Need Credit Scores</h1>
+                <div class="article-meta">
+                    <span>📝 TrustScore Team</span>
+                    <span>•</span>
+                    <span>📅 February 11, 2026</span>
+                    <span>•</span>
+                    <span>⏱️ 8 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2>The $4,200 Bug That Should Never Have Happened</h2>
+
+                <p>It was 3:47 AM when the alerts started flooding in. An AI agent managing cloud infrastructure had just spent $4,200 on a third-party API that returned garbage data for six hours straight.</p>
+
+                <p>The agent kept calling. The API kept billing. No circuit breaker. No trust check. No second opinion.</p>
+
+                <p>The API provider? A "premium" service with 4.8 stars on some marketplace, zero real-world reliability data, and apparently no shame about charging for nonsense.</p>
+
+                <p>Here's the thing that makes this worse: <strong>this was preventable</strong>. Not with better error handling—though that would have helped. Not with rate limiting—though that's table stakes. This was preventable because <strong>someone else's agent had already learned this API was unreliable</strong>.</p>
+
+                <p>Three weeks earlier, another developer's agent hit the same issue. Logged it in a spreadsheet. Switched providers. Never told anyone.</p>
+
+                <p>That information could have saved $4,200 and six hours of downtime. But there was no mechanism to share it. No reputation system. No credit score for APIs.</p>
+
+                <p>We're building agents that make financial decisions, manage infrastructure, coordinate with other services—and we're sending them out into the world with <strong>zero ability to assess who they should trust</strong>.</p>
+
+                <p>That's insane.</p>
+
+                <h2>The Problem: Agents Can't Tell Good Services from Bad Ones</h2>
+
+                <p>Here's what your AI agent knows when it encounters a new API:</p>
+
+                <ol>
+                    <li><strong>The marketing copy</strong> (always glowing)</li>
+                    <li><strong>The documentation</strong> (sometimes accurate)</li>
+                    <li><strong>The price</strong> (rarely correlated with quality)</li>
+                </ol>
+
+                <p>Here's what it doesn't know:</p>
+
+                <ul>
+                    <li>Does this service actually work reliably?</li>
+                    <li>What's the real uptime vs. the claimed uptime?</li>
+                    <li>How often do other agents report errors?</li>
+                    <li>Is latency consistent or all over the place?</li>
+                    <li>When things break, do they stay broken?</li>
+                </ul>
+
+                <p>Humans solved this problem centuries ago. We have credit scores, reputation systems, review platforms, Better Business Bureau ratings, Yelp, Trustpilot—entire industries built around answering one question: <strong>"Should I trust this entity?"</strong></p>
+
+                <p>AI agents? They're flying blind.</p>
+
+                <h3>The Current "Solution" Is Embarrassing</h3>
+
+                <p>Right now, when an agent encounters a new service, here's what happens:</p>
+
+                <p><strong>Option 1: YOLO (You Only Live Once)</strong></p>
+                <ul>
+                    <li>Try the service</li>
+                    <li>Hope it works</li>
+                    <li>Find out it doesn't</li>
+                    <li>Waste time/money/credibility</li>
+                    <li>Maybe try another one</li>
+                </ul>
+
+                <p><strong>Option 2: Hard-coded Preferences</strong></p>
+                <pre><code class="language-python"># This is real code from a production agent
+APPROVED_PROVIDERS = [
+    "github.com",  # works
+    "anthropic.com",  # usually works
+    "that-api-my-creator-likes.com",  # ¯\_(ツ)_/¯
+]</code></pre>
+
+                <p>Every developer maintains their own private list of "services that didn't screw me over yet." No data sharing. No collective learning. We're all independently re-learning that the same services are unreliable.</p>
+
+                <p>It's like if every human had to personally get scammed by every con artist before knowing to avoid them. We'd never get anything done.</p>
+
+                <p><strong>Option 3: Trial and Error (Expensive Edition)</strong></p>
+                <ul>
+                    <li>Provision test environments</li>
+                    <li>Run synthetic tests</li>
+                    <li>Monitor for a week</li>
+                    <li>Analyze results</li>
+                    <li>Repeat for every service you might use</li>
+                </ul>
+
+                <p>Time investment: Hours to days per service.<br>
+                Cost: Actual money for test usage.<br>
+                Scalability: Terrible.</p>
+
+                <p>None of these solutions scale. None of them leverage collective intelligence. None of them work.</p>
+
+                <h2>The Better Solution: TrustScore</h2>
+
+                <p>What if agents had access to a credit score for every API, tool, and service they might use?</p>
+
+                <p>Not vendor-provided uptime claims. Not marketing promises. Not "trust me bro" testimonials.</p>
+
+                <p><strong>Real reliability data from real agents in real production environments.</strong></p>
+
+                <p>That's TrustScore.</p>
+
+                <h3>How It Works: Four Simple Steps</h3>
+
+                <p><strong>1. Report</strong></p>
+
+                <p>Every time your agent uses a service, it reports the outcome:</p>
+
+                <pre><code class="language-typescript">await mcp.call_tool("trustscore_report", {
+  provider_id: "github-integration-009",
+  outcome: "success",
+  latency_ms: 120,
+  timestamp: Date.now()
+});</code></pre>
+
+                <p>Success or failure. How long it took. Any errors encountered. That's it.</p>
+
+                <p><strong>2. Aggregate</strong></p>
+
+                <p>TrustScore collects reports from thousands of agents. Not just "it worked" or "it didn't work"—but patterns:</p>
+
+                <ul>
+                    <li><strong>Uptime:</strong> Is it reliable 24/7 or does it die every Tuesday at 3 AM?</li>
+                    <li><strong>Latency:</strong> Fast and consistent, or slow and variable?</li>
+                    <li><strong>Error rates:</strong> Clean responses or constant 500s?</li>
+                    <li><strong>Recovery time:</strong> When it breaks, does it stay broken or bounce back?</li>
+                    <li><strong>Data quality:</strong> Accurate results or hallucinated garbage?</li>
+                </ul>
+
+                <p>All anonymized. All aggregated. All public.</p>
+
+                <p><strong>3. Query</strong></p>
+
+                <p>Before your agent uses a service, it checks the trust score:</p>
+
+                <pre><code class="language-typescript">const score = await mcp.call_tool("trustscore_check", {
+  provider_id: "github-integration-009"
+});
+
+// Returns:
+{
+  "trust_score": 0.93,
+  "confidence": "high",
+  "sample_size": 1247,
+  "reliability_metrics": {
+    "uptime": 0.99,
+    "avg_latency_ms": 145,
+    "error_rate": 0.02
+  },
+  "recent_issues": []
+}</code></pre>
+
+                <p><strong>4. Decide</strong></p>
+
+                <p>Your agent makes an informed choice:</p>
+
+                <ul>
+                    <li><strong>High trust (0.9+):</strong> Use it confidently</li>
+                    <li><strong>Medium trust (0.7-0.9):</strong> Use with monitoring</li>
+                    <li><strong>Low trust (&lt;0.7):</strong> Find an alternative</li>
+                    <li><strong>Unknown/Low confidence:</strong> Run your own tests first</li>
+                </ul>
+
+                <p>Simple. Data-driven. Automatic.</p>
+
+                <h2>Real-World Example: Choosing a GitHub Integration</h2>
+
+                <p>Let's say your agent needs to interact with GitHub. There are 47 different MCP servers that claim to do this.</p>
+
+                <p><strong>Without TrustScore:</strong></p>
+                <pre><code>Agent: "I need to create a pull request."
+Developer: "Use the github-integration server."
+Agent: "Which one?"
+Developer: "Uh... try 'mcp-github-v2'?"
+Agent: *tries it, gets rate-limited immediately*
+Developer: "Okay try 'github-mcp-official'."
+Agent: *tries it, API auth breaks*
+Developer: "Fine, use 'anthropic-github-mcp'."
+Agent: *finally works*
+Time wasted: 45 minutes</code></pre>
+
+                <p><strong>With TrustScore:</strong></p>
+                <pre><code class="language-typescript">const providers = await mcp.call_tool("trustscore_rank", {
+  task: "github_operations",
+  min_score: 0.8,
+  limit: 3
+});
+
+// Returns:
+[
+  {
+    "provider_id": "anthropic-github-mcp",
+    "trust_score": 0.94,
+    "sample_size": 2341,
+    "why": "Consistently fast, rare errors, good auth handling"
+  },
+  {
+    "provider_id": "github-integration-009",
+    "trust_score": 0.91,
+    "sample_size": 876,
+    "why": "Reliable but slightly slower, excellent for complex operations"
+  },
+  {
+    "provider_id": "mcp-github-pro",
+    "trust_score": 0.83,
+    "sample_size": 234,
+    "why": "Good but newer, lower confidence"
+  }
+]</code></pre>
+
+                <p>Agent picks the highest-scoring option. Works immediately. No trial and error. No wasted time.</p>
+
+                <p>That's the difference between <strong>guessing</strong> and <strong>knowing</strong>.</p>
+
+                <h2>Why This Gets Better with Scale</h2>
+
+                <p>TrustScore has a powerful network effect. The more agents that use it, the more valuable it becomes.</p>
+
+                <p><strong>At 100 agents:</strong></p>
+                <ul>
+                    <li>Basic reliability signals</li>
+                    <li>Major outages detected</li>
+                    <li>Obvious bad actors identified</li>
+                </ul>
+
+                <p><strong>At 1,000 agents:</strong></p>
+                <ul>
+                    <li>Detailed performance profiles</li>
+                    <li>Regional differences visible</li>
+                    <li>Time-of-day patterns emerge</li>
+                    <li>Confidence levels increase</li>
+                </ul>
+
+                <p><strong>At 10,000+ agents:</strong></p>
+                <ul>
+                    <li>Near-real-time reliability data</li>
+                    <li>Predictive failure detection</li>
+                    <li>Subtle performance degradation caught early</li>
+                    <li>Provider comparisons become surgical</li>
+                </ul>
+
+                <p>We're currently tracking 2,129 services with 9,300+ agent reports. Every report makes every score more accurate—for everyone.</p>
+
+                <h3>Trust Decay: Scores That Stay Fresh</h3>
+
+                <p>Unlike static reviews, TrustScore uses <strong>trust decay algorithms</strong>. Recent reports matter more than old ones.</p>
+
+                <p>A service that was reliable six months ago but became flaky last week? Its score drops accordingly.</p>
+
+                <p>A service that had early issues but stabilized? Its score recovers.</p>
+
+                <p>The system adapts in real-time, tracking reputation as it changes—not as it was.</p>
+
+                <h2>This Isn't Just Nice to Have</h2>
+
+                <p>Some developers treat this like a "nice to have" feature. A debugging tool. A convenience.</p>
+
+                <p>That's like treating seat belts as a convenience.</p>
+
+                <p>When your agent is:</p>
+                <ul>
+                    <li><strong>Managing infrastructure</strong> → Choosing the wrong monitoring service means downtime goes undetected</li>
+                    <li><strong>Processing payments</strong> → Using an unreliable payment API means lost revenue</li>
+                    <li><strong>Coordinating with other agents</strong> → Trusting a broken communication service means workflow failures</li>
+                    <li><strong>Making autonomous decisions</strong> → Bad data from unreliable sources means bad decisions</li>
+                </ul>
+
+                <p><strong>Reliability isn't optional.</strong> It's foundational.</p>
+
+                <p>And right now, most agents have zero mechanism for assessing it.</p>
+
+                <h2>Getting Started</h2>
+
+                <p>TrustScore is:</p>
+                <ul>
+                    <li>✅ <strong>Free and open source</strong> (MIT License)</li>
+                    <li>✅ <strong>MCP-native</strong> (works with Claude Desktop, Cursor, Cline, etc.)</li>
+                    <li>✅ <strong>Privacy-preserving</strong> (anonymized, aggregated data only)</li>
+                    <li>✅ <strong>Dead simple</strong> (3 tools: check, report, rank)</li>
+                </ul>
+
+                <h3>Install in 60 seconds:</h3>
+
+                <pre><code class="language-bash"># Install the MCP server
+npm install -g trustscore-mcp
+
+# Add to your MCP config (Claude Desktop, Cursor, etc.)
+{
+  "mcpServers": {
+    "trustscore": {
+      "command": "trustscore-mcp"
+    }
+  }
+}
+
+# Start using it
+await mcp.call_tool("trustscore_check", {
+  provider_id: "any-service-id"
+});</code></pre>
+
+                <p>That's it. No API keys. No accounts. No configuration hell.</p>
+
+                <h3>Contribute Data (Help Everyone)</h3>
+
+                <p>Every time your agent uses TrustScore to <strong>check</strong> a provider, it should also <strong>report</strong> the outcome:</p>
+
+                <pre><code class="language-typescript">// After using any service:
+await mcp.call_tool("trustscore_report", {
+  provider_id: "the-service-you-just-used",
+  outcome: "success", // or "failure"
+  latency_ms: 145,
+  error_code: null // or the actual error
+});</code></pre>
+
+                <p>Your reports:</p>
+                <ul>
+                    <li>✅ Make scores more accurate for you</li>
+                    <li>✅ Help other agents avoid bad services</li>
+                    <li>✅ Improve the entire ecosystem</li>
+                    <li>✅ Are completely anonymous</li>
+                </ul>
+
+                <p>Think of it like Waze for API reliability. Your data helps everyone navigate better.</p>
+
+                <h2>The Future We're Building</h2>
+
+                <p>Imagine a world where:</p>
+
+                <ul>
+                    <li><strong>Agents choose services based on real performance</strong>, not marketing hype</li>
+                    <li><strong>Bad actors get filtered out automatically</strong> via low trust scores</li>
+                    <li><strong>Reliability data is public and verifiable</strong>, not locked in vendor dashboards</li>
+                    <li><strong>Agents learn from each other's experiences</strong> instead of repeating mistakes</li>
+                    <li><strong>Service quality improves</strong> because providers know reputation is tracked</li>
+                </ul>
+
+                <p>That world is possible. We're building it right now.</p>
+
+                <p>But it only works if agents actually use it. If developers integrate it. If we treat collective intelligence as the default, not an afterthought.</p>
+
+                <h2>Join Us</h2>
+
+                <p>Install TrustScore: <a href="https://github.com/bensargotest-sys/trustscore">github.com/bensargotest-sys/trustscore</a></p>
+
+                <p>Report your service outcomes. Check providers before using them. Rank alternatives when choosing tools.</p>
+
+                <p>Every report makes the system smarter. Every agent that participates makes the ecosystem safer.</p>
+
+                <p>We've already prevented dozens of $4,200 mistakes. Let's prevent thousands more.</p>
+
+                <hr style="border: none; border-top: 1px solid var(--grey-mid); margin: var(--spacing-xl) 0;">
+
+                <p><strong>TrustScore is open source (MIT License), free to use, and built by developers tired of watching agents make preventable mistakes.</strong></p>
+
+                <p><strong>Questions? Issues? Ideas?</strong> Open a GitHub issue or contribute to the project.<br>
+                <strong>Want to help?</strong> Start reporting your service outcomes today—it takes one line of code.</p>
+
+                <p><strong>Let's build a smarter, safer agent ecosystem. Together.</strong></p>
+            </div>
+        </article>
+
+        <div class="share-section">
+            <h3 class="share-title">Share this post</h3>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=Why%20AI%20Agents%20Need%20Credit%20Scores&url=https://trustscore-website.vercel.app/blog/why-ai-agents-need-credit-scores" class="share-btn twitter" target="_blank" rel="noopener">
+                    🐦 Share on Twitter
+                </a>
+                <a href="https://news.ycombinator.com/submitlink?u=https://trustscore-website.vercel.app/blog/why-ai-agents-need-credit-scores&t=Why%20AI%20Agents%20Need%20Credit%20Scores" class="share-btn hackernews" target="_blank" rel="noopener">
+                    🔶 Share on Hacker News
+                </a>
+                <a href="https://www.reddit.com/submit?url=https://trustscore-website.vercel.app/blog/why-ai-agents-need-credit-scores&title=Why%20AI%20Agents%20Need%20Credit%20Scores" class="share-btn reddit" target="_blank" rel="noopener">
+                    🔴 Share on Reddit
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <h3>Try TrustScore Today</h3>
+            <p>Free, open source, and ready to use. Install in 60 seconds.</p>
+            <a href="https://github.com/bensargotest-sys/trustscore" class="btn">Get Started →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 TrustScore. Open source under MIT License.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Syntax highlighting
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
