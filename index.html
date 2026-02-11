@@ -42,7 +42,7 @@
             --black: #1A1A1A;
             --grey-light: #F5F5F5;
             --grey-mid: #E0E0E0;
-            --grey-dark: #757575;
+            --grey-dark: #666666;
             --spacing-xs: 8px;
             --spacing-sm: 16px;
             --spacing-md: 24px;
@@ -56,7 +56,8 @@
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
             background: var(--white);
             color: var(--black);
-            line-height: 1.6;
+            font-size: 16px;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -128,8 +129,9 @@
         .hero-subtitle {
             font-size: 20px;
             color: var(--grey-dark);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto var(--spacing-lg);
+            line-height: 1.6;
         }
 
         /* Buttons */
@@ -198,9 +200,10 @@
 
         .stat-label {
             color: var(--grey-dark);
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            font-weight: 500;
         }
 
         /* Tile Grid */
@@ -243,7 +246,7 @@
         }
 
         .tile h3 { margin-bottom: var(--spacing-sm); }
-        .tile p { color: var(--grey-dark); font-size: 15px; }
+        .tile p { color: var(--grey-dark); font-size: 15px; line-height: 1.6; }
 
         /* Live Data */
         .live-data {
@@ -324,6 +327,12 @@
             color: var(--orange);
         }
 
+        .score-label {
+            font-size: 12px;
+            color: var(--grey-dark);
+            margin-left: var(--spacing-xs);
+        }
+
         /* API Section */
         .api-section {
             background: var(--black);
@@ -359,7 +368,8 @@
 
         .api-card p {
             color: var(--grey-mid);
-            font-size: 14px;
+            font-size: 15px;
+            line-height: 1.6;
             margin-bottom: var(--spacing-md);
         }
 
@@ -412,7 +422,7 @@
         }
 
         /* Section */
-        .section { padding: var(--spacing-xl) 0; }
+        .section { padding: var(--spacing-xl) 0; margin-top: var(--spacing-lg); }
 
         .section-header {
             text-align: center;
@@ -609,6 +619,7 @@
                             <div class="score-fill" style="width: 82%"></div>
                         </div>
                         <span class="score-value">0.82</span>
+                        <span class="score-label">High Trust</span>
                     </div>
                 </div>
                 <div class="provider-item" data-provider-id="stripe_api" data-trust-score="0.89">
@@ -618,6 +629,7 @@
                             <div class="score-fill" style="width: 89%"></div>
                         </div>
                         <span class="score-value">0.89</span>
+                        <span class="score-label">High Trust</span>
                     </div>
                 </div>
                 <div class="provider-item" data-provider-id="openai_api" data-trust-score="0.76">
@@ -627,6 +639,7 @@
                             <div class="score-fill" style="width: 76%"></div>
                         </div>
                         <span class="score-value">0.76</span>
+                        <span class="score-label">Medium-High</span>
                     </div>
                 </div>
             </div>
