@@ -1,0 +1,16 @@
+{
+  "trustscore": {
+    "server": "https://your-trustscore-server/api",
+    "token": "your-access-token-here",
+    "version": "1.0.0",
+    "features": ["contextual_analysis", "bias_detection"]
+  }
+}
+
+/* How to add to Cursor:
+1. Open Cursor preferences
+2. Go to 'Extensions' or 'Plugins'
+3. Select 'TrustScore Integration'
+4. Import or paste this configuration
+5. Apply changes and restart if prompted
+*/

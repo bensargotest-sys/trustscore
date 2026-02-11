@@ -1,5 +1,7 @@
 # TrustScore
 
+[![CI](https://github.com/bensargotest-sys/bensargotest-sys/actions/workflows/ci.yml/badge.svg)](https://github.com/bensargotest-sys/bensargotest-sys/actions/workflows/ci.yml)
+
 **Trust and reputation scores for AI agent service selection.**
 
 TrustScore is an MCP server that helps AI agents make better decisions about which service providers to trust. Think of it as a credit score for APIs, agents, and tools.
@@ -180,6 +182,8 @@ Add to cron:
 - `timestamp`: When it happened
 
 ## Adding MCP Server to Your Agent
+
+Check out configuration examples in the [examples directory](./examples/) for detailed setup instructions.
 
 **Claude Desktop:**
 

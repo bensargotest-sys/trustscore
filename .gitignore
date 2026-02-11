@@ -34,3 +34,5 @@ Thumbs.db
 .env
 *.pem
 *.key
+test_seed.db
+test_seed.db-journal

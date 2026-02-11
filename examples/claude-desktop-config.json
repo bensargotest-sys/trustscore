@@ -1,0 +1,18 @@
+{
+  "mcp": {
+    "endpoint": "wss://your-trustscore-server:port/mcp",
+    "auth": {
+      "type": "api_key",
+      "key": "your-api-key-here"
+    },
+    "model": "trustscore-v1"
+  }
+}
+
+/* How to add to Claude Desktop:
+1. Open Claude Desktop settings
+2. Navigate to 'Integrations' or 'API Connections'
+3. Add new connection, select 'TrustScore MCP'
+4. Paste this configuration or reference this file
+5. Save and test connection
+*/
