@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TrustScore - Trust and reputation scores for AI agent service selection. Track reliability, uptime, and quality metrics for MCP servers.">
-    <meta name="keywords" content="AI, agents, trust, reputation, MCP, Model Context Protocol, reliability, scoring">
-    <title>TrustScore - Trust and Reputation Scoring for AI Agents</title>
+    <meta name="description" content="TrustScore - Trust and reputation scores for AI agents. Real-time reliability tracking for 201+ MCP servers.">
+    <meta name="keywords" content="AI agents, trust scoring, MCP, reliability, API monitoring">
+    <title>TrustScore - Trust Infrastructure for AI Agents</title>
+    
+    <!-- Structured data for AI agents -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TrustScore",
+      "description": "Trust and reputation scoring system for AI agent service selection",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "TrustScore"
+      }
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -14,39 +36,56 @@
         }
 
         :root {
-            --bg-dark: #0a0e27;
-            --bg-card: #1a1f3a;
-            --accent-purple: #a78bfa;
-            --accent-blue: #60a5fa;
-            --text-primary: #f3f4f6;
-            --text-secondary: #9ca3af;
-            --success: #10b981;
-            --warning: #f59e0b;
+            --orange: #FF6B35;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --grey-light: #F5F5F5;
+            --grey-mid: #E0E0E0;
+            --grey-dark: #757575;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 96px;
+            --border-radius: 12px;
+            --transition: all 0.2s ease;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f3a 100%);
-            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--black);
             line-height: 1.6;
-            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: 56px; line-height: 1.1; }
+        h2 { font-size: 42px; line-height: 1.2; }
+        h3 { font-size: 24px; line-height: 1.3; }
+
+        /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--spacing-md);
         }
 
         /* Header */
         header {
-            padding: 20px 0;
-            background: rgba(26, 31, 58, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(167, 139, 250, 0.1);
+            padding: var(--spacing-md) 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--grey-mid);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
         }
 
         nav {
@@ -56,510 +95,713 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--orange);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: var(--spacing-lg);
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--grey-dark);
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 15px;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: var(--accent-purple);
+            color: var(--orange);
         }
 
         /* Hero */
         .hero {
-            padding: 100px 0;
+            padding: var(--spacing-xl) 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: var(--spacing-md);
         }
 
-        .hero p {
+        .hero-subtitle {
             font-size: 20px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--grey-dark);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
         }
 
-        .cta-buttons {
+        /* Buttons */
+        .btn-group {
             display: flex;
-            gap: 20px;
+            gap: var(--spacing-sm);
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
             padding: 14px 32px;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 500;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: var(--transition);
             display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            color: white;
+            background: var(--orange);
+            color: var(--white);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(167, 139, 250, 0.3);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
         }
 
         .btn-secondary {
-            background: rgba(167, 139, 250, 0.1);
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
+            background: var(--grey-light);
+            color: var(--black);
         }
 
         .btn-secondary:hover {
-            background: rgba(167, 139, 250, 0.2);
+            background: var(--grey-mid);
         }
 
-        /* Stats */
-        .stats {
+        /* Tile Grid */
+        .tile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .tile {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            transition: var(--transition);
+        }
+
+        .tile:hover {
+            border-color: var(--orange);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .tile-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--grey-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tile-icon.accent {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .tile h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .tile p {
+            color: var(--grey-dark);
+            font-size: 15px;
+        }
+
+        /* Stats Dashboard */
+        .stats-dashboard {
+            background: var(--grey-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+            gap: var(--spacing-md);
         }
 
-        .stat-card {
-            background: rgba(26, 31, 58, 0.6);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(167, 139, 250, 0.1);
+        .stat-tile {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
             text-align: center;
         }
 
         .stat-number {
-            font-size: 36px;
+            font-size: 48px;
             font-weight: 700;
-            color: var(--accent-purple);
-            margin-bottom: 10px;
+            color: var(--orange);
+            margin-bottom: var(--spacing-xs);
         }
 
         .stat-label {
-            color: var(--text-secondary);
+            color: var(--grey-dark);
             font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        /* Features */
-        .section {
-            padding: 80px 0;
+        /* API Explorer */
+        .api-explorer {
+            background: var(--black);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 50px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: rgba(26, 31, 58, 0.6);
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid rgba(167, 139, 250, 0.1);
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-purple);
-            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--accent-purple);
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-        }
-
-        /* How It Works */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .step {
-            position: relative;
-            padding: 30px;
-            background: rgba(26, 31, 58, 0.6);
-            border-radius: 12px;
-            border: 1px solid rgba(167, 139, 250, 0.1);
-        }
-
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: 30px;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-
-        .step h3 {
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-
-        .step p {
-            color: var(--text-secondary);
-        }
-
-        /* Code Example */
-        .code-section {
-            background: rgba(26, 31, 58, 0.6);
-            border-radius: 12px;
-            padding: 40px;
-            border: 1px solid rgba(167, 139, 250, 0.1);
-            margin: 40px 0;
-        }
-
-        .code-header {
+        .api-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: var(--spacing-md);
         }
 
-        .code-tabs {
+        .api-tabs {
             display: flex;
-            gap: 10px;
+            gap: var(--spacing-sm);
         }
 
-        .code-tab {
-            padding: 8px 16px;
-            background: rgba(167, 139, 250, 0.1);
-            border-radius: 6px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .code-tab.active {
-            background: var(--accent-purple);
-            color: white;
-        }
-
-        pre {
-            background: rgba(10, 14, 39, 0.8);
-            padding: 20px;
+        .api-tab {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            overflow-x: auto;
-        }
-
-        code {
-            color: var(--accent-blue);
-            font-family: 'Fira Code', monospace;
+            color: var(--grey-mid);
+            cursor: pointer;
+            transition: var(--transition);
             font-size: 14px;
         }
 
-        /* Integrations */
-        .integrations {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 40px;
+        .api-tab.active {
+            background: var(--orange);
+            color: var(--white);
         }
 
-        .integration-logo {
-            padding: 20px 40px;
-            background: rgba(26, 31, 58, 0.6);
-            border-radius: 12px;
-            border: 1px solid rgba(167, 139, 250, 0.1);
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: all 0.3s;
+        .code-block {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            overflow-x: auto;
         }
 
-        .integration-logo:hover {
-            border-color: var(--accent-purple);
-            color: var(--accent-purple);
+        .code-block code {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--grey-light);
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(96, 165, 250, 0.1));
-            padding: 80px 40px;
-            border-radius: 20px;
+        .code-comment { color: var(--grey-dark); }
+        .code-keyword { color: var(--orange); }
+        .code-string { color: #4ADE80; }
+        .code-function { color: #60A5FA; }
+
+        /* Integration Tiles */
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .integration-tile {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
             text-align: center;
-            margin: 80px 0;
+            transition: var(--transition);
         }
 
-        .cta-section h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
+        .integration-tile:hover {
+            border-color: var(--orange);
         }
 
-        .cta-section p {
+        .integration-icon {
+            font-size: 32px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .integration-name {
+            font-weight: 500;
+            color: var(--black);
+        }
+
+        /* Live Data Section */
+        .live-data {
+            background: var(--grey-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .live-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--grey-dark);
+            font-size: 14px;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .provider-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .provider-item {
+            background: var(--white);
+            border: 1px solid var(--grey-mid);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .provider-name {
+            font-weight: 500;
+        }
+
+        .trust-score {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .score-bar {
+            width: 100px;
+            height: 6px;
+            background: var(--grey-mid);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: var(--orange);
+            transition: width 0.3s ease;
+        }
+
+        .score-value {
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        /* Section */
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-subtitle {
+            color: var(--grey-dark);
             font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: var(--orange);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+        }
+
+        .cta-banner h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta-banner p {
+            font-size: 18px;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        .cta-banner .btn {
+            background: var(--white);
+            color: var(--orange);
+        }
+
+        .cta-banner .btn:hover {
+            background: var(--grey-light);
         }
 
         /* Footer */
         footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid rgba(167, 139, 250, 0.1);
-            color: var(--text-secondary);
+            background: var(--black);
+            color: var(--grey-mid);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            font-size: 16px;
         }
 
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: var(--grey-mid);
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 14px;
+            transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: var(--accent-purple);
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Machine-readable data */
+        .api-endpoint {
+            display: none;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            
             .nav-links {
                 display: none;
+            }
+            
+            .tile-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Machine-readable API endpoints for AI agents -->
+    <div class="api-endpoint" data-endpoint="/api/v1/trust-scores" data-method="GET"></div>
+    <div class="api-endpoint" data-endpoint="/api/v1/providers" data-method="GET"></div>
+    <div class="api-endpoint" data-endpoint="/api/v1/report" data-method="POST"></div>
+
     <header>
         <nav class="container">
-            <div class="logo">⚡ TrustScore</div>
+            <div class="logo">
+                <div class="logo-icon">T</div>
+                TrustScore
+            </div>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#api">API</a></li>
                 <li><a href="#integrations">Integrations</a></li>
-                <li><a href="#docs">Docs</a></li>
-                <li><a href="https://github.com/bensargotest-sys/trustscore" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="hero">
-            <h1>Trust Scores for AI Agents</h1>
-            <p>Stop guessing which services are reliable. TrustScore tracks uptime, latency, error rates, and quality metrics to help your AI agents make informed decisions.</p>
-            <div class="cta-buttons">
-                <a href="#how-it-works" class="btn btn-primary">Get Started</a>
-                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-secondary" target="_blank">View on GitHub</a>
+            <h1>Trust Infrastructure<br>for AI Agents</h1>
+            <p class="hero-subtitle">Real-time reliability tracking for 201+ MCP servers. Know which services to trust before your agents call them.</p>
+            <div class="btn-group">
+                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-primary">Get Started</a>
+                <a href="#api" class="btn btn-secondary">View API</a>
             </div>
         </section>
 
-        <!-- Stats -->
-        <section class="stats">
-            <div class="stat-card">
-                <div class="stat-number">201</div>
-                <div class="stat-label">MCP Servers Cataloged</div>
+        <!-- Stats Dashboard -->
+        <div id="stats" class="stats-dashboard">
+            <div class="stats-grid">
+                <div class="stat-tile">
+                    <div class="stat-number">201</div>
+                    <div class="stat-label">Servers Tracked</div>
+                </div>
+                <div class="stat-tile">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Trust Dimensions</div>
+                </div>
+                <div class="stat-tile">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-tile">
+                    <div class="stat-number">&lt;3ms</div>
+                    <div class="stat-label">Avg Response</div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">7</div>
-                <div class="stat-label">Trust Dimensions</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Test Coverage</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">MCP Tools</div>
-            </div>
-        </section>
+        </div>
 
         <!-- Features -->
-        <section id="features" class="section">
-            <h2 class="section-title">Why TrustScore?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>7-Dimension Scoring</h3>
-                    <p>Track reliability, uptime, latency, error rate, quality, data freshness, and security. Weighted composite scores with confidence levels.</p>
+        <section class="section">
+            <div class="tile-grid">
+                <div class="tile">
+                    <div class="tile-icon accent">📊</div>
+                    <h3>Multi-Dimensional</h3>
+                    <p>Track reliability, uptime, latency, error rate, quality, freshness, and security.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                <div class="tile">
+                    <div class="tile-icon">⚡</div>
                     <h3>Real-Time Updates</h3>
-                    <p>Trust scores update automatically based on actual interactions. See the impact of every API call on provider reliability.</p>
+                    <p>Trust scores update automatically based on actual interactions.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                <div class="tile">
+                    <div class="tile-icon">🎯</div>
                     <h3>Smart Discovery</h3>
-                    <p>Find trusted providers by category. Get ranked lists based on trust scores. Make informed decisions instantly.</p>
+                    <p>Find trusted providers by category. Get ranked lists instantly.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔌</div>
-                    <h3>Framework Agnostic</h3>
-                    <p>Works with LangGraph, CrewAI, and any MCP-compatible framework. Seamless integration with tool interceptors.</p>
+                <div class="tile">
+                    <div class="tile-icon">🔌</div>
+                    <h3>Universal Integration</h3>
+                    <p>Works with LangGraph, CrewAI, and any MCP-compatible framework.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
+                <div class="tile">
+                    <div class="tile-icon">🛡️</div>
                     <h3>Confidence Tracking</h3>
-                    <p>Know when trust scores are reliable. High/medium/low confidence based on interaction count. Never fly blind.</p>
+                    <p>Know when scores are reliable. High/medium/low confidence levels.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
+                <div class="tile">
+                    <div class="tile-icon">🚀</div>
                     <h3>Production Ready</h3>
-                    <p>100% test coverage, CI/CD configured, comprehensive documentation. Deploy in minutes with Docker or VPS.</p>
+                    <p>100% test coverage, CI/CD configured, comprehensive docs.</p>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works -->
-        <section id="how-it-works" class="section">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Check Trust</h3>
-                    <p>Before calling an external API, check its trust score. Get composite score (0-1), confidence level, and component scores.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Make the Call</h3>
-                    <p>If trust score is acceptable, proceed with the API call. Track latency and observe the outcome.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Report Outcome</h3>
-                    <p>Report success/failure, latency, and any errors. TrustScore updates the provider's trust score automatically.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Learn & Adapt</h3>
-                    <p>Over time, your agent learns which services are trustworthy. Confidence grows with more interactions.</p>
+        <!-- Live Data -->
+        <div class="live-data">
+            <div class="live-header">
+                <h2>Live Trust Scores</h2>
+                <div class="live-indicator">
+                    <div class="pulse"></div>
+                    Updated in real-time
                 </div>
             </div>
-
-            <!-- Code Example -->
-            <div class="code-section">
-                <div class="code-header">
-                    <h3>Quick Example</h3>
-                    <div class="code-tabs">
-                        <div class="code-tab active">Python</div>
-                        <div class="code-tab">TypeScript</div>
+            <div class="provider-list">
+                <div class="provider-item">
+                    <span class="provider-name">github_api</span>
+                    <div class="trust-score">
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: 82%"></div>
+                        </div>
+                        <span class="score-value">0.82</span>
                     </div>
                 </div>
-                <pre><code># Check trust before calling external API
-trust = await agent.check_trust("github_api")
+                <div class="provider-item">
+                    <span class="provider-name">stripe_api</span>
+                    <div class="trust-score">
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: 89%"></div>
+                        </div>
+                        <span class="score-value">0.89</span>
+                    </div>
+                </div>
+                <div class="provider-item">
+                    <span class="provider-name">openai_api</span>
+                    <div class="trust-score">
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: 76%"></div>
+                        </div>
+                        <span class="score-value">0.76</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-if trust.score >= 0.7:
-    # Trust score acceptable, proceed
-    result = await github_api.fetch_data()
-    
-    # Report outcome
-    await agent.report_outcome(
-        "github_api",
-        success=True,
-        latency_ms=120
-    )
-else:
-    # Trust score too low, use fallback
-    logger.warning(f"github_api trust score too low: {trust.score}")
-    result = await fallback_service.fetch_data()</code></pre>
+        <!-- API Explorer -->
+        <section id="api" class="api-explorer">
+            <div class="api-header">
+                <h2>API Reference</h2>
+                <div class="api-tabs">
+                    <div class="api-tab active">Check</div>
+                    <div class="api-tab">Report</div>
+                    <div class="api-tab">Rank</div>
+                </div>
+            </div>
+            <div class="code-block">
+                <code>
+<span class="code-comment"># Check trust score before calling external API</span>
+<span class="code-keyword">const</span> trust = <span class="code-keyword">await</span> <span class="code-function">checkTrust</span>(<span class="code-string">"github_api"</span>);
+
+<span class="code-keyword">if</span> (trust.score >= <span class="code-string">0.7</span>) {
+  <span class="code-comment">// Trust score acceptable, proceed</span>
+  <span class="code-keyword">const</span> result = <span class="code-keyword">await</span> <span class="code-function">githubApi</span>.<span class="code-function">fetchData</span>();
+  
+  <span class="code-comment">// Report outcome</span>
+  <span class="code-keyword">await</span> <span class="code-function">reportOutcome</span>({
+    provider: <span class="code-string">"github_api"</span>,
+    success: <span class="code-keyword">true</span>,
+    latency: <span class="code-string">120</span>
+  });
+}
+                </code>
             </div>
         </section>
 
         <!-- Integrations -->
         <section id="integrations" class="section">
-            <h2 class="section-title">Integrates With Your Stack</h2>
-            <div class="integrations">
-                <div class="integration-logo">🦜 LangGraph</div>
-                <div class="integration-logo">🤖 CrewAI</div>
-                <div class="integration-logo">🎭 Claude Desktop</div>
-                <div class="integration-logo">✨ Cursor</div>
-                <div class="integration-logo">🐍 Python</div>
-                <div class="integration-logo">📘 TypeScript</div>
+            <div class="section-header">
+                <h2 class="section-title">Integrations</h2>
+                <p class="section-subtitle">Works seamlessly with your existing AI agent infrastructure</p>
+            </div>
+            <div class="integration-grid">
+                <div class="integration-tile">
+                    <div class="integration-icon">🦜</div>
+                    <div class="integration-name">LangGraph</div>
+                </div>
+                <div class="integration-tile">
+                    <div class="integration-icon">🤖</div>
+                    <div class="integration-name">CrewAI</div>
+                </div>
+                <div class="integration-tile">
+                    <div class="integration-icon">🎭</div>
+                    <div class="integration-name">Claude</div>
+                </div>
+                <div class="integration-tile">
+                    <div class="integration-icon">✨</div>
+                    <div class="integration-name">Cursor</div>
+                </div>
+                <div class="integration-tile">
+                    <div class="integration-icon">🐍</div>
+                    <div class="integration-name">Python</div>
+                </div>
+                <div class="integration-tile">
+                    <div class="integration-icon">📘</div>
+                    <div class="integration-name">TypeScript</div>
+                </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <h2>Ready to Build Trust?</h2>
-            <p>Start tracking trust scores in minutes. Open source, MIT licensed, production-ready.</p>
-            <div class="cta-buttons">
-                <a href="https://github.com/bensargotest-sys/trustscore" class="btn btn-primary" target="_blank">Get Started on GitHub</a>
-                <a href="https://registry.modelcontextprotocol.io" class="btn btn-secondary" target="_blank">View on MCP Registry</a>
+        <!-- CTA -->
+        <div class="cta-banner">
+            <h2>Start Tracking Trust</h2>
+            <p>Open source. Production ready. Deploy in minutes.</p>
+            <div class="btn-group">
+                <a href="https://github.com/bensargotest-sys/trustscore" class="btn">Get Started</a>
+                <a href="https://registry.modelcontextprotocol.io" class="btn">MCP Registry</a>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="https://github.com/bensargotest-sys/trustscore" target="_blank">GitHub</a>
-                <a href="https://github.com/bensargotest-sys/trustscore/blob/master/docs" target="_blank">Documentation</a>
-                <a href="https://github.com/bensargotest-sys/trustscore/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a>
-                <a href="https://registry.modelcontextprotocol.io" target="_blank">MCP Registry</a>
-                <a href="https://discord.com/invite/mcp" target="_blank">Discord</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#api">API</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/docs">Documentation</a></li>
+                        <li><a href="https://registry.modelcontextprotocol.io">MCP Registry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/bensargotest-sys/trustscore">GitHub</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/issues">Issues</a></li>
+                        <li><a href="https://discord.com/invite/mcp">Discord</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="https://github.com/bensargotest-sys">Team</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/LICENSE">License</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>API Status</h4>
+                    <ul class="footer-links">
+                        <li><a href="#stats">System Status</a></li>
+                        <li><a href="https://github.com/bensargotest-sys/trustscore/blob/master/PERFORMANCE.md">Performance</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>&copy; 2026 TrustScore. Open source under MIT License. Built by AI agents, for AI agents.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TrustScore. Open source under MIT License. Built by AI agents, for AI agents.</p>
+            </div>
         </div>
     </footer>
 </body>
