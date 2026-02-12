@@ -1,0 +1,82 @@
+=== TrustScore v2 QA Test Suite ===
+Test Time: Thu Feb 12 01:07:10 UTC 2026
+
+1. FOOTER LINKS CHECK
+Searching for # placeholders in footer links...
+✅ No # placeholder links found in footer
+
+2. COLOR CONTRAST CHECK
+Checking for correct orange color (#C74317)...
+88:            --orange-primary: #C74317;
+✅ Correct orange color found
+
+3. COPY BUTTON IMPLEMENTATION
+Checking JavaScript copy functionality...
+        function copyCode() {
+            const code = 'pip install trustscore-mcp\ntrustscore check uniswap-v3';
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.copy-button');
+                const textSpan = btn.querySelector('.copy-text');
+                
+                btn.classList.add('copied');
+                textSpan.textContent = '✓ Copied!';
+                
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+
+4. JSON-LD VALIDATION
+Extracting JSON-LD structured data...
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TrustScore",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Python 3.8+",
+      "description": "Real-time trust scores for MCP servers",
+      "url": "https://trustscore-v2.vercel.app",
+      "downloadUrl": "https://pypi.org/project/trustscore-mcp/",
+      "installUrl": "https://pypi.org/project/trustscore-mcp/",
+      "softwareVersion": "0.1.0",
+      "programmingLanguage": "Python",
+      "license": "MIT",
+      "codeRepository": "https://github.com/bensargotest-sys/trustscore",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "216"
+      },
+      "potentialAction": {
+        "@type": "InstallAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "pip install trustscore-mcp",
+          "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+        }
+      }
+    }
+    </script>
+
+5. ALL CTA LINKS
+Extracting all CTA button links...
+
+6. FILE SIZE & LOAD TIME
+File size: 32634 bytes ( KB)
+✅ File size under 50KB (fast load)
+
+7. MOBILE RESPONSIVE CSS
+Checking mobile breakpoints...
+3
+mobile breakpoints found
+
+8. META TAGS FOR AGENTS
+Checking agent-specific meta tags...
+    <meta name="install-command" content="pip install trustscore-mcp">
+    <meta name="usage-command" content="trustscore check <server-name>">
+    <meta name="api-type" content="MCP Server">
+

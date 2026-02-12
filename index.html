@@ -9,34 +9,51 @@
     <meta name="description" content="Real-time reliability scoring for 2,316+ MCP servers. Automated health checks reveal uptime, latency, and error rates. Install with confidence.">
     <meta name="keywords" content="MCP servers, trust score, reliability testing, server monitoring, AI infrastructure">
     
+    <!-- Agent-Specific Meta Tags -->
+    <meta name="application-name" content="TrustScore">
+    <meta name="package-name" content="trustscore-mcp">
+    <meta name="install-command" content="pip install trustscore-mcp">
+    <meta name="usage-command" content="trustscore check <server-name>">
+    <meta name="api-type" content="MCP Server">
+    <meta name="compatibility" content="Claude Desktop, OpenClaw, MCP Protocol">
+    
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://trustscore-website.vercel.app/">
+    <meta property="og:type" content="software.application">
+    <meta property="og:url" content="https://trustscore-v2.vercel.app/">
     <meta property="og:title" content="TrustScore - Know Which MCP Servers Actually Work">
     <meta property="og:description" content="Real-time reliability scoring for 2,316+ MCP servers. Install with confidence.">
     <meta property="og:site_name" content="TrustScore">
+    <meta property="software:install_url" content="https://pypi.org/project/trustscore-mcp/">
+    <meta property="software:source_url" content="https://github.com/bensargotest-sys/trustscore">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://trustscore-website.vercel.app/">
+    <meta property="twitter:url" content="https://trustscore-v2.vercel.app/">
     <meta property="twitter:title" content="TrustScore - Know Which MCP Servers Actually Work">
     <meta property="twitter:description" content="Real-time reliability scoring for 2,316+ MCP servers. Install with confidence.">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://trustscore-website.vercel.app/">
+    <link rel="canonical" href="https://trustscore-v2.vercel.app/">
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     
-    <!-- Structured Data for AI Agents -->
+    <!-- Enhanced JSON-LD Structured Data for AI Agents -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "TrustScore",
       "applicationCategory": "DeveloperApplication",
-      "description": "Real-time reliability scoring for MCP servers",
-      "operatingSystem": "Cross-platform",
+      "operatingSystem": "Python 3.8+",
+      "description": "Real-time trust scores for MCP servers",
+      "url": "https://trustscore-v2.vercel.app",
+      "downloadUrl": "https://pypi.org/project/trustscore-mcp/",
+      "installUrl": "https://pypi.org/project/trustscore-mcp/",
+      "softwareVersion": "0.1.0",
+      "programmingLanguage": "Python",
+      "license": "MIT",
+      "codeRepository": "https://github.com/bensargotest-sys/trustscore",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -46,6 +63,14 @@
         "@type": "AggregateRating",
         "ratingValue": "4.8",
         "reviewCount": "216"
+      },
+      "potentialAction": {
+        "@type": "InstallAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "pip install trustscore-mcp",
+          "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+        }
       }
     }
     </script>
@@ -59,11 +84,11 @@
         }
 
         :root {
-            /* Colors */
-            --orange-primary: #D94E1F;
-            --orange-hover: #BF4419;
+            /* Colors - WCAG AA compliant */
+            --orange-primary: #C74317;
+            --orange-hover: #A83913;
             --orange-light: #FFE8E0;
-            --orange-glow: rgba(217, 78, 31, 0.15);
+            --orange-glow: rgba(199, 67, 23, 0.15);
             
             --gray-950: #0A0A0A;
             --gray-800: #1F1F1F;
@@ -229,6 +254,28 @@
             animation: fadeInUp 0.6s var(--ease-out) 0.1s backwards;
         }
 
+        /* MCP Compatibility Badges */
+        .compatibility-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s var(--ease-out) 0.15s backwards;
+        }
+
+        .compatibility-badges span {
+            background: var(--success-green);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         .social-proof {
             display: inline-flex;
             align-items: center;
@@ -324,7 +371,7 @@
             border-color: var(--orange-primary);
         }
 
-        .value-card h4 {
+        .value-card h3 {
             color: var(--orange-primary);
             margin-bottom: 16px;
             font-size: 22px;
@@ -411,6 +458,48 @@
             letter-spacing: 0.05em;
         }
 
+        /* ===== API SECTION (Agent-Friendly) ===== */
+        .api-section {
+            background: var(--gray-100);
+            padding: 64px 0;
+        }
+
+        .api-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .api-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .api-card h4 {
+            color: var(--orange-primary);
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .api-card code {
+            background: var(--gray-100);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--gray-950);
+            display: block;
+            margin: 8px 0;
+        }
+
         /* ===== CODE BLOCK ===== */
         .code-section {
             background: var(--gray-950);
@@ -456,10 +545,17 @@
             font-size: 12px;
             font-weight: 600;
             transition: all 0.2s var(--ease-out);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .copy-button:hover {
             background: var(--orange-primary);
+        }
+
+        .copy-button.copied {
+            background: var(--success-green);
         }
 
         /* ===== FOOTER ===== */
@@ -577,6 +673,11 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
             }
+            
+            .compatibility-badges {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -600,130 +701,182 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Know Which MCP Servers<br>Actually Work</h1>
-            <p class="hero-subhead">Real-time reliability scoring for 2,316+ MCP servers. Install with confidence.</p>
-            
-            <div class="social-proof">
-                <span class="social-proof-text"><span class="social-proof-highlight">9,844</span> reliability checks completed • Updated hourly</span>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Know Which MCP Servers<br>Actually Work</h1>
+                <p class="hero-subhead">Real-time reliability scoring for 2,316+ MCP servers. Install with confidence.</p>
+                
+                <!-- MCP Compatibility Badges -->
+                <div class="compatibility-badges">
+                    <span>✓ Claude Desktop</span>
+                    <span>✓ OpenClaw</span>
+                    <span>✓ MCP Protocol</span>
+                </div>
+                
+                <div class="social-proof">
+                    <span class="social-proof-text"><span class="social-proof-highlight">9,844</span> reliability checks completed • Updated hourly</span>
+                </div>
+                
+                <!-- Agent-Friendly CTAs -->
+                <div class="cta-group">
+                    <a href="#install" class="btn btn-primary">Install Now: pip install trustscore-mcp</a>
+                    <a href="https://github.com/bensargotest-sys/trustscore#readme" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Documentation</a>
+                    <a href="#example" class="btn btn-secondary">Try Example: trustscore check uniswap-v3</a>
+                </div>
             </div>
-            
-            <div class="cta-group">
-                <a href="#install" class="btn btn-primary">Check a Server</a>
-                <a href="#how" class="btn btn-secondary">Browse All Servers</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Value Propositions -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 64px;">Why TrustScore?</h2>
-            
-            <div class="value-props">
-                <div class="value-card">
-                    <h4>Stop Deploying Broken Servers</h4>
-                    <p>See uptime, response times, and error rates before installation.</p>
-                    <p class="value-detail">Every MCP server gets hourly health checks. We track availability, latency, and failure patterns so you don't have to discover them in production.</p>
-                </div>
-                
-                <div class="value-card">
-                    <h4>Real Data, Not Marketing Claims</h4>
-                    <p>Automated testing reveals what actually works in the wild.</p>
-                    <p class="value-detail">Unlike vendor documentation, our scores come from continuous automated testing. If a server goes down, you'll know within the hour.</p>
-                </div>
-                
-                <div class="value-card">
-                    <h4>One Command, Complete Visibility</h4>
-                    <p>pip install trustscore — CLI + API access included.</p>
-                    <p class="value-detail">Check any server from your terminal, integrate scores into CI/CD, or query our API. Built for developers who need reliability data in their workflow.</p>
-                </div>
-                
-                <div class="value-card">
-                    <h4>Community-Powered Intelligence</h4>
-                    <p>216 providers monitored. Open-source. Free forever.</p>
-                    <p class="value-detail">We discover and test servers across the MCP ecosystem. Contribute to the database, flag issues, and help the community make better choices.</p>
+        <!-- For AI Agents Section -->
+        <section id="api" class="api-section" aria-label="API Reference">
+            <div class="container">
+                <div class="api-content">
+                    <h2 style="text-align: center; margin-bottom: 16px;">For AI Agents</h2>
+                    <p style="text-align: center; color: var(--gray-600); margin-bottom: 32px;">
+                        Machine-readable API for automated MCP server discovery and trust scoring
+                    </p>
+                    
+                    <div class="api-grid">
+                        <div class="api-card">
+                            <h4>Install</h4>
+                            <code>pip install trustscore-mcp</code>
+                        </div>
+                        
+                        <div class="api-card">
+                            <h4>Check a Server</h4>
+                            <code>trustscore check &lt;server-name&gt;</code>
+                        </div>
+                        
+                        <div class="api-card">
+                            <h4>List All Servers</h4>
+                            <code>trustscore list</code>
+                        </div>
+                        
+                        <div class="api-card">
+                            <h4>Get JSON Output</h4>
+                            <code>trustscore check &lt;server-name&gt; --json</code>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- How It Works -->
-    <section class="section" id="how">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 64px;">How It Works</h2>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>We Discover Servers</h3>
-                    <p>Continuous crawling of MCP registries, GitHub repos, and community submissions. Currently monitoring 2,316 servers.</p>
+        <!-- Machine-Readable Installation Instructions -->
+        <section class="section section-alt" id="install" itemscope itemtype="https://schema.org/HowTo">
+            <div class="container">
+                <h2 itemprop="name" style="text-align: center; margin-bottom: 64px;">Get Started</h2>
+                
+                <div class="code-section">
+                    <button class="copy-button" onclick="copyCode()">
+                        <span class="copy-text">Copy</span>
+                    </button>
+                    <div class="code-block">
+                        <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                            <code itemprop="text">pip install trustscore-mcp</code>
+                        </div>
+                        <br>
+                        <div itemprop="step" itemscope itemtype="https://schema.org/HowToStep" id="example">
+                            <code itemprop="text">trustscore check uniswap-v3</code>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Automated Testing</h3>
-                    <p>Hourly health checks measure uptime, latency, and functionality. 9,844 checks completed and counting.</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>You Get Scores</h3>
-                    <p>Query via CLI, API, or web. Make informed decisions instantly with current status and historical trends.</p>
+                <div style="text-align: center; margin-top: 48px;">
+                    <a href="https://github.com/bensargotest-sys/trustscore#readme" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Full Documentation →</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Social Proof -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 64px;">The Numbers</h2>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">2,316</div>
-                    <div class="stat-label">Servers Discovered</div>
-                </div>
+        <!-- Value Propositions -->
+        <section class="section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 64px;">Why TrustScore?</h2>
                 
-                <div class="stat-card">
-                    <div class="stat-number">216</div>
-                    <div class="stat-label">Actively Scored</div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-number">9,844</div>
-                    <div class="stat-label">Checks Completed</div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-number">99.2%</div>
-                    <div class="stat-label">Top Server Uptime</div>
+                <div class="value-props">
+                    <div class="value-card">
+                        <h3>Stop Deploying Broken Servers</h3>
+                        <p>See uptime, response times, and error rates before installation.</p>
+                        <p class="value-detail">Every MCP server gets hourly health checks. We track availability, latency, and failure patterns so you don't have to discover them in production.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>Real Data, Not Marketing Claims</h3>
+                        <p>Automated testing reveals what actually works in the wild.</p>
+                        <p class="value-detail">Unlike vendor documentation, our scores come from continuous automated testing. If a server goes down, you'll know within the hour.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>One Command, Complete Visibility</h3>
+                        <p>pip install trustscore-mcp — CLI + API access included.</p>
+                        <p class="value-detail">Check any server from your terminal, integrate scores into CI/CD, or query our API. Built for developers who need reliability data in their workflow.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>Community-Powered Intelligence</h3>
+                        <p>216 providers monitored. Open-source. Free forever.</p>
+                        <p class="value-detail">We discover and test servers across the MCP ecosystem. Contribute to the database, flag issues, and help the community make better choices.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Installation -->
-    <section class="section" id="install">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 64px;">Get Started</h2>
-            
-            <div class="code-section">
-                <button class="copy-button" onclick="copyCode()">Copy</button>
-                <div class="code-block">
-                    <code>pip install trustscore</code><br>
-                    <code>trustscore check &lt;server-id&gt;</code>
+        <!-- How It Works -->
+        <section class="section section-alt" id="how">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 64px;">How It Works</h2>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>We Discover Servers</h3>
+                        <p>Continuous crawling of MCP registries, GitHub repos, and community submissions. Currently monitoring 2,316 servers.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Automated Testing</h3>
+                        <p>Hourly health checks measure uptime, latency, and functionality. 9,844 checks completed and counting.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>You Get Scores</h3>
+                        <p>Query via CLI, API, or web. Make informed decisions instantly with current status and historical trends.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 48px;">
-                <a href="https://github.com/bensargotest-sys/trustscore#readme" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Documentation →</a>
+        </section>
+
+        <!-- Social Proof -->
+        <section class="section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 64px;">The Numbers</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2,316</div>
+                        <div class="stat-label">Servers Discovered</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">216</div>
+                        <div class="stat-label">Actively Scored</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">9,844</div>
+                        <div class="stat-label">Checks Completed</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">99.2%</div>
+                        <div class="stat-label">Top Server Uptime</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -731,7 +884,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Product</h4>
-                    <a href="#" class="footer-link">Search Servers</a>
+                    <a href="/" class="footer-link">Search Servers</a>
                     <a href="https://github.com/bensargotest-sys/trustscore#api" class="footer-link" target="_blank">API Documentation</a>
                     <a href="https://github.com/bensargotest-sys/trustscore#cli" class="footer-link" target="_blank">CLI Guide</a>
                     <a href="https://github.com/bensargotest-sys/trustscore#methodology" class="footer-link" target="_blank">Methodology</a>
@@ -740,17 +893,13 @@
                 <div class="footer-section">
                     <h4>Community</h4>
                     <a href="https://github.com/bensargotest-sys/trustscore" class="footer-link" target="_blank">GitHub Repository</a>
-                    <a href="#" class="footer-link">Discord Server</a>
-                    <a href="#" class="footer-link">Submit a Server</a>
                     <a href="https://github.com/bensargotest-sys/trustscore/issues" class="footer-link" target="_blank">Report an Issue</a>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Company</h4>
-                    <a href="#" class="footer-link">About Us</a>
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
-                    <a href="#" class="footer-link">Contact</a>
+                    <a href="/" class="footer-link">About</a>
+                    <a href="https://github.com/bensargotest-sys/trustscore/issues" class="footer-link" target="_blank">Contact</a>
                 </div>
             </div>
             
@@ -764,13 +913,17 @@
     <!-- JavaScript -->
     <script>
         function copyCode() {
-            const code = 'pip install trustscore\ntrustsc check <server-id>';
+            const code = 'pip install trustscore-mcp\ntrustscore check uniswap-v3';
             navigator.clipboard.writeText(code).then(() => {
                 const btn = document.querySelector('.copy-button');
-                const originalText = btn.textContent;
-                btn.textContent = 'Copied!';
+                const textSpan = btn.querySelector('.copy-text');
+                
+                btn.classList.add('copied');
+                textSpan.textContent = '✓ Copied!';
+                
                 setTimeout(() => {
-                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                    textSpan.textContent = 'Copy';
                 }, 2000);
             }).catch(err => {
                 console.error('Failed to copy:', err);
@@ -794,14 +947,12 @@
 
         // Analytics tracking (Vercel Analytics compatible)
         if (window.va) {
-            // Track CTA clicks
             document.querySelectorAll('.btn-primary').forEach(btn => {
                 btn.addEventListener('click', () => {
                     window.va('event', { name: 'cta_click', data: { location: 'hero' } });
                 });
             });
 
-            // Track code copy
             document.querySelector('.copy-button').addEventListener('click', () => {
                 window.va('event', { name: 'code_copied' });
             });
